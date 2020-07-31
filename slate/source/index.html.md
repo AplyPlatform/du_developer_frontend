@@ -1,5 +1,5 @@
 ---
-title: DronePlay Open API Reference
+title: DUNI Open API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -9,11 +9,11 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <div class="fb-like" data-href="https://www.facebook.com/386832955100142" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-  - <a href='https://dev.droneplay.io/'>DronePlay 개발자홈</a>
+  - <a href='https://developer.duni.io/'>DUNI 개발자 홈</a>
   - <a href='https://groups.google.com/forum/#!forum/droneplay2018'>개발관련 문의게시판</a>
   - <a href='https://code.droneplay.io/'>DronePlay Codes</a>
-  - <a href='https://facebook.droneplay.io/'>DronePlay 페이스북</a>
-  - <a href='https://top.droneplay.io/'>DronePlay 홈</a>
+  - <a href='https://www.facebook.com/groups/dunipilot/'>DronePlay 페이스북</a>
+  - <a href='https://pilot.duni.io/'>DUNI PILOT 홈</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
   - © 2020 DronePlay
 includes:
@@ -55,15 +55,15 @@ search: true
 
 >
 
-DronePlay Open API는 DronePlay 개발자 Token을 파라메터로 입력해야 사용하실 수 있습니다.
+DUNI Open API는 DUNI 개발자 Token을 파라메터로 입력해야 사용하실 수 있습니다.
 아래 경로에서 먼저 Token을 발급 받으세요.
 
-[DronePlay 개발자Token 발급](https://dev.droneplay.io/dev/register/index.html).
+[DUNI 개발자Token 발급](https://pilot.duni.io/center).
 
 발급받은 Token의 사용방법은 각 Open API의 설명을 참고해 주세요.
 
 <aside class="notice">
-DronePlay Open API를 사용하시려면 반드시 <code>Token</code>을 API의 파라메터로 입력해야 합니다. 간수에 유의해 주세요.
+DUNI Open API를 사용하시려면 반드시 <code>Token</code>을 API의 파라메터로 입력해야 합니다. 간수에 유의해 주세요.
 </aside>
 
 # 드론의 현재위치 기록/읽기
@@ -176,7 +176,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://apis.droneplay.io/v1/`
+`POST https://api.droneplay.io/v1/`
 
 ### URL 파라메터
 
@@ -450,7 +450,7 @@ DronePlay Mission Center에 Mission 데이터를 기록합니다.
 
 ### HTTP 요청
 
-`POST https://apis.droneplay.io/v1/`
+`POST https://api.droneplay.io/v1/`
 
 ### URL 파라메터
 
@@ -615,7 +615,7 @@ DronePlay Mission Center의 Mission 목록을 불러옵니다.
 
 ### HTTP 요청
 
-`POST https://apis.droneplay.io/v1/`
+`POST https://api.droneplay.io/v1/`
 
 ### URL 파라메터
 
@@ -725,7 +725,7 @@ DronePlay Mission Center의 Mission 1개를 삭제합니다.
 
 ### HTTP 요청
 
-`POST https://apis.droneplay.io/v1/`
+`POST https://api.droneplay.io/v1/`
 
 ### URL 파라메터
 
@@ -843,7 +843,7 @@ DronePlay Mission Center에 Mission 데이터를 기록합니다.
 
 ### HTTP 요청
 
-`POST https://apis.droneplay.io/v1/`
+`POST https://api.droneplay.io/v1/`
 
 ### URL 파라메터
 
@@ -1009,7 +1009,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://apis.droneplay.io/v1/`
+`POST https://api.droneplay.io/v1/`
 
 ### URL 파라메터
 
@@ -1137,7 +1137,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://apis.droneplay.io/v1/`
+`POST https://api.droneplay.io/v1/`
 
 ### URL 파라메터
 
@@ -1247,7 +1247,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://apis.droneplay.io/v1/`
+`POST https://api.droneplay.io/v1/`
 
 ### URL 파라메터
 
@@ -1363,7 +1363,7 @@ DJI 비행기록 파일을 분석하여 비행기록으로 저장합니다.
 
 ### HTTP 요청
 
-`POST https://apis.droneplay.io/v1/`
+`POST https://api.droneplay.io/v1/`
 
 ### URL 파라메터
 
@@ -1377,3 +1377,123 @@ recordfile | Base64로 인코딩된 DJI Flight Record File 입니다. (포멧. "
 
 DJI Flight Record file 위치:
 https://forum.dji.com/thread-98213-1-1.html
+
+
+# 기타 Helper API
+
+## 날씨 정보 가져오기
+
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"util", "daction":"weather", "lat":"123.122", "lng":"32.111"}' https://api.droneplay.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'util';
+$body['daction'] = 'weather';
+$body['clientid'] = 'EMAILADDRESS';
+$body['lat'] = '123.122';
+$body['lng'] = '32.111';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "util", "daction": "weather", "clientid" : "EMAILADDRESS", "lat":"123.122", "lng":"32.111"};
+
+$.ajax({url : "https://api.droneplay.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'util',
+    'daction': 'weather',
+    'clientid' : 'EMAILADDRESS',
+    'lat' : '123.122',
+    'lng' : '33.111'
+}
+
+url = 'https://api.droneplay.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "temp" : 20, //온도, 섭씨
+    "wind" : 2, //풍속, m/s
+    "pty" : "rain" //기상 - "rain/snow", "snow", "sun"
+  }
+```
+
+온도, 풍속, 기상 정보를 알려 줍니다.
+
+### HTTP 요청
+
+`POST https://api.droneplay.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+action | 'util'을 입력합니다.
+daction | 'weather'을 입력합니다.
+lat | 위도
+lng | 경도

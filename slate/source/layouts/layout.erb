@@ -29,37 +29,16 @@ under the License.
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="DronePlay Developer Page">
-    <meta name="author" content="DronePlay">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" href="/dcon-16.png" sizes="16x16" />
-    <link rel="icon" href="/dcon-32.png" sizes="32x32" />
-    <link rel="icon" href="/dcon-36.png" sizes="36x36" />
-    <link rel="icon" href="/dcon-48.png" sizes="48x48" />
-    <link rel="icon" href="/dcon-64.png" sizes="64x64" />
-    <link rel="icon" href="/dcon-72.png" sizes="72x72" />
-    <link rel="icon" href="/dcon-96.png" sizes="96x96" />
-    <link rel="icon" href="/dcon-128.png" sizes="128x128" />
-    <link rel="icon" href="/dcon-144.png" sizes="144x144" />
-    <link rel="icon" href="/dcon-192.png" sizes="192x192" />
-    <link rel="icon" href="/dcon-512.png" sizes="512x512" />
-    <link rel="icon" type="image/x-icon" href="/droneplay.ico" />
-    <link rel="icon" type="image/png" href="/droneplay.png" />
-    <link rel="icon" type="image/gif" href="/droneplay.gif" />
-    <link rel="apple-touch-icon" href="/droneplay.png" />
-    <meta property="og:locale" content="ko_KR" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://dev.droneplay.io" />
-    <meta property="og:site_name" content="DronePlay Developer" />
-    <meta property="og:title" content="DronePlay Developer Page" />
-    <meta property="og:image" content="http://dev.droneplay.io/title.png" />		
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="683" />
-    <meta property="og:description" content="Be a DronePlay Developer !" />	
     <title><%= current_page.data.title || "API Documentation" %></title>
 
-    <style>
-      <%= Rouge::Themes::MonokaiSublime.render(:scope => '.highlight') %>
+    <style media="screen">
+      <%= Rouge::Themes::MonokaiSublimeSlate.render(:scope => '.highlight') %>
+    </style>
+    <style media="print">
+      * {
+        transition:none!important;
+      }
+      <%= Rouge::Themes::Base16::Solarized.render(:scope => '.highlight') %>
     </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
@@ -68,17 +47,15 @@ under the License.
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
+
+    <% if current_page.data.code_clipboard %>
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+    <% end %>
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.11&appId=109453656066856&autoLogAppEvents=1';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -104,22 +81,22 @@ under the License.
         </div>
         <ul class="search-results"></ul>
       <% end %>
-      <div id="toc" class="toc-list-h1">
+      <ul id="toc" class="toc-list-h1">
         <% toc_data(page_content).each do |h1| %>
           <li>
-            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content].to_s.parameterize %>"><%= h1[:content] %></a>
+            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:title] %>"><%= h1[:content] %></a>
             <% if h1[:children].length > 0 %>
               <ul class="toc-list-h2">
                 <% h1[:children].each do |h2| %>
                   <li>
-                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:content].to_s.parameterize %>"><%= h2[:content] %></a>
+                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:title] %>"><%= h2[:content] %></a>
                   </li>
                 <% end %>
               </ul>
             <% end %>
           </li>
         <% end %>
-      </div>
+      </ul>
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>
@@ -146,16 +123,6 @@ under the License.
           </div>
         <% end %>
       </div>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112381620-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-112381620-2');
-</script>
-
     </div>
   </body>
 </html>
