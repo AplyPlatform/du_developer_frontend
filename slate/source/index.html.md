@@ -11,7 +11,7 @@ toc_footers:
   - <div class="fb-like" data-href="https://www.facebook.com/386832955100142" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
   - <a href='https://developer.duni.io/'>DUNI 개발자 홈</a>
   - <a href='https://groups.google.com/forum/#!forum/droneplay2018'>개발관련 문의게시판</a>
-  - <a href='https://code.droneplay.io/'>DronePlay Codes</a>
+  - <a href='https://code.duni.io/'>DUNI Code</a>
   - <a href='https://www.facebook.com/groups/dunipilot/'>DronePlay 페이스북</a>
   - <a href='https://pilot.duni.io/'>DUNI PILOT 홈</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
