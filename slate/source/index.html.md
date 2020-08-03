@@ -12,10 +12,10 @@ toc_footers:
   - <a href='https://developer.duni.io/'>DUNI 개발자 홈</a>
   - <a href='https://groups.google.com/forum/#!forum/droneplay2018'>개발관련 문의게시판</a>
   - <a href='https://code.duni.io/'>DUNI Code</a>
-  - <a href='https://www.facebook.com/groups/dunipilot/'>DronePlay 페이스북</a>
+  - <a href='https://www.facebook.com/groups/dunipilot/'>DUNI PILOT 페이스북</a>
   - <a href='https://pilot.duni.io/'>DUNI PILOT 홈</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
-  - © 2020 DronePlay
+  - © 2020 APLY Inc.
 includes:
   - errors
 
@@ -33,7 +33,7 @@ search: true
 
 # Token 발급 받기
 
-> Open API 사용을 위해 DronePlay 개발자 Token을 발급 받으세요.
+> Open API 사용을 위해 DUNI SW 개발자 Token을 발급 받으세요.
 
 
 ```shell
@@ -446,7 +446,7 @@ response.raise_for_status()
   }
 ```
 
-DronePlay Mission Center에 Mission 데이터를 기록합니다.
+DUNI Pilot Center에 Mission 데이터를 기록합니다.
 
 ### HTTP 요청
 
@@ -611,7 +611,7 @@ response.raise_for_status()
     ]
   }
 ```
-DronePlay Mission Center의 Mission 목록을 불러옵니다.
+DUNI PILOT Center의 Mission 목록을 불러옵니다.
 
 ### HTTP 요청
 
@@ -721,7 +721,7 @@ response.raise_for_status()
     "result":"success"
   }
 ```
-DronePlay Mission Center의 Mission 1개를 삭제합니다.
+DUNI PILOT Center의 Mission 1개를 삭제합니다.
 
 ### HTTP 요청
 
@@ -839,7 +839,7 @@ response.raise_for_status()
   }
 ```
 
-DronePlay Mission Center에 Mission 데이터를 기록합니다.
+DUNI PILOT Center에 Mission 데이터를 기록합니다.
 
 ### HTTP 요청
 
