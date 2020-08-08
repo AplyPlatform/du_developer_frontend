@@ -488,7 +488,7 @@ GIMBAL_PITCH|5
 [DJI사의 WayPoint Action 값을 참고해 주세요](https://developer.dji.com/api-reference/android-api/Components/Missions/DJIWaypoint_DJIWaypointAction.html#djiwaypoint_djiwaypointactiontype_inline).
 
 
-## Mission 불러오기
+## Mission 목록 불러오기
 
 
 ```shell
@@ -625,6 +625,133 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
 action | 'mission'을 입력합니다.
 daction | 'get'을 입력합니다.
+
+
+
+## Mission 이름을 지정하여 1개 불러오기
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"mission", "daction":"get_spec", "mname" : "MISSION_NAME"}' https://api.droneplay.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'mission';
+$body['daction'] = 'get_spec';
+$body['clientid'] = 'EMAILADDRESS';
+$body['mname'] = 'MISSION_NAME';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "mission", "daction": "get_spec", "clientid" : "EMAILADDRESS", "mname" : "MISSION_NAME"};
+
+$.ajax({url : "https://api.droneplay.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'mission',
+    'daction': 'get_spec',
+    'clientid' : 'EMAILADDRESS',
+    'mname' : 'MISSION_NAME'
+}
+
+url = 'https://api.droneplay.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "data":[
+      {
+          "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
+          "mission":[
+              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
+            ],
+          "name":"MISSION_NAME",
+          "clientid":"EMAILADDRESS"
+      }
+    ]
+  }
+```
+DUNI PILOT Center의 지정한 Mission 1개를 불러옵니다.
+
+### HTTP 요청
+
+`POST https://api.droneplay.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+action | 'mission'을 입력합니다.
+daction | 'get_spec'을 입력합니다.
+mname | 미션의 이름을 입력합니다.
 
 
 ## Mission 삭제하기
