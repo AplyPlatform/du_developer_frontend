@@ -2,6 +2,14 @@
 <!doctype html>
 <html>
   <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130136264-11"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-130136264-11');
+		</script>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -293,7 +301,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-c2c93b89.png" class="logo" alt="" />
+      <img src="images/logo-332eda29.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="php">php</a>
@@ -310,6 +318,17 @@
           </li>
           <li>
             <a href="#token" class="toc-h1 toc-link" data-title="Token 발급 받기">Token 발급 받기</a>
+          </li>
+          <li>
+            <a href="#de95133e51" class="toc-h1 toc-link" data-title="가입 및 로그인">가입 및 로그인</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#1314de2e12" class="toc-h2 toc-link" data-title="가입하기">가입하기</a>
+                  </li>
+                  <li>
+                    <a href="#e225a6fd75" class="toc-h2 toc-link" data-title="로그인">로그인</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#2a6349c1b0" class="toc-h1 toc-link" data-title="드론의 현재위치 기록/읽기">드론의 현재위치 기록/읽기</a>
@@ -329,10 +348,7 @@
                     <a href="#mission-2" class="toc-h2 toc-link" data-title="Mission 저장">Mission 저장</a>
                   </li>
                   <li>
-                    <a href="#mission-3" class="toc-h2 toc-link" data-title="Mission 목록 불러오기">Mission 목록 불러오기</a>
-                  </li>
-                  <li>
-                    <a href="#mission-1" class="toc-h2 toc-link" data-title="Mission 이름을 지정하여 1개 불러오기">Mission 이름을 지정하여 1개 불러오기</a>
+                    <a href="#mission-3" class="toc-h2 toc-link" data-title="Mission 불러오기">Mission 불러오기</a>
                   </li>
                   <li>
                     <a href="#mission-4" class="toc-h2 toc-link" data-title="Mission 삭제하기">Mission 삭제하기</a>
@@ -362,13 +378,8 @@
                   <li>
                     <a href="#dji" class="toc-h2 toc-link" data-title="DJI 비행기록 파일 업로드 하기">DJI 비행기록 파일 업로드 하기</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#helper-api" class="toc-h1 toc-link" data-title="기타 Helper API">기타 Helper API</a>
-              <ul class="toc-list-h2">
                   <li>
-                    <a href="#c057c10aec" class="toc-h2 toc-link" data-title="날씨 정보 가져오기">날씨 정보 가져오기</a>
+                    <a href="#duni" class="toc-h2 toc-link" data-title="DUNI 비행기록 파일 업로드 하기">DUNI 비행기록 파일 업로드 하기</a>
                   </li>
               </ul>
           </li>
@@ -378,11 +389,13 @@
       </ul>
         <ul class="toc-footer">
             <li><div class="fb-like" data-href="https://www.facebook.com/386832955100142" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div></li>
-            <li><a href='https://developer.duni.io/'>DUNI 개발자 홈</a></li>
-            <li><a href='https://groups.google.com/forum/#!forum/droneplay2018'>개발관련 문의게시판</a></li>
-            <li><a href='https://code.duni.io/'>DUNI Code</a></li>
-            <li><a href='https://www.facebook.com/groups/dunipilot/'>DUNI PILOT 페이스북</a></li>
             <li><a href='https://pilot.duni.io/'>DUNI PILOT 홈</a></li>
+            <li><a href='https://pilot.duni.io/center'>DUNI PILOT Center</a></li>
+            <li><a href='https://developer.duni.io/'>DUNI 개발자홈</a></li>
+            <li><a href='https://code.duni.io/'>DUNI Codes</a></li>
+            <li><a href='https://duni.io/'>DUNI 홈</a></li>
+            <li><a href='https://www.facebook.com/DuniPilotPage/'>DUNI PILOT 페이스북</a></li>
+            <li><a href='https://groups.google.com/forum/#!forum/droneplay2018'>개발관련 문의게시판</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
             <li>© 2020 APLY Inc.</li>
         </ul>
@@ -398,7 +411,7 @@
 쌈박하고 깔끔한 아이디어가 녹아든 쉽고 간편한 Open API와 코드들을 둘러 보세요.</p>
 <h1 id='token'>Token 발급 받기</h1>
 <blockquote>
-<p>Open API 사용을 위해 DUNI SW 개발자 Token을 발급 받으세요.</p>
+<p>Open API 사용을 위해 DUNI 개발자 Token을 발급 받으세요.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
@@ -409,26 +422,256 @@
 </blockquote>
 
 <p>DUNI Open API는 DUNI 개발자 Token을 파라메터로 입력해야 사용하실 수 있습니다.
-아래 경로에서 먼저 Token을 발급 받으세요.</p>
+Token은 &quot;가입하기&quot; API를 통해 발급 받을 수 있습니다.</p>
+<h1 id='de95133e51'>가입 및 로그인</h1><h2 id='1314de2e12'>가입하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"register", "socialid" : "EMAILADDRESS1", "phone_number" : "USER_PHONE_NUMBER", "name" : "USER_NAME", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}'</span> https://api.droneplay.io/v1/
 
-<p><a href="https://pilot.duni.io/center">DUNI 개발자Token 발급</a>.</p>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'member'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'register'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'socialid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILADDRESS1'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'phone_number'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"USER_PHONE_NUMBER"</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"USER_NAME"</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'sns_token'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"SNS_ID_TOKEN"</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'sns_kind'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"SNS_KIND"</span><span class="p">;</span>
 
-<p>발급받은 Token의 사용방법은 각 Open API의 설명을 참고해 주세요.</p>
+<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'Content-Type: application/json'</span>
+<span class="p">);</span>
 
-<aside class="notice">
-DUNI Open API를 사용하시려면 반드시 <code>Token</code>을 API의 파라메터로 입력해야 합니다. 간수에 유의해 주세요.
-</aside>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$body</span><span class="p">));</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="c1">//$json_list= json_decode($response, true);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">register</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">socialid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILADDRESS1</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">phone_number</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">USER_PHONE_NUMBER</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">USER_NAME</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">sns_token</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">SNS_ID_TOKEN</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">sns_kind</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">SNS_KIND</span><span class="dl">"</span><span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+       <span class="na">cache</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">data</span> <span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jdata</span><span class="p">),</span>
+       <span class="na">type</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">async</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span>
+         <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">result</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Successfully, recorded.</span><span class="dl">"</span><span class="p">);</span>
+         <span class="p">}</span>
+       <span class="p">},</span>
+       <span class="na">error</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">status</span><span class="p">,</span><span class="nx">error</span><span class="p">){</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">code:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">message:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">error:</span><span class="dl">"</span><span class="o">+</span><span class="nx">error</span><span class="p">);</span>
+       <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'action'</span> <span class="p">:</span> <span class="s">'member'</span><span class="p">,</span>
+    <span class="s">'daction'</span> <span class="p">:</span> <span class="s">'register'</span><span class="p">,</span>
+    <span class="s">'socialid'</span> <span class="p">:</span> <span class="s">'EMAILADDRESS1'</span><span class="p">,</span>
+    <span class="s">'phone_number'</span> <span class="p">:</span> <span class="s">'USER_PHONE_NUMBER'</span><span class="p">,</span>
+    <span class="s">'name'</span> <span class="p">:</span> <span class="s">'USER_NAME'</span><span class="p">,</span>
+    <span class="s">'sns_kind'</span> <span class="p">:</span> <span class="s">'SNS_KIND'</span><span class="p">,</span>
+    <span class="s">'sns_token'</span> <span class="p">:</span> <span class="s">'SNS_ID_TOKEN'</span>
+<span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+                         <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="s">'response.json()
+
+</span></code></pre></div>
+<blockquote>
+<p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USER_TOKEN"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>오류 발생시</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed to get user data blah ..."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>전화번호와 이메일주소 그리고 이름을 입력을 받아 회원을 등록합니다.</p>
+<h3 id='http'>HTTP 요청</h3>
+<p><code>POST https://api.droneplay.io/v1/</code></p>
+<h3 id='url'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action</td>
+<td>&#39;member&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>daction</td>
+<td>&#39;register&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>가입자명을 입력합니다.</td>
+</tr>
+<tr>
+<td>sns_kind</td>
+<td>facebook, naver, apple, kakao, google 중 하나를 입력합니다.</td>
+</tr>
+<tr>
+<td>sns_token</td>
+<td>sns 로그인 후 받은 id token 값을 입력합니다.</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>가입자의 전화번호를 입력합니다.</td>
+</tr>
+<tr>
+<td>socialid</td>
+<td>가입자의 이메일주소를 입력합니다.</td>
+</tr>
+</tbody></table>
+<h2 id='e225a6fd75'>로그인</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"login", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}'</span> https://api.droneplay.io/v1/
+
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'member'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'login'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'sns_token'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"SNS_ID_TOKEN"</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'sns_kind'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"SNS_KIND"</span><span class="p">;</span>
+
+<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'Content-Type: application/json'</span>
+<span class="p">);</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$body</span><span class="p">));</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="c1">//$json_list= json_decode($response, true);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">login</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">sns_token</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">SNS_ID_TOKEN</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">sns_kind</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">SNS_KIND</span><span class="dl">"</span><span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+       <span class="na">cache</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">data</span> <span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jdata</span><span class="p">),</span>
+       <span class="na">type</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">async</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span>
+         <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">result</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Successfully, recorded.</span><span class="dl">"</span><span class="p">);</span>
+         <span class="p">}</span>
+       <span class="p">},</span>
+       <span class="na">error</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">status</span><span class="p">,</span><span class="nx">error</span><span class="p">){</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">code:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">message:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">error:</span><span class="dl">"</span><span class="o">+</span><span class="nx">error</span><span class="p">);</span>
+       <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'action'</span> <span class="p">:</span> <span class="s">'member'</span><span class="p">,</span>
+    <span class="s">'daction'</span> <span class="p">:</span> <span class="s">'login'</span><span class="p">,</span>
+    <span class="s">'sns_kind'</span> <span class="p">:</span> <span class="s">'SNS_KIND'</span><span class="p">,</span>
+    <span class="s">'sns_token'</span> <span class="p">:</span> <span class="s">'SNS_ID_TOKEN'</span>
+<span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+                         <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="s">'response.json()
+
+</span></code></pre></div>
+<blockquote>
+<p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USER_TOKEN"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>오류 발생시</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed to get user data blah ..."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>SNS의 종류와 SNS ID TOKEN으로 로그인합니다.</p>
+<h3 id='http-2'>HTTP 요청</h3>
+<p><code>POST https://api.droneplay.io/v1/</code></p>
+<h3 id='url-2'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action</td>
+<td>&#39;member&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>daction</td>
+<td>&#39;login&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>sns_kind</td>
+<td>facebook, naver, apple, kakao, google 중 하나를 입력합니다.</td>
+</tr>
+<tr>
+<td>sns_token</td>
+<td>sns 로그인 후 받은 id token 값을 입력합니다.</td>
+</tr>
+</tbody></table>
 <h1 id='2a6349c1b0'>드론의 현재위치 기록/읽기</h1><h2 id='8831a16e1d'>드론의 현재위치 기록하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"position", "daction":"set", "lat" : "12.134132", "lng" : "12.1324", "alt" : 5, "act" : "0", "missionname" : "TESTMISSION1", "missionid" : "mission-1"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "act" : 0, "missionname" : "TESTMISSION1", "missionid" : "mission-1"}'</span> https://api.droneplay.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'set'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILADDRESS'</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"12.134132"</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'lng'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"12.1324"</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">12.134132</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'lng'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">12.1324</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'alt'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'act'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"0"</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'act'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'missionid'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"mission-1"</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'missionname'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"TESTMISSION1"</span><span class="p">;</span>
 
@@ -452,7 +695,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">set</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILADDRESS</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">12.134132</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">12.1324</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="dl">"</span><span class="s2">act</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">missionid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">mission-1</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">missionname</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">TESTMISSION1</span><span class="dl">"</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">set</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILADDRESS</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">12.134132</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">12.1324</span><span class="p">,</span> <span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="dl">"</span><span class="s2">act</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">missionid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">mission-1</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">missionname</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">TESTMISSION1</span><span class="dl">"</span><span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -486,12 +729,12 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'action'</span><span class="p">:</span> <span class="s">'position'</span><span class="p">,</span>
     <span class="s">'daction'</span><span class="p">:</span> <span class="s">'set'</span><span class="p">,</span>
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILADDRESS'</span>
-    <span class="s">'lat'</span> <span class="p">:</span> <span class="s">"12.134132"</span><span class="p">,</span>
-    <span class="s">'lng'</span> <span class="p">:</span> <span class="s">"12.1324"</span><span class="p">,</span>
-    <span class="s">'alt'</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s">'lat'</span> <span class="p">:</span> <span class="mf">12.134132</span><span class="p">,</span>
+    <span class="s">'lng'</span> <span class="p">:</span> <span class="mf">12.1324</span><span class="p">,</span>
+    <span class="s">'alt'</span> <span class="p">:</span> <span class="mf">5.2</span><span class="p">,</span>
     <span class="s">"missionid"</span> <span class="p">:</span> <span class="s">"mission-1"</span><span class="p">,</span>
     <span class="s">"missionname"</span> <span class="p">:</span> <span class="s">"TESTMISSION1"</span><span class="p">,</span>
-    <span class="s">"act"</span> <span class="p">:</span> <span class="s">"0"</span>
+    <span class="s">"act"</span> <span class="p">:</span> <span class="mi">0</span>
 <span class="p">}</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
@@ -508,9 +751,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>현재의 좌표와 고도를 기록합니다.</p>
-<h3 id='http'>HTTP 요청</h3>
+<h3 id='http-3'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url'>URL 파라메터</h3>
+<h3 id='url-3'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -527,7 +770,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>action</td>
-<td>&#39;position&#39;을 입력합니다.</td>
+<td>&#39;position&#39;을 입력합니다. (int)</td>
 </tr>
 <tr>
 <td>daction</td>
@@ -535,15 +778,15 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>lat</td>
-<td>latitude 좌표값를 입력합니다.</td>
+<td>latitude 좌표값를 입력합니다. (double)</td>
 </tr>
 <tr>
 <td>lng</td>
-<td>longitude 좌표값를 입력합니다.</td>
+<td>longitude 좌표값를 입력합니다. (double)</td>
 </tr>
 <tr>
 <td>alt</td>
-<td>고도값을 입력합니다. (미터)</td>
+<td>고도값을 입력합니다. (double, 미터)</td>
 </tr>
 <tr>
 <td>act</td>
@@ -646,10 +889,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
    </span><span class="p">{</span><span class="w">
      </span><span class="nl">"positiontime"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue Feb 13 2018 15:44:40 GMT+0000 (UTC)"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"dtimestamp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1518536680763</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"37.2435813"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"131.8661992"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"act"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.2435813</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">131.8661992</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"act"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
      </span><span class="nl">"missionname"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"TESTMISSION1"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"missionid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"mission-1"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"clientid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAILADDRESS"</span><span class="w">
@@ -657,10 +900,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
    </span><span class="p">{</span><span class="w">
      </span><span class="nl">"positiontime"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue Feb 13 2018 15:44:40 GMT+0000 (UTC)"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"dtimestamp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1518536680765</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"37.2424227"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"131.8673264"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"act"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.2424227</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">131.8673264</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.33</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"act"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
      </span><span class="nl">"missionname"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"TESTMISSION1"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"missionid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"mission-2"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"clientid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAILADDRESS"</span><span class="w">
@@ -668,10 +911,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
    </span><span class="p">{</span><span class="w">
      </span><span class="nl">"positiontime"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue Feb 13 2018 15:44:40 GMT+0000 (UTC)"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"dtimestamp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1518536680763</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"37.2421004"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"131.8680063"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"act"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.2421004</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">131.8680063</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.55</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"act"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
      </span><span class="nl">"missionname"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"TESTMISSION1"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"missionid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"mission-3"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"clientid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAILADDRESS"</span><span class="w">
@@ -683,9 +926,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <aside class="warning">positiontime은 GMT+0 기준입니다. 서울기준이 아닙니다.</aside>
 
 <aside class="warning">dtimestamp는 GMT+0 기준입니다. 서울기준이 아닙니다.</aside>
-<h3 id='http-2'>HTTP 요청</h3>
+<h3 id='http-4'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-2'>URL 파라메터</h3>
+<h3 id='url-4'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -718,14 +961,14 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h1 id='mission'>Mission 저장/불러오기</h1><h2 id='mission-2'>Mission 저장</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"mission", "daction":"set", "mname" : MISSIONNAME, "missiondata" : [{"lat":"12.134132","lng":"12.1324","alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":"12.134132","lng":"12.1324","alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"mission", "daction":"set", "mname" : MISSIONNAME, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}'</span> https://api.droneplay.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'mission'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'set'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILADDRESS'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'mname'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"MISSIONNAME"</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'missiondata'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="s1">'[{"lat":"12.134132","lng":"12.1324","alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":"12.134132","lng":"12.1324","alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]'</span><span class="p">);</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'missiondata'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="s1">'[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]'</span><span class="p">);</span>
 
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
@@ -747,7 +990,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">[{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.134132</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.1324</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-1</span><span class="dl">"</span><span class="p">},{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.134132</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.1324</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-2</span><span class="dl">"</span><span class="p">}];</span>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">[{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-1</span><span class="dl">"</span><span class="p">},{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-2</span><span class="dl">"</span><span class="p">}];</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -782,7 +1025,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'daction'</span><span class="p">:</span> <span class="s">'set'</span><span class="p">,</span>
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILADDRESS'</span>
     <span class="s">"mname"</span> <span class="p">:</span> <span class="s">"MISSIONNAME"</span><span class="p">,</span>
-    <span class="s">"missiondata"</span> <span class="p">:</span> <span class="p">[{</span><span class="s">"lat"</span><span class="p">:</span><span class="s">"12.134132"</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="s">"12.1324"</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-1"</span><span class="p">},{</span><span class="s">"lat"</span><span class="p">:</span><span class="s">"12.134132"</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="s">"12.1324"</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-2"</span><span class="p">]</span>
+    <span class="s">"missiondata"</span> <span class="p">:</span> <span class="p">[{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-1"</span><span class="p">},{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-2"</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
@@ -800,9 +1043,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>DUNI Pilot Center에 Mission 데이터를 기록합니다.</p>
-<h3 id='http-3'>HTTP 요청</h3>
+<h3 id='http-5'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-3'>URL 파라메터</h3>
+<h3 id='url-5'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -830,6 +1073,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>Mission 이름을 입력합니다.</td>
 </tr>
 <tr>
+<td>speed</td>
+<td>비행 속도(m/s)를 입력합니다. (int)</td>
+</tr>
+<tr>
 <td>missiondata</td>
 <td>Mission 데이터 목록을 입력합니다.</td>
 </tr>
@@ -845,23 +1092,27 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </thead><tbody>
 <tr>
 <td>lat</td>
-<td>위도</td>
+<td>위도 (double)</td>
 </tr>
 <tr>
 <td>lng</td>
-<td>경도</td>
+<td>경도 (double)</td>
 </tr>
 <tr>
 <td>alt</td>
-<td>고도 (미터)</td>
+<td>고도 (double, 미터)</td>
 </tr>
 <tr>
 <td>act</td>
-<td>해당위치에서 드론이 수행할 행동 (DJI기준, 또는 개발자 임의 정의)</td>
+<td>해당위치에서 드론이 수행할 행동 (int, DJI기준, 또는 개발자 임의 정의)</td>
 </tr>
 <tr>
 <td>actparam</td>
 <td>action 에 대한 파라메터</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>비행 속도(m/s)를 입력합니다. (integer : Deprecated)</td>
 </tr>
 <tr>
 <td>id</td>
@@ -902,7 +1153,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tbody></table>
 
 <p><a href="https://developer.dji.com/api-reference/android-api/Components/Missions/DJIWaypoint_DJIWaypointAction.html#djiwaypoint_djiwaypointactiontype_inline">DJI사의 WayPoint Action 값을 참고해 주세요</a>.</p>
-<h2 id='mission-3'>Mission 목록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+<h2 id='mission-3'>Mission 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"mission", "daction":"get"}'</span> https://api.droneplay.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
@@ -1011,10 +1262,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>DUNI PILOT Center의 Mission 목록을 불러옵니다.</p>
-<h3 id='http-4'>HTTP 요청</h3>
+<p>DUNI Pilot Center의 Mission 목록을 불러옵니다.</p>
+<h3 id='http-6'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-4'>URL 파라메터</h3>
+<h3 id='url-6'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1036,133 +1287,6 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <tr>
 <td>daction</td>
 <td>&#39;get&#39;을 입력합니다.</td>
-</tr>
-</tbody></table>
-<h2 id='mission-1'>Mission 이름을 지정하여 1개 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"mission", "daction":"get_spec", "mname" : "MISSION_NAME"}'</span> https://api.droneplay.io/v1/
-
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'mission'</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'get_spec'</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILADDRESS'</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'mname'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'MISSION_NAME'</span><span class="p">;</span>
-
-<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
-        <span class="s1">'droneplay-token: DRONEPLAYTOKEN'</span>
-<span class="p">);</span>
-
-<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$body</span><span class="p">));</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-<span class="c1">//$json_list= json_decode($response, true);</span>
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-
-
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">mission</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">get_spec</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILADDRESS</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">mname</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">MISSION_NAME</span><span class="dl">"</span><span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
-       <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
-       <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
-       <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-       <span class="na">cache</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-       <span class="na">data</span> <span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jdata</span><span class="p">),</span>
-       <span class="na">type</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
-       <span class="na">async</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-       <span class="na">beforeSend</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">request</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">droneplay-token</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">DRONEPLAYTOKEN</span><span class="dl">"</span><span class="p">);</span>
-        <span class="p">},</span>
-       <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
-         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span>
-         <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">result</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
-           <span class="c1">//r.data;</span>
-         <span class="p">}</span>
-       <span class="p">},</span>
-       <span class="na">error</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">status</span><span class="p">,</span><span class="nx">error</span><span class="p">){</span>
-           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">code:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">message:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">error:</span><span class="dl">"</span><span class="o">+</span><span class="nx">error</span><span class="p">);</span>
-       <span class="p">}</span>
-<span class="p">});</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-    <span class="s">'droneplay-token'</span> <span class="p">:</span> <span class="s">'DRONEPLAYTOKEN'</span>
-<span class="p">}</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'action'</span><span class="p">:</span> <span class="s">'mission'</span><span class="p">,</span>
-    <span class="s">'daction'</span><span class="p">:</span> <span class="s">'get_spec'</span><span class="p">,</span>
-    <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILADDRESS'</span><span class="p">,</span>
-    <span class="s">'mname'</span> <span class="p">:</span> <span class="s">'MISSION_NAME'</span>
-<span class="p">}</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-                         <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-<span class="s">'response.json()
-
-</span></code></pre></div>
-<blockquote>
-<p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"regtime"</span><span class="p">:</span><span class="s2">"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"mission"</span><span class="p">:[</span><span class="w">
-              </span><span class="p">{</span><span class="nl">"alt"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nl">"lng"</span><span class="p">:</span><span class="mf">131.86471756082</span><span class="p">,</span><span class="nl">"act"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"mission-1"</span><span class="p">,</span><span class="nl">"lat"</span><span class="p">:</span><span class="mf">37.243835988516</span><span class="p">,</span><span class="nl">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"speed"</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="nl">"alt"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nl">"lng"</span><span class="p">:</span><span class="mf">131.86645915266</span><span class="p">,</span><span class="nl">"act"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"mission-2"</span><span class="p">,</span><span class="nl">"lat"</span><span class="p">:</span><span class="mf">37.244423805175</span><span class="p">,</span><span class="nl">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"speed"</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="nl">"alt"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nl">"lng"</span><span class="p">:</span><span class="mf">131.86671844684</span><span class="p">,</span><span class="nl">"act"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"mission-3"</span><span class="p">,</span><span class="nl">"lat"</span><span class="p">:</span><span class="mf">37.243568918929</span><span class="p">,</span><span class="nl">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"speed"</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="nl">"alt"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nl">"lng"</span><span class="p">:</span><span class="mf">131.86493079644</span><span class="p">,</span><span class="nl">"act"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"mission-4"</span><span class="p">,</span><span class="nl">"lat"</span><span class="p">:</span><span class="mf">37.243182141771</span><span class="p">,</span><span class="nl">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"speed"</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="nl">"alt"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nl">"lng"</span><span class="p">:</span><span class="mf">131.86491855886</span><span class="p">,</span><span class="nl">"act"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"mission-5"</span><span class="p">,</span><span class="nl">"lat"</span><span class="p">:</span><span class="mf">37.243758419995</span><span class="p">,</span><span class="nl">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"speed"</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="nl">"alt"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nl">"lng"</span><span class="p">:</span><span class="mf">131.86492249835</span><span class="p">,</span><span class="nl">"act"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"mission-6"</span><span class="p">,</span><span class="nl">"lat"</span><span class="p">:</span><span class="mf">37.243906083699</span><span class="p">,</span><span class="nl">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"speed"</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="nl">"alt"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nl">"lng"</span><span class="p">:</span><span class="mf">131.86492249835</span><span class="p">,</span><span class="nl">"act"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"mission-7"</span><span class="p">,</span><span class="nl">"lat"</span><span class="p">:</span><span class="mf">37.243903981846</span><span class="p">,</span><span class="nl">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"speed"</span><span class="p">:</span><span class="mi">10</span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-          </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"MISSION_NAME"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"clientid"</span><span class="p">:</span><span class="s2">"EMAILADDRESS"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>DUNI PILOT Center의 지정한 Mission 1개를 불러옵니다.</p>
-<h3 id='http-5'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-5'>URL 파라메터</h3>
-<table><thead>
-<tr>
-<th>파라메터</th>
-<th>설명</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>droneplay-token</td>
-<td>부여받은 개발자 Token값을 헤더에 입력합니다.</td>
-</tr>
-<tr>
-<td>clientid</td>
-<td>개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.</td>
-</tr>
-<tr>
-<td>action</td>
-<td>&#39;mission&#39;을 입력합니다.</td>
-</tr>
-<tr>
-<td>daction</td>
-<td>&#39;get_spec&#39;을 입력합니다.</td>
-</tr>
-<tr>
-<td>mname</td>
-<td>미션의 이름을 입력합니다.</td>
 </tr>
 </tbody></table>
 <h2 id='mission-4'>Mission 삭제하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
@@ -1245,10 +1369,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     </span><span class="nl">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>DUNI PILOT Center의 Mission 1개를 삭제합니다.</p>
-<h3 id='http-6'>HTTP 요청</h3>
+<p>DUNI Pilot Center의 Mission 1개를 삭제합니다.</p>
+<h3 id='http-7'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-6'>URL 파라메터</h3>
+<h3 id='url-7'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1277,14 +1401,14 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h1 id='80ee24b442'>비행기록 저장하기/가져오기</h1><h2 id='26eaffd23d'>비행기록 저장하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "data" : [{"lat":"12.134132","lng":"12.1324","alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":"12.134132","lng":"12.1324","alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}'</span> https://api.droneplay.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'upload'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILADDRESS'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"FLIGHTRECORDNAME"</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'missiondata'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="s1">'[{"lat":"12.134132","lng":"12.1324","alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":"12.134132","lng":"12.1324","alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]'</span><span class="p">);</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'missiondata'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="s1">'[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]'</span><span class="p">);</span>
 
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
@@ -1306,7 +1430,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">EMAILADDRESS</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">upload</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">FLIGHTRECORDNAME</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span> <span class="p">:[{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.134132</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.1324</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-1</span><span class="dl">"</span><span class="p">},{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.134132</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.1324</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-2</span><span class="dl">"</span><span class="p">}]};</span>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">EMAILADDRESS</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">upload</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">FLIGHTRECORDNAME</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span> <span class="p">:[{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-1</span><span class="dl">"</span><span class="p">},{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-2</span><span class="dl">"</span><span class="p">}]};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -1341,7 +1465,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'daction'</span><span class="p">:</span> <span class="s">'upload'</span><span class="p">,</span>
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILADDRESS'</span>
     <span class="s">"name"</span> <span class="p">:</span> <span class="s">"FLIGHTRECORDNAME"</span><span class="p">,</span>
-    <span class="s">"data"</span> <span class="p">:</span> <span class="p">[{</span><span class="s">"lat"</span><span class="p">:</span><span class="s">"12.134132"</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="s">"12.1324"</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-1"</span><span class="p">},{</span><span class="s">"lat"</span><span class="p">:</span><span class="s">"12.134132"</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="s">"12.1324"</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-2"</span><span class="p">}]</span>
+    <span class="s">"data"</span> <span class="p">:</span> <span class="p">[{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-1"</span><span class="p">},{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="s">"12.1324"</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-2"</span><span class="p">}]</span>
 <span class="p">}</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
@@ -1358,10 +1482,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>DUNI PILOT Center에 Mission 데이터를 기록합니다.</p>
-<h3 id='http-7'>HTTP 요청</h3>
+<p>DUNI Pilot Center에 Mission 데이터를 기록합니다.</p>
+<h3 id='http-8'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-7'>URL 파라메터</h3>
+<h3 id='url-8'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1412,7 +1536,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>alt</td>
-<td>고도 (미터)</td>
+<td>고도 (double, 미터)</td>
 </tr>
 <tr>
 <td>act</td>
@@ -1571,9 +1695,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>비행기록을 모두 불러옵니다.</p>
-<h3 id='http-8'>HTTP 요청</h3>
+<h3 id='http-9'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-8'>URL 파라메터</h3>
+<h3 id='url-9'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1694,9 +1818,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>지정한 이름의 비행기록 1개를 불러옵니다.</p>
-<h3 id='http-9'>HTTP 요청</h3>
+<h3 id='http-10'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-9'>URL 파라메터</h3>
+<h3 id='url-10'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1805,9 +1929,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>비행기록 1개 삭제합니다.</p>
-<h3 id='http-10'>HTTP 요청</h3>
+<h3 id='http-11'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-10'>URL 파라메터</h3>
+<h3 id='url-11'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1917,9 +2041,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>DJI 비행기록 파일을 분석하여 비행기록으로 저장합니다.
 저장한 비행기록 파일은 비행기록 목록에서 확인할 수 있습니다.</p>
-<h3 id='http-11'>HTTP 요청</h3>
+<h3 id='http-12'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-11'>URL 파라메터</h3>
+<h3 id='url-12'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1950,15 +2074,14 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 <p>DJI Flight Record file 위치:
 https://forum.dji.com/thread-98213-1-1.html</p>
-<h1 id='helper-api'>기타 Helper API</h1><h2 id='c057c10aec'>날씨 정보 가져오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"util", "daction":"weather", "lat":"123.122", "lng":"32.111"}'</span> https://api.droneplay.io/v1/
+<h2 id='duni'>DUNI 비행기록 파일 업로드 하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILADDRESS", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}'</span> https://api.droneplay.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'util'</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'weather'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'duni_file_upload'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILADDRESS'</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'123.122'</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'lng'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'32.111'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'reocordfile'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE'</span><span class="p">;</span>
 
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
@@ -1980,7 +2103,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">util</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">weather</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILADDRESS</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">123.122</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">32.111</span><span class="dl">"</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">duni_file_upload</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILADDRESS</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">reocordfile</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE</span><span class="dl">"</span><span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -2011,11 +2134,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'droneplay-token'</span> <span class="p">:</span> <span class="s">'DRONEPLAYTOKEN'</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'action'</span><span class="p">:</span> <span class="s">'util'</span><span class="p">,</span>
-    <span class="s">'daction'</span><span class="p">:</span> <span class="s">'weather'</span><span class="p">,</span>
+    <span class="s">'action'</span><span class="p">:</span> <span class="s">'position'</span><span class="p">,</span>
+    <span class="s">'daction'</span><span class="p">:</span> <span class="s">'duni_file_upload'</span><span class="p">,</span>
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILADDRESS'</span><span class="p">,</span>
-    <span class="s">'lat'</span> <span class="p">:</span> <span class="s">'123.122'</span><span class="p">,</span>
-    <span class="s">'lng'</span> <span class="p">:</span> <span class="s">'33.111'</span>
+    <span class="s">'reocordfile'</span> <span class="p">:</span> <span class="s">'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE'</span>
 <span class="p">}</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
@@ -2029,16 +2151,14 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <p>상기의 명령은 아래와 같이 JSON 구조로 응답합니다:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"temp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="err">//온도</span><span class="p">,</span><span class="w"> </span><span class="err">섭씨</span><span class="w">
-    </span><span class="nl">"wind"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="err">//풍속</span><span class="p">,</span><span class="w"> </span><span class="err">m/s</span><span class="w">
-    </span><span class="nl">"pty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"rain"</span><span class="w"> </span><span class="err">//기상</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="s2">"rain/snow"</span><span class="p">,</span><span class="w"> </span><span class="s2">"snow"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sun"</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>온도, 풍속, 기상 정보를 가져옵니다.</p>
-<h3 id='http-12'>HTTP 요청</h3>
+<p>DUNI 비행기록 파일을 비행기록으로 저장합니다.
+저장한 비행기록 파일은 비행기록 목록에서 확인할 수 있습니다.</p>
+<h3 id='http-13'>HTTP 요청</h3>
 <p><code>POST https://api.droneplay.io/v1/</code></p>
-<h3 id='url-12'>URL 파라메터</h3>
+<h3 id='url-13'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -2055,22 +2175,68 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>action</td>
-<td>&#39;util&#39;을 입력합니다.</td>
+<td>&#39;position&#39;을 입력합니다.</td>
 </tr>
 <tr>
 <td>daction</td>
-<td>&#39;weather&#39;을 입력합니다.</td>
+<td>&#39;duni_file_upload&#39;을 입력합니다.</td>
 </tr>
 <tr>
-<td>lat</td>
-<td>위도</td>
-</tr>
-<tr>
-<td>lng</td>
-<td>경도</td>
+<td>recordfile</td>
+<td>Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. &quot;파일정보,Base64 Encoded Text&quot;)</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
+
+<blockquote>
+<p>DUNI Flight Record file 의 포맷:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">123.123</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Latitude</span><span class="w">
+        </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.11</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Longitude</span><span class="w">
+        </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.52</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Altitude</span><span class="w">
+        </span><span class="nl">"dsec"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="err">//영상녹화</span><span class="w"> </span><span class="err">시작후</span><span class="w"> </span><span class="err">시각.</span><span class="w"> </span><span class="err">(밀리초)</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"yaw"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">yaw</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">aircraft</span><span class="p">,</span><span class="w"> </span><span class="err">where</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="err">corresponds</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">North</span><span class="w"> </span><span class="err">heading.</span><span class="w"> </span><span class="err">Yawing</span><span class="w"> </span><span class="err">clockwise</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">increase</span><span class="w"> </span><span class="err">yaw</span><span class="w"> </span><span class="err">value.</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"pitch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">pitch</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">aircraft:</span><span class="w"> </span><span class="err">forward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">positive</span><span class="p">,</span><span class="w"> </span><span class="err">backward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">negative.</span><span class="w"> </span><span class="err">Units</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">degrees.</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"roll"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">roll</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">aircraft:</span><span class="w"> </span><span class="err">forward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">positive</span><span class="p">,</span><span class="w"> </span><span class="err">backward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">negative.</span><span class="w"> </span><span class="err">Units</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">degrees.</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"speed"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Speed</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"act"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="err">//Action</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">임의값</span><span class="w"> </span><span class="err">또는</span><span class="w"> </span><span class="err">개발자</span><span class="w"> </span><span class="err">지정</span><span class="w"> </span><span class="err">ex)</span><span class="w"> </span><span class="err">녹화시작:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">녹화종료:</span><span class="mi">2</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"actparam"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="err">//Action을</span><span class="w"> </span><span class="err">위한</span><span class="w"> </span><span class="err">파라메터</span><span class="w"> </span><span class="err">ex)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"dtimestamp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1569903583000</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"etc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"battery"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">배터리</span><span class="w"> </span><span class="err">잔여량</span><span class="w"> </span><span class="err">(%)</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">123.123</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Latitude</span><span class="w">
+        </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.11</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Longitude</span><span class="w">
+        </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.52</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Altitude</span><span class="w">
+        </span><span class="nl">"dsec"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="err">//영상녹화</span><span class="w"> </span><span class="err">시작후</span><span class="w"> </span><span class="err">시각.</span><span class="w"> </span><span class="err">(밀리초)</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"yaw"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">yaw</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">aircraft</span><span class="p">,</span><span class="w"> </span><span class="err">where</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="err">corresponds</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">North</span><span class="w"> </span><span class="err">heading.</span><span class="w"> </span><span class="err">Yawing</span><span class="w"> </span><span class="err">clockwise</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">increase</span><span class="w"> </span><span class="err">yaw</span><span class="w"> </span><span class="err">value.</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"pitch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">pitch</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">aircraft:</span><span class="w"> </span><span class="err">forward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">positive</span><span class="p">,</span><span class="w"> </span><span class="err">backward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">negative.</span><span class="w"> </span><span class="err">Units</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">degrees.</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"roll"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">roll</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">aircraft:</span><span class="w"> </span><span class="err">forward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">positive</span><span class="p">,</span><span class="w"> </span><span class="err">backward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">negative.</span><span class="w"> </span><span class="err">Units</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">degrees.</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"speed"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Speed</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"act"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="err">//Action</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">임의값</span><span class="w"> </span><span class="err">또는</span><span class="w"> </span><span class="err">개발자</span><span class="w"> </span><span class="err">지정</span><span class="w"> </span><span class="err">ex)</span><span class="w"> </span><span class="err">녹화시작:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">녹화종료:</span><span class="mi">2</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"actparam"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="err">//Action을</span><span class="w"> </span><span class="err">위한</span><span class="w"> </span><span class="err">파라메터</span><span class="w"> </span><span class="err">ex)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"dtimestamp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1569903593000</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"etc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"battery"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">배터리</span><span class="w"> </span><span class="err">잔여량</span><span class="w"> </span><span class="err">(%)</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">123.123</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Latitude</span><span class="w">
+        </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.11</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Longitude</span><span class="w">
+        </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.52</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Altitude</span><span class="w">
+        </span><span class="nl">"dsec"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="err">//영상녹화</span><span class="w"> </span><span class="err">시작후</span><span class="w"> </span><span class="err">시각.</span><span class="w"> </span><span class="err">(밀리초)</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"yaw"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">yaw</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">aircraft</span><span class="p">,</span><span class="w"> </span><span class="err">where</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="err">corresponds</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">North</span><span class="w"> </span><span class="err">heading.</span><span class="w"> </span><span class="err">Yawing</span><span class="w"> </span><span class="err">clockwise</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">increase</span><span class="w"> </span><span class="err">yaw</span><span class="w"> </span><span class="err">value.</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"pitch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">-0</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">pitch</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">aircraft:</span><span class="w"> </span><span class="err">forward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">positive</span><span class="p">,</span><span class="w"> </span><span class="err">backward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">negative.</span><span class="w"> </span><span class="err">Units</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">degrees.</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"roll"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">roll</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">aircraft:</span><span class="w"> </span><span class="err">forward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">positive</span><span class="p">,</span><span class="w"> </span><span class="err">backward</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">negative.</span><span class="w"> </span><span class="err">Units</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">degrees.</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"speed"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Speed</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"act"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="err">//Action</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">임의값</span><span class="w"> </span><span class="err">또는</span><span class="w"> </span><span class="err">개발자</span><span class="w"> </span><span class="err">지정</span><span class="w"> </span><span class="err">ex)</span><span class="w"> </span><span class="err">녹화시작:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">녹화종료:</span><span class="mi">2</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"actparam"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="err">//Action을</span><span class="w"> </span><span class="err">위한</span><span class="w"> </span><span class="err">파라메터</span><span class="w"> </span><span class="err">ex)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"dtimestamp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1569903703000</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+        </span><span class="nl">"etc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"battery"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">배터리</span><span class="w"> </span><span class="err">잔여량</span><span class="w"> </span><span class="err">(%)</span><span class="w"> </span><span class="err">(Optional)</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
