@@ -278,7 +278,9 @@ response.raise_for_status()
 ```json
   {
     "result": "success",
-    "token": "USER_TOKEN"
+    "token": "USER_TOKEN",
+    "emailid": "aadsfasf@naver.com",
+    "socialid" : "test@test.com"
   }
 ```
 
@@ -313,7 +315,7 @@ sns_token | sns 로그인 후 받은 id token 값을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "missionname" : "TESTMISSION1", "missionid" : "mission-1"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "missionname" : "TESTMISSION1", "missionid" : "mission-1"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -321,7 +323,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'position';
 $body['daction'] = 'set';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 $body['lat'] = 12.134132;
 $body['lng'] = 12.1324;
 $body['alt'] = 5;
@@ -355,7 +357,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILADDRESS", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "missionid" : "mission-1", "missionname" : "TESTMISSION1"};
+var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILID", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "missionid" : "mission-1", "missionname" : "TESTMISSION1"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -391,7 +393,7 @@ headers = {
 data = {
     'action': 'position',
     'daction': 'set',
-    'clientid' : 'EMAILADDRESS'
+    'clientid' : 'EMAILID'
     'lat' : 12.134132,
     'lng' : 12.1324,
     'alt' : 5.2,
@@ -429,7 +431,7 @@ response.raise_for_status()
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'set'을 입력합니다.
 lat | latitude 좌표값를 입력합니다. (double)
@@ -451,7 +453,7 @@ Token의 노출에 유의하세요!
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"get", "start" : 1518534859144, "end" : 1518534861111}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"get", "start" : 1518534859144, "end" : 1518534861111}' https://api.droneplay.io/v1/
 
 ```
 
@@ -459,7 +461,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'position';
 $body['daction'] = 'get';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 $body['start'] = 1518534859144;
 $body['end'] = 1518534861111;
 
@@ -486,7 +488,7 @@ echo $response;
 ```javascript
 
 
-var jdata = {"action": "position", "daction": "get", "clientid" : "EMAILADDRESS", "start" : 1518534859144, "end" : 1518534861111 };
+var jdata = {"action": "position", "daction": "get", "clientid" : "EMAILID", "start" : 1518534859144, "end" : 1518534861111 };
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -522,7 +524,7 @@ headers = {
 data = {
     'action': 'position'
     'daction': 'get',
-    'clientid' : 'EMAILADDRESS'
+    'clientid' : 'EMAILID'
     'start' : 1518534859144,
     'end' : 1518534861111
 }
@@ -552,7 +554,7 @@ response.raise_for_status()
      "act" : 0,
      "missionname" : "TESTMISSION1",
      "missionid" : "mission-1",
-     "clientid" : "EMAILADDRESS"
+     "clientid" : "EMAILID"
    },
    {
      "positiontime" : "Tue Feb 13 2018 15:44:40 GMT+0000 (UTC)",
@@ -566,7 +568,7 @@ response.raise_for_status()
      "act" : 0,
      "missionname" : "TESTMISSION1",
      "missionid" : "mission-2",
-     "clientid" : "EMAILADDRESS"
+     "clientid" : "EMAILID"
    },
    {
      "positiontime" : "Tue Feb 13 2018 15:44:40 GMT+0000 (UTC)",
@@ -580,7 +582,7 @@ response.raise_for_status()
      "act" : 0,
      "missionname" : "TESTMISSION1",
      "missionid" : "mission-3",
-     "clientid" : "EMAILADDRESS"
+     "clientid" : "EMAILID"
    }
   ]
 }
@@ -601,7 +603,7 @@ response.raise_for_status()
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'get'을 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 start (optional) | timestamp 값입니다. GMT+0 기준입니다. start ~ end 시각 사이의 결과를 요청할 때 사용합니다.
 end (optional) | timestamp 값입니다. GMT+0 기준입니다.
 
@@ -612,7 +614,7 @@ end (optional) | timestamp 값입니다. GMT+0 기준입니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"mission", "daction":"set", "mname" : MISSIONNAME, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"set", "mname" : MISSIONNAME, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.droneplay.io/v1/
 
 ```
 
@@ -620,7 +622,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'mission';
 $body['daction'] = 'set';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 $body['mname'] = "MISSIONNAME";
 $body['missiondata'] = json_decode('[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]');
 
@@ -683,7 +685,7 @@ headers = {
 data = {
     'action': 'mission',
     'daction': 'set',
-    'clientid' : 'EMAILADDRESS'
+    'clientid' : 'EMAILID'
     "mname" : "MISSIONNAME",
     "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"]
 }
@@ -715,7 +717,7 @@ DUNI Pilot Center에 Mission 데이터를 기록합니다.
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'mission'을 입력합니다.
 daction | 'set'을 입력합니다.
 mname | Mission 이름을 입력합니다.
@@ -753,7 +755,7 @@ GIMBAL_PITCH|5
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"mission", "daction":"get"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"get"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -761,7 +763,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'mission';
 $body['daction'] = 'get';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 
 $headers = array(
         'Content-Type: application/json',
@@ -786,7 +788,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action": "mission", "daction": "get", "clientid" : "EMAILADDRESS"};
+var jdata = {"action": "mission", "daction": "get", "clientid" : "EMAILID"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -822,7 +824,7 @@ headers = {
 data = {
     'action': 'mission',
     'daction': 'get',
-    'clientid' : 'EMAILADDRESS'
+    'clientid' : 'EMAILID'
 }
 
 url = 'https://api.droneplay.io/v1/'
@@ -851,7 +853,7 @@ response.raise_for_status()
               {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
             ],
           "name":"MISSIONNAME",
-          "clientid":"EMAILADDRESS"
+          "clientid":"EMAILID"
       },
 
       {
@@ -866,7 +868,7 @@ response.raise_for_status()
               {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
             ],
           "name":"MISSIONNAME_2",
-          "clientid":"EMAILADDRESS"
+          "clientid":"EMAILID"
       }
     ]
   }
@@ -882,7 +884,7 @@ DUNI Pilot Center의 Mission 목록을 불러옵니다.
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'mission'을 입력합니다.
 daction | 'get'을 입력합니다.
 
@@ -892,7 +894,7 @@ daction | 'get'을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"mission", "daction":"delete", "mname":"MISSIONNAME"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"delete", "mname":"MISSIONNAME"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -900,7 +902,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'mission';
 $body['daction'] = 'delete';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 $body['mname'] = "MISSIONNAME";
 
 $headers = array(
@@ -926,7 +928,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action":"mission", "daction": "delete", "clientid" : "EMAILADDRESS", "mname" : "MISSIONNAME"};
+var jdata = {"action":"mission", "daction": "delete", "clientid" : "EMAILID", "mname" : "MISSIONNAME"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -962,7 +964,7 @@ headers = {
 data = {
     'action': 'mission',
     'daction': 'delete',
-    'clientid' : 'EMAILADDRESS',
+    'clientid' : 'EMAILID',
     'mname' : 'MISSIONNAME'
 }
 
@@ -992,7 +994,7 @@ DUNI Pilot Center의 Mission 1개를 삭제합니다.
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'mission' 입력합니다.
 daction | 'delete' 입력합니다.
 mname | 삭제할 Mission 이름을 입력합니다.
@@ -1007,7 +1009,7 @@ mname | 삭제할 Mission 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "flat" : 37.243835988516, "flng" : 127.1122, "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "flat" : 37.243835988516, "flng" : 127.1122, "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.droneplay.io/v1/
 
 ```
 
@@ -1015,7 +1017,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'position';
 $body['daction'] = 'upload';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 $body['name'] = "FLIGHTRECORDNAME";
 $body['memo'] = "MEMO";
 $body['flat'] = 37.243835988516;
@@ -1045,7 +1047,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"clientid":"EMAILADDRESS", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo" : "MEMO", "flat": 37.12341232, "flng": 127.1122, "data" :[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-2"}]};
+var jdata = {"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo" : "MEMO", "flat": 37.12341232, "flng": 127.1122, "data" :[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-2"}]};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -1081,7 +1083,7 @@ headers = {
 data = {
     'action': 'position',
     'daction': 'upload',
-    'clientid' : 'EMAILADDRESS'
+    'clientid' : 'EMAILID'
     "name" : "FLIGHTRECORDNAME",
     "memo" : "MEMO",
     "flat" : 37.112,
@@ -1116,7 +1118,7 @@ DUNI Pilot Center에 비행 데이터를 기록합니다.
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'upload'를 입력합니다.
 name | 비행기록 이름을 입력합니다.
@@ -1160,7 +1162,7 @@ GIMBAL_PITCH|5
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"download"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"download"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -1168,7 +1170,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'position';
 $body['daction'] = 'download';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 
 $headers = array(
         'Content-Type: application/json',
@@ -1193,7 +1195,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action": "position", "daction": "download", "clientid" : "EMAILADDRESS"};
+var jdata = {"action": "position", "daction": "download", "clientid" : "EMAILID"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -1229,7 +1231,7 @@ headers = {
 data = {
     'action': 'position',
     'daction': 'download',
-    'clientid' : 'EMAILADDRESS'
+    'clientid' : 'EMAILID'
 }
 
 url = 'https://api.droneplay.io/v1/'
@@ -1249,7 +1251,7 @@ response.raise_for_status()
           {
           "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
           "name":"MISSIONNAME",
-          "clientid":"EMAILADDRESS",
+          "clientid":"EMAILID",
           "flat" : 127.122,
           "flng" : 37.1122,
           "memo" : "MYMEMO"
@@ -1258,7 +1260,7 @@ response.raise_for_status()
       {
           "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
           "name":"MISSIONNAME_2",
-          "clientid":"EMAILADDRESS",
+          "clientid":"EMAILID",
           "flat" : 127.122,
           "flng" : 37.1122,
           "memo" : "MYMEMO"
@@ -1278,7 +1280,7 @@ response.raise_for_status()
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'download'을 입력합니다.
 
@@ -1289,7 +1291,7 @@ daction | 'download'을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"download_spe", "name": "FLIGHTRECORDNAME"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"download_spe", "name": "FLIGHTRECORDNAME"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -1298,7 +1300,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 $body['action'] = 'position';
 $body['daction'] = 'download_spe';
 $body['name'] = 'FLIGHTRECORDNAME';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 
 $headers = array(
         'Content-Type: application/json',
@@ -1323,7 +1325,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action": "position", "daction": "download_spe", "clientid" : "EMAILADDRESS", 'name': 'FLIGHTRECORDNAME'};
+var jdata = {"action": "position", "daction": "download_spe", "clientid" : "EMAILID", 'name': 'FLIGHTRECORDNAME'};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -1360,7 +1362,7 @@ data = {
     'action': 'position',
     'daction': 'download_spe',
     'name': 'FLIGHTRECORDNAME',
-    'clientid' : 'EMAILADDRESS'
+    'clientid' : 'EMAILID'
 }
 
 url = 'https://api.droneplay.io/v1/'
@@ -1389,7 +1391,7 @@ response.raise_for_status()
               {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0}
             ],
           "name":"MISSIONNAME",
-          "clientid":"EMAILADDRESS",
+          "clientid":"EMAILID",
           "flat" : 37.243835988516,
           "flng" : 131.86471756082,
           "memo" : "MYMEMO"
@@ -1409,7 +1411,7 @@ response.raise_for_status()
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'download_spe'을 입력합니다.
 name | 비행기록 이름을 입력합니다.
@@ -1419,7 +1421,7 @@ name | 비행기록 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"delete", "name":"FLIGHTRECORDNAME"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"delete", "name":"FLIGHTRECORDNAME"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -1427,7 +1429,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'position';
 $body['daction'] = 'delete';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 $body['name'] = "FLIGHTRECORDNAME";
 
 $headers = array(
@@ -1453,7 +1455,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action":"position", "daction": "delete", "clientid" : "EMAILADDRESS", "name" : "FLIGHTRECORDNAME"};
+var jdata = {"action":"position", "daction": "delete", "clientid" : "EMAILID", "name" : "FLIGHTRECORDNAME"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -1489,7 +1491,7 @@ headers = {
 data = {
     'action': 'position',
     'daction': 'delete',
-    'clientid' : 'EMAILADDRESS',
+    'clientid' : 'EMAILID',
     'mname' : 'MISSIONNAME'
 }
 
@@ -1519,7 +1521,7 @@ response.raise_for_status()
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position' 입력합니다.
 daction | 'delete' 입력합니다.
 name | 삭제할 비행기록의 이름을 입력합니다.
@@ -1533,7 +1535,7 @@ name | 삭제할 비행기록의 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -1541,7 +1543,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'position';
 $body['daction'] = 'convert';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 $body['reocordfile'] = 'BASE64_ENCODED_DJI_FLIGHTRECORD_FILE';
 
 $headers = array(
@@ -1567,7 +1569,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action": "position", "daction": "convert", "clientid" : "EMAILADDRESS", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"};
+var jdata = {"action": "position", "daction": "convert", "clientid" : "EMAILID", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -1603,7 +1605,7 @@ headers = {
 data = {
     'action': 'position',
     'daction': 'convert',
-    'clientid' : 'EMAILADDRESS',
+    'clientid' : 'EMAILID',
     'reocordfile' : 'BASE64_ENCODED_DJI_FLIGHTRECORD_FILE'
 }
 
@@ -1635,7 +1637,7 @@ DJI 비행기록 파일을 분석하여 비행기록으로 저장합니다.
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'convert'을 입력합니다.
 recordfile | Base64로 인코딩된 DJI Flight Record File 입니다. (포멧. "파일정보,Base64 Encoded Text")
@@ -1649,7 +1651,7 @@ https://forum.dji.com/thread-98213-1-1.html
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -1657,7 +1659,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'position';
 $body['daction'] = 'duni_file_upload';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 $body['reocordfile'] = 'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE';
 
 $headers = array(
@@ -1683,7 +1685,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action": "position", "daction": "duni_file_upload", "clientid" : "EMAILADDRESS", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"};
+var jdata = {"action": "position", "daction": "duni_file_upload", "clientid" : "EMAILID", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -1719,7 +1721,7 @@ headers = {
 data = {
     'action': 'position',
     'daction': 'duni_file_upload',
-    'clientid' : 'EMAILADDRESS',
+    'clientid' : 'EMAILID',
     'reocordfile' : 'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE'
 }
 
@@ -1751,7 +1753,7 @@ DUNI 비행기록 파일을 비행기록으로 저장합니다.
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'duni_file_upload'을 입력합니다.
 recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. "파일정보,Base64 Encoded Text")
@@ -1815,7 +1817,7 @@ recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. 
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"util", "daction":"weather", "lat":"123.122", "lng":"32.111"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"util", "daction":"weather", "lat":"123.122", "lng":"32.111"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -1823,7 +1825,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'util';
 $body['daction'] = 'weather';
-$body['clientid'] = 'EMAILADDRESS';
+$body['clientid'] = 'EMAILID';
 $body['lat'] = '123.122';
 $body['lng'] = '32.111';
 
@@ -1850,7 +1852,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action": "util", "daction": "weather", "clientid" : "EMAILADDRESS", "lat":"123.122", "lng":"32.111"};
+var jdata = {"action": "util", "daction": "weather", "clientid" : "EMAILID", "lat":"123.122", "lng":"32.111"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -1886,7 +1888,7 @@ headers = {
 data = {
     'action': 'util',
     'daction': 'weather',
-    'clientid' : 'EMAILADDRESS',
+    'clientid' : 'EMAILID',
     'lat' : '123.122',
     'lng' : '33.111'
 }
@@ -1921,7 +1923,7 @@ response.raise_for_status()
 파라메터 | 설명
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
-clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'util'을 입력합니다.
 daction | 'weather'을 입력합니다.
 lat | 위도
