@@ -307,7 +307,7 @@ sns_token | sns 로그인 후 받은 id token 값을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "act" : 0, "missionname" : "TESTMISSION1", "missionid" : "mission-1"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "missionname" : "TESTMISSION1", "missionid" : "mission-1"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -320,6 +320,9 @@ $body['lat'] = 12.134132;
 $body['lng'] = 12.1324;
 $body['alt'] = 5;
 $body['act'] = 0;
+$body['yaw'] = 15;
+$body['pitch'] = 10;
+$body['roll'] = 10;
 $body['missionid'] = "mission-1";
 $body['missionname'] = "TESTMISSION1";
 
@@ -346,7 +349,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILADDRESS", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "act" : 0, "missionid" : "mission-1", "missionname" : "TESTMISSION1"};
+var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILADDRESS", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "missionid" : "mission-1", "missionname" : "TESTMISSION1"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -388,6 +391,9 @@ data = {
     'alt' : 5.2,
     "missionid" : "mission-1",
     "missionname" : "TESTMISSION1",
+    "yaw":10,
+    "pitch" : 10,
+    "roll": 10,
     "act" : 0
 }
 url = 'https://api.droneplay.io/v1/'
@@ -424,6 +430,9 @@ lat | latitude 좌표값를 입력합니다. (double)
 lng | longitude 좌표값를 입력합니다. (double)
 alt | 고도값을 입력합니다. (double, 미터)
 act | 해당위치에서 수행한 행동 (개발자 임의 정의 가능)
+yaw | 기체의 yaw 값 입력 (double, degree)
+pitch | 기체의 pitch 값 입력 (double, degree, Optional)
+roll | 기체의 roll 값 입력 (double, degree, Optional)
 missionid | MISSION의 ID (미션 저장하기 참고 - Optional)
 missionname | MISSION의 이름 (미션 저장하기 참고 - Optional)
 
@@ -531,6 +540,9 @@ response.raise_for_status()
      "lat" : 37.2435813,
      "lng" : 131.8661992,
      "alt" : 1.2,
+     "yaw" : 10,
+     "roll" : 10,
+     "pitch" : 10.1,
      "act" : 0,
      "missionname" : "TESTMISSION1",
      "missionid" : "mission-1",
@@ -542,6 +554,9 @@ response.raise_for_status()
      "lat" : 37.2424227,
      "lng" : 131.8673264,
      "alt" : 3.33,
+     "yaw" : 10,
+     "roll" : 10,
+     "pitch" : 10.1,
      "act" : 0,
      "missionname" : "TESTMISSION1",
      "missionid" : "mission-2",
@@ -553,6 +568,9 @@ response.raise_for_status()
      "lat" : 37.2421004,
      "lng" : 131.8680063,
      "alt" : 5.55,
+     "yaw" : 10,
+     "roll" : 10,
+     "pitch" : 10.1,
      "act" : 0,
      "missionname" : "TESTMISSION1",
      "missionid" : "mission-3",
