@@ -983,7 +983,7 @@ mname | 삭제할 Mission 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "flat" : 37.243835988516, "flng" : 127.1122, "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.droneplay.io/v1/
 
 ```
 
@@ -993,7 +993,10 @@ $body['action'] = 'position';
 $body['daction'] = 'upload';
 $body['clientid'] = 'EMAILADDRESS';
 $body['name'] = "FLIGHTRECORDNAME";
-$body['missiondata'] = json_decode('[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]');
+$body['memo'] = "MEMO";
+$body['flat'] = 37.243835988516;
+$body['flng'] = 127.1122;
+$body['missiondata'] = json_decode('[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-2"}]');
 
 $headers = array(
         'Content-Type: application/json',
@@ -1018,7 +1021,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"clientid":"EMAILADDRESS", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "data" :[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]};
+var jdata = {"clientid":"EMAILADDRESS", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo" : "MEMO", "flat": 37.12341232, "flng": 127.1122, "data" :[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"mission-2"}]};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -1056,7 +1059,10 @@ data = {
     'daction': 'upload',
     'clientid' : 'EMAILADDRESS'
     "name" : "FLIGHTRECORDNAME",
-    "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":"12.1324","alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]
+    "memo" : "MEMO",
+    "flat" : 37.112,
+    "flng" : 127.12312,
+    "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":"12.1324","alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"mission-2"}]
 }
 
 url = 'https://api.droneplay.io/v1/'
@@ -1075,7 +1081,7 @@ response.raise_for_status()
   }
 ```
 
-DUNI Pilot Center에 Mission 데이터를 기록합니다.
+DUNI Pilot Center에 비행 데이터를 기록합니다.
 
 ### HTTP 요청
 
@@ -1090,16 +1096,24 @@ clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력�
 action | 'position'을 입력합니다.
 daction | 'upload'를 입력합니다.
 name | 비행기록 이름을 입력합니다.
+memo | 메모를 입력합니다.
+flat | 비행기록을 기록한 위치의 latitude 좌표를 입력합니다.
+flng | 비행기록을 기록한 위치의 longitude 좌표를 입력합니다.
 data | 비행기록 목록을 입력합니다.
 
 ### missiondata 파라메터 포멧
-[{lat:latitude, lng:longitude, alt:altitude, act:action, actparam:actionparam, speed:speed, id:mission-id}]
+[{lat:latitude, lng:longitude, alt:altitude, act:action, actparam:actionparam, speed:speed, dsec:time, yaw:yaw, pitch:pitch, roll:roll, id:mission-id}]
 
 파라메터 | 설명
 --------- | -----------
 lat | 위도
 lng | 경도
 alt | 고도 (double, 미터)
+speed | 속도 (double, 미터/s)
+roll | roll 각도(Degree)
+pitch | pitch 각도(Degree)
+yaw | yaw 각도(Degree)
+dsec | 녹화시작후 시간값 (milli second)
 act | 해당위치에서 드론이 수행한 행동 (DJI기준, 또는 개발자 임의 정의)
 actparam | action 에 대한 파라메터
 id | Mission의 고유 아이디 (부여한 Mission 이름의 범위내에서 고유한 아이디, 개발자 임의입력 가능)
@@ -1210,38 +1224,26 @@ response.raise_for_status()
     "data":[
           {
           "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
-          "data":[
-              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
-            ],
           "name":"MISSIONNAME",
-          "clientid":"EMAILADDRESS"
+          "clientid":"EMAILADDRESS",
+          "flat" : 127.122,
+          "flng" : 37.1122,
+          "memo" : "MYMEMO"
       },
 
       {
           "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
-          "mission":[
-              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
-            ],
           "name":"MISSIONNAME_2",
-          "clientid":"EMAILADDRESS"
+          "clientid":"EMAILADDRESS",
+          "flat" : 127.122,
+          "flng" : 37.1122,
+          "memo" : "MYMEMO"
       }
     ]
   }
 ```
 
-비행기록을 모두 불러옵니다.
+비행기록을 목록을 가져옵니다.
 
 ### HTTP 요청
 
@@ -1354,16 +1356,19 @@ response.raise_for_status()
           {
           "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
           "data":[
-              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
+              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
+              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
+              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
+              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
+              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0}
             ],
           "name":"MISSIONNAME",
-          "clientid":"EMAILADDRESS"
+          "clientid":"EMAILADDRESS",
+          "flat" : 37.243835988516,
+          "flng" : 131.86471756082,
+          "memo" : "MYMEMO"
       }
     ]
   }
@@ -1777,3 +1782,123 @@ recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. 
 	}
 ]
 ```
+
+
+# 기타 Helper API
+
+## 날씨 정보 가져오기
+
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILADDRESS", "action":"util", "daction":"weather", "lat":"123.122", "lng":"32.111"}' https://api.droneplay.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'util';
+$body['daction'] = 'weather';
+$body['clientid'] = 'EMAILADDRESS';
+$body['lat'] = '123.122';
+$body['lng'] = '32.111';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "util", "daction": "weather", "clientid" : "EMAILADDRESS", "lat":"123.122", "lng":"32.111"};
+
+$.ajax({url : "https://api.droneplay.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'util',
+    'daction': 'weather',
+    'clientid' : 'EMAILADDRESS',
+    'lat' : '123.122',
+    'lng' : '33.111'
+}
+
+url = 'https://api.droneplay.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "temp" : 20, //온도, 섭씨
+    "wind" : 2, //풍속, m/s
+    "pty" : "rain" //기상 - "rain/snow", "snow", "sun"
+  }
+```
+
+온도, 풍속, 기상 정보를 가져옵니다.
+
+### HTTP 요청
+
+`POST https://api.droneplay.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
+action | 'util'을 입력합니다.
+daction | 'weather'을 입력합니다.
+lat | 위도
+lng | 경도
