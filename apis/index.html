@@ -788,7 +788,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>action</td>
-<td>&#39;position&#39;을 입력합니다. (int)</td>
+<td>&#39;position&#39;을 입력합니다.</td>
 </tr>
 <tr>
 <td>daction</td>
@@ -808,11 +808,11 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>act</td>
-<td>해당위치에서 수행한 행동 (개발자 임의 정의 가능)</td>
+<td>해당위치에서 수행한 행동 (개발자 임의 정의 가능, int)</td>
 </tr>
 <tr>
 <td>yaw</td>
-<td>기체의 yaw 값 입력 (double, degree)</td>
+<td>기체의 yaw 값 입력 (double, degree, Optional)</td>
 </tr>
 <tr>
 <td>pitch</td>
@@ -1151,7 +1151,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>speed</td>
-<td>비행 속도(m/s)를 입력합니다. (integer : Deprecated)</td>
+<td>비행 속도(m/s)를 입력합니다. (int : Deprecated)</td>
 </tr>
 <tr>
 <td>id</td>
@@ -1510,7 +1510,7 @@ $.ajax({url : </span><span class="dl">"</span><span class="na">https</span><span
     <span class="s">"memo"</span> <span class="p">:</span> <span class="s">"MEMO"</span><span class="p">,</span>
     <span class="s">"flat"</span> <span class="p">:</span> <span class="mf">37.112</span><span class="p">,</span>
     <span class="s">"flng"</span> <span class="p">:</span> <span class="mf">127.12312</span><span class="p">,</span>
-    <span class="s">"data"</span> <span class="p">:</span> <span class="p">[{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s">"yaw"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"pitch"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"roll"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-1"</span><span class="p">},{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="s">"12.1324"</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s">"yaw"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"pitch"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"roll"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-2"</span><span class="p">}]</span>
+    <span class="s">"data"</span> <span class="p">:</span> <span class="p">[{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s">"yaw"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"pitch"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"roll"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-1"</span><span class="p">},{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span> <span class="mf">12.1324</span> <span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s">"yaw"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"pitch"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"roll"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-2"</span><span class="p">}]</span>
 <span class="p">}</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>

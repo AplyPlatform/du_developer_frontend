@@ -430,13 +430,13 @@ response.raise_for_status()
 --------- | -----------
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 개발자 Token을 받기위해 입력한 이메일 주소를 입력합니다.
-action | 'position'을 입력합니다. (int)
+action | 'position'을 입력합니다.
 daction | 'set'을 입력합니다.
 lat | latitude 좌표값를 입력합니다. (double)
 lng | longitude 좌표값를 입력합니다. (double)
 alt | 고도값을 입력합니다. (double, 미터)
-act | 해당위치에서 수행한 행동 (개발자 임의 정의 가능)
-yaw | 기체의 yaw 값 입력 (double, degree)
+act | 해당위치에서 수행한 행동 (개발자 임의 정의 가능, int)
+yaw | 기체의 yaw 값 입력 (double, degree, Optional)
 pitch | 기체의 pitch 값 입력 (double, degree, Optional)
 roll | 기체의 roll 값 입력 (double, degree, Optional)
 missionid | MISSION의 ID (미션 저장하기 참고 - Optional)
@@ -732,7 +732,7 @@ lng | 경도 (double)
 alt | 고도 (double, 미터)
 act | 해당위치에서 드론이 수행할 행동 (int, DJI기준, 또는 개발자 임의 정의)
 actparam | action 에 대한 파라메터
-speed | 비행 속도(m/s)를 입력합니다. (integer : Deprecated)
+speed | 비행 속도(m/s)를 입력합니다. (int : Deprecated)
 id | Mission의 고유 아이디 (부여한 Mission 이름의 범위내에서 고유한 아이디, 개발자 임의입력 가능)
 
 ### act, action param 값 참고 (DJI 기준)
@@ -1086,7 +1086,7 @@ data = {
     "memo" : "MEMO",
     "flat" : 37.112,
     "flng" : 127.12312,
-    "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":"12.1324","alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"mission-2"}]
+    "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng": 12.1324 ,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"mission-2"}]
 }
 
 url = 'https://api.droneplay.io/v1/'
