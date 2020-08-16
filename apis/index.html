@@ -430,7 +430,8 @@
 </blockquote>
 
 <p>DUNI Open API는 DUNI 개발자 Token을 파라메터로 입력해야 사용하실 수 있습니다.
-Token은 &quot;가입하기&quot; API를 통해 발급 받을 수 있습니다.</p>
+개발자 Token은 https://pilot.duni.io/center 에 가입해서 받으실 수 있습니다.
+또는, &quot;가입하기&quot; API를 통해 발급 받을 수도 있습니다.</p>
 <h1 id='de95133e51'>가입 및 로그인</h1><h2 id='1314de2e12'>가입하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"register", "socialid" : "EMAILADDRESS1", "phone_number" : "USER_PHONE_NUMBER", "name" : "USER_NAME", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}'</span> https://api.droneplay.io/v1/
 

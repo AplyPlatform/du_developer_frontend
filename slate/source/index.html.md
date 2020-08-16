@@ -58,7 +58,8 @@ search: true
 >
 
 DUNI Open API는 DUNI 개발자 Token을 파라메터로 입력해야 사용하실 수 있습니다.
-Token은 "가입하기" API를 통해 발급 받을 수 있습니다.
+개발자 Token은 https://pilot.duni.io/center 에 가입해서 받으실 수 있습니다.
+또는, "가입하기" API를 통해 발급 받을 수도 있습니다.
 
 
 #가입 및 로그인
