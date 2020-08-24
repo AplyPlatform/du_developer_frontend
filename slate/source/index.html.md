@@ -721,7 +721,7 @@ clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'mission'을 입력합니다.
 daction | 'set'을 입력합니다.
 mname | Mission 이름을 입력합니다.
-speed | 비행 속도(m/s)를 입력합니다. (int)
+speed | 비행 속도를 입력합니다. (m/s, double)
 missiondata | Mission 데이터 목록을 입력합니다.
 
 ### missiondata 파라메터 포멧
@@ -734,7 +734,7 @@ lng | 경도 (double)
 alt | 고도 (double, 미터)
 act | 해당위치에서 드론이 수행할 행동 (int, DJI기준, 또는 개발자 임의 정의)
 actparam | action 에 대한 파라메터
-speed | 비행 속도(m/s)를 입력합니다. (int : Deprecated)
+speed | 비행 속도(m/s)를 입력합니다. (double : Deprecated)
 id | Mission의 고유 아이디 (부여한 Mission 이름의 범위내에서 고유한 아이디, 개발자 임의입력 가능)
 
 ### act, action param 값 참고 (DJI 기준)
