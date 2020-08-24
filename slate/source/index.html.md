@@ -607,14 +607,14 @@ clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 start (optional) | timestamp 값입니다. GMT+0 기준입니다. start ~ end 시각 사이의 결과를 요청할 때 사용합니다.
 end (optional) | timestamp 값입니다. GMT+0 기준입니다.
 
-# Mission 저장/불러오기
+# 비행계획 저장/불러오기
 
-## Mission 저장
+## 비행계획 저장
 
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"set", "mname" : MISSIONNAME, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"set", "mname" : "MISSIONNAME", "speed" : 1, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.droneplay.io/v1/
 
 ```
 
@@ -624,6 +624,7 @@ $body['action'] = 'mission';
 $body['daction'] = 'set';
 $body['clientid'] = 'EMAILID';
 $body['mname'] = "MISSIONNAME";
+$body['speed'] = 1;
 $body['missiondata'] = json_decode('[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]');
 
 $headers = array(
@@ -649,7 +650,7 @@ echo $response;
 
 ```javascript
 
-var jdata = [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}];
+var jdata = {"clientid":"EMAILID", "action":"mission", "daction":"set", "mname" : "MISSIONNAME", "speed" : 1, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}];
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -687,6 +688,7 @@ data = {
     'daction': 'set',
     'clientid' : 'EMAILID'
     "mname" : "MISSIONNAME",
+    "speed" : 1,
     "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"]
 }
 
@@ -706,7 +708,7 @@ response.raise_for_status()
   }
 ```
 
-DUNI Pilot Center에 Mission 데이터를 기록합니다.
+DUNI Pilot Center에 비행계획 데이터를 기록합니다.
 
 ### HTTP 요청
 
@@ -720,7 +722,7 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'mission'을 입력합니다.
 daction | 'set'을 입력합니다.
-mname | Mission 이름을 입력합니다.
+mname | 비행계획의 이름을 입력합니다.
 speed | 비행 속도를 입력합니다. (m/s, double)
 missiondata | Mission 데이터 목록을 입력합니다.
 
@@ -735,7 +737,7 @@ alt | 고도 (double, 미터)
 act | 해당위치에서 드론이 수행할 행동 (int, DJI기준, 또는 개발자 임의 정의)
 actparam | action 에 대한 파라메터
 speed | 비행 속도(m/s)를 입력합니다. (double : Deprecated)
-id | Mission의 고유 아이디 (부여한 Mission 이름의 범위내에서 고유한 아이디, 개발자 임의입력 가능)
+id | 비행계획의 고유 아이디 (부여한 비행계획 이름의 범위내에서 고유한 아이디, 개발자 임의입력 가능)
 
 ### act, action param 값 참고 (DJI 기준)
 액션 | act 값
@@ -750,7 +752,7 @@ GIMBAL_PITCH|5
 [DJI사의 WayPoint Action 값을 참고해 주세요](https://developer.dji.com/api-reference/android-api/Components/Missions/DJIWaypoint_DJIWaypointAction.html#djiwaypoint_djiwaypointactiontype_inline).
 
 
-## Mission 불러오기
+## 비행계획 불러오기
 
 
 ```shell
@@ -853,7 +855,8 @@ response.raise_for_status()
               {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
             ],
           "name":"MISSIONNAME",
-          "clientid":"EMAILID"
+          "clientid":"EMAILID",
+          "speed" : 1
       },
 
       {
@@ -868,12 +871,13 @@ response.raise_for_status()
               {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
             ],
           "name":"MISSIONNAME_2",
-          "clientid":"EMAILID"
+          "clientid":"EMAILID",
+          "speed" : 1
       }
     ]
   }
 ```
-DUNI Pilot Center의 Mission 목록을 불러옵니다.
+DUNI Pilot Center의 비행계획 목록을 불러옵니다.
 
 ### HTTP 요청
 
@@ -889,7 +893,132 @@ action | 'mission'을 입력합니다.
 daction | 'get'을 입력합니다.
 
 
-## Mission 삭제하기
+## 비행계획 1개 불러오기
+
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"get", "mname" : "MISSIONNAME_1"}' https://api.droneplay.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'mission';
+$body['daction'] = 'get';
+$body['clientid'] = 'EMAILID';
+$body['mname'] = 'MISSIONNAME_1';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "mission", "daction": "get", "clientid" : "EMAILID", "mname" : "MISSIONNAME_1"};
+
+$.ajax({url : "https://api.droneplay.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'mission',
+    'daction': 'get',
+    'mname' : 'MISSIONNAME_1',
+    'clientid' : 'EMAILID'
+}
+
+url = 'https://api.droneplay.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+      "data" : {
+          "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
+          "mission":[
+              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
+            ],
+          "name":"MISSIONNAME_1",
+          "clientid":"EMAILID",
+          "speed" : 1
+      }
+```
+DUNI Pilot Center의 비행계획 1개를 불러옵니다.
+
+### HTTP 요청
+
+`POST https://api.droneplay.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'mission'을 입력합니다.
+daction | 'get'을 입력합니다.
+mname | 비행계획의 이름을 입력합니다.
+
+
+## 비행계획 삭제하기
 
 
 ```shell
