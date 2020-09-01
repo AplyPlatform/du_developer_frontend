@@ -1938,6 +1938,118 @@ recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. 
 ]
 ```
 
+## 비행기록에 유튜브영상 반영하기
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"youtube", "name":"FLIGHTRECORDNAME", "youtube_data_id" : "https://youtube.com/watch?v=k12hadf" }' https://api.droneplay.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'position';
+$body['daction'] = 'youtube';
+$body['clientid'] = 'EMAILID';
+$body['name'] = "FLIGHTRECORDNAME";
+$body['youtube_data_id'] = "https://youtube.com/watch?v=k12hadf";
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action":"position", "daction": "youtube", "clientid" : "EMAILID", "name" : "FLIGHTRECORDNAME", "youtube_data_id" : "https://youtube.com/watch?v=k12hadf"};
+
+$.ajax({url : "https://api.droneplay.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'position',
+    'daction': 'youtube',
+    'clientid' : 'EMAILID',
+    'youtube_data_id' : 'https://youtube.com/watch?v=k12hadf',
+    'name' : 'NAME'
+}
+
+url = 'https://api.droneplay.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success"
+  }
+```
+비행기록에 유튜브 영상 링크를 설정합니다.
+
+### HTTP 요청
+
+`POST https://api.droneplay.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'position' 입력합니다.
+daction | 'youtube' 입력합니다.
+name | 비행기록의 이름을 입력합니다.
+youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf
+
 
 # 기타 Helper API
 
