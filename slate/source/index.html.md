@@ -315,7 +315,7 @@ sns_token | sns 로그인 후 받은 id token 값을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "missionname" : "TESTMISSION1", "missionid" : "mission-1"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "dsec" : 1, "name" : "TESTMISSION1", "missionid" : "mission-1"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -331,8 +331,8 @@ $body['act'] = 0;
 $body['yaw'] = 15;
 $body['pitch'] = 10;
 $body['roll'] = 10;
-$body['missionid'] = "mission-1";
-$body['missionname'] = "TESTMISSION1";
+$body['dsec'] = 10;
+$body['name'] = "TESTMISSION1";
 
 $headers = array(
         'Content-Type: application/json',
@@ -357,7 +357,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILID", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "missionid" : "mission-1", "missionname" : "TESTMISSION1"};
+var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILID", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "dsec" : 0, "name" : "TESTMISSION1"};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -397,7 +397,7 @@ data = {
     'lat' : 12.134132,
     'lng' : 12.1324,
     'alt' : 5.2,
-    "missionid" : "mission-1",
+    'dsec' : 1,
     "missionname" : "TESTMISSION1",
     "yaw":10,
     "pitch" : 10,
@@ -420,7 +420,7 @@ response.raise_for_status()
   }
 ```
 
-현재의 좌표와 고도를 기록합니다.
+드론의 현재의 위치와 정보를 기록합니다.
 
 ### HTTP 요청
 
@@ -441,8 +441,8 @@ act | 해당위치에서 수행한 행동 (개발자 임의 정의 가능, int)
 yaw | 기체의 yaw 값 입력 (double, degree, Optional)
 pitch | 기체의 pitch 값 입력 (double, degree, Optional)
 roll | 기체의 roll 값 입력 (double, degree, Optional)
-missionid | MISSION의 ID (미션 저장하기 참고 - Optional)
-missionname | MISSION의 이름 (미션 저장하기 참고 - Optional)
+dsec | 영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)
+name | 기록의 이름
 
 <aside class="warning">
 Token의 노출에 유의하세요!
@@ -453,7 +453,7 @@ Token의 노출에 유의하세요!
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"get", "start" : 1518534859144, "end" : 1518534861111}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"get", "name" : "RECORDNAME"}' https://api.droneplay.io/v1/
 
 ```
 
@@ -462,8 +462,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 $body['action'] = 'position';
 $body['daction'] = 'get';
 $body['clientid'] = 'EMAILID';
-$body['start'] = 1518534859144;
-$body['end'] = 1518534861111;
+$body['name'] = 'RECORDNAME';
 
 $headers = array(
         'Content-Type: application/json',
@@ -488,7 +487,7 @@ echo $response;
 ```javascript
 
 
-var jdata = {"action": "position", "daction": "get", "clientid" : "EMAILID", "start" : 1518534859144, "end" : 1518534861111 };
+var jdata = {"action": "position", "daction": "get", "clientid" : "EMAILID", "name" : "RECORDNAME" };
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -525,8 +524,7 @@ data = {
     'action': 'position'
     'daction': 'get',
     'clientid' : 'EMAILID'
-    'start' : 1518534859144,
-    'end' : 1518534861111
+    'name' : 'RECORDNAME'
 }
 url = 'https://api.droneplay.io/v1/'
 response = requests.post(url, headers=headers,
@@ -541,9 +539,8 @@ response.raise_for_status()
 ```json
 {
   "result" : "success",
-  "data" : [
+  "data" :
    {
-     "positiontime" : "Tue Feb 13 2018 15:44:40 GMT+0000 (UTC)",
      "dtimestamp" : 1518536680763,
      "lat" : 37.2435813,
      "lng" : 131.8661992,
@@ -551,45 +548,11 @@ response.raise_for_status()
      "yaw" : 10,
      "roll" : 10,
      "pitch" : 10.1,
-     "act" : 0,
-     "missionname" : "TESTMISSION1",
-     "missionid" : "mission-1",
-     "clientid" : "EMAILID"
-   },
-   {
-     "positiontime" : "Tue Feb 13 2018 15:44:40 GMT+0000 (UTC)",
-     "dtimestamp" : 1518536680765,
-     "lat" : 37.2424227,
-     "lng" : 131.8673264,
-     "alt" : 3.33,
-     "yaw" : 10,
-     "roll" : 10,
-     "pitch" : 10.1,
-     "act" : 0,
-     "missionname" : "TESTMISSION1",
-     "missionid" : "mission-2",
-     "clientid" : "EMAILID"
-   },
-   {
-     "positiontime" : "Tue Feb 13 2018 15:44:40 GMT+0000 (UTC)",
-     "dtimestamp" : 1518536680763,
-     "lat" : 37.2421004,
-     "lng" : 131.8680063,
-     "alt" : 5.55,
-     "yaw" : 10,
-     "roll" : 10,
-     "pitch" : 10.1,
-     "act" : 0,
-     "missionname" : "TESTMISSION1",
-     "missionid" : "mission-3",
-     "clientid" : "EMAILID"
+     "act" : 0
    }
-  ]
 }
 
 ```
-
-<aside class="warning">positiontime은 GMT+0 기준입니다. 서울기준이 아닙니다.</aside>
 <aside class="warning">dtimestamp는 GMT+0 기준입니다. 서울기준이 아닙니다.</aside>
 
 ### HTTP 요청
@@ -604,8 +567,9 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'get'을 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
-start (optional) | timestamp 값입니다. GMT+0 기준입니다. start ~ end 시각 사이의 결과를 요청할 때 사용합니다.
-end (optional) | timestamp 값입니다. GMT+0 기준입니다.
+name | 비행기록의 이름
+
+
 
 # 비행계획 저장/불러오기
 
