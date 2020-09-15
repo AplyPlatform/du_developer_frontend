@@ -321,6 +321,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 ```php
 
+/* 1개 드론위치 보내기 */
 $body['action'] = 'position';
 $body['daction'] = 'set';
 $body['clientid'] = 'EMAILID';
@@ -350,7 +351,6 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 echo $response;
-
 
 ```
 
@@ -431,7 +431,7 @@ response.raise_for_status()
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
-daction | 'set'을 입력합니다.
+daction | 'set'을 입력합니다. 위치를 다른이에게도 공유할 경우 'set_share' (입력시 'target' 파라메터 필수)
 lat | latitude 좌표값를 입력합니다. (double)
 lng | longitude 좌표값를 입력합니다. (double)
 alt | 고도값을 입력합니다. (double, 미터)
@@ -440,9 +440,34 @@ yaw | 기체의 yaw 값 입력 (double, degree, Optional)
 pitch | 기체의 pitch 값 입력 (double, degree, Optional)
 roll | 기체의 roll 값 입력 (double, degree, Optional)
 dsec | 영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)
+objects | 여러 드론의 위치를 보낼때 사용하는 배열 (array, 아래 objects 배열 참고, 5개 이하 제한)
+target | 공유하고자 하는 대상의 email주소 배열 (daction 참고, 10개 이하 제한)
 
+### objects 배열
+
+파라메터 | 설명
+--------- | -----------
+lat | latitude 좌표값를 입력합니다. (double)
+lng | longitude 좌표값를 입력합니다. (double)
+alt | 고도값을 입력합니다. (double, 미터)
+act | 해당위치에서 수행한 행동 (개발자 임의 정의 가능, int)
+yaw | 기체의 yaw 값 입력 (double, degree, Optional)
+pitch | 기체의 pitch 값 입력 (double, degree, Optional)
+roll | 기체의 roll 값 입력 (double, degree, Optional)
+dsec | 영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)
 <aside class="warning">
-Token의 노출에 유의하세요!
+objects : [
+  {
+    "lat" : 123.12,
+    "lng" : 31.12,
+    "alt" : 11
+  },
+  {
+    "lat" : 123.12,
+    "lng" : 31.12,
+    "alt" : 11
+  }
+]
 </aside>
 
 ## 드론의 최근 위치 읽어오기
@@ -544,6 +569,36 @@ response.raise_for_status()
      "roll" : 10,
      "pitch" : 10.1,
      "act" : 0
+   }
+}
+
+//또는, 아래와 같이 응답
+
+{
+  "result" : "success",
+  "owner" : "emailaddress",
+  "data" :
+   {
+     "objects" : [
+      {
+         "lat" : 37.2435813,
+         "lng" : 131.8661992,
+         "alt" : 1.2,
+         "yaw" : 10,
+         "roll" : 10,
+         "pitch" : 10.1,
+         "act" : 0
+       },
+       {
+          "lat" : 37.2435813,
+          "lng" : 131.8661992,
+          "alt" : 1.2,
+          "yaw" : 10,
+          "roll" : 10,
+          "pitch" : 10.1,
+          "act" : 0
+       }
+    ]
    }
 }
 

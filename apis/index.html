@@ -685,6 +685,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "dsec" : 1}'</span> https://api.droneplay.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
+<span class="cm">/* 1개 드론위치 보내기 */</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'set'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILID'</span><span class="p">;</span>
@@ -714,7 +715,6 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">set</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">12.134132</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">12.1324</span><span class="p">,</span> <span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="dl">"</span><span class="s2">yaw</span><span class="dl">"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">pitch</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">roll</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">act</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">dsec</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">};</span>
@@ -798,8 +798,56 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>daction</td>
-<td>&#39;set&#39;을 입력합니다.</td>
+<td>&#39;set&#39;을 입력합니다. 위치를 다른이에게도 공유할 경우 &#39;set_share&#39; (입력시 &#39;target&#39; 파라메터 필수)</td>
 </tr>
+<tr>
+<td>lat</td>
+<td>latitude 좌표값를 입력합니다. (double)</td>
+</tr>
+<tr>
+<td>lng</td>
+<td>longitude 좌표값를 입력합니다. (double)</td>
+</tr>
+<tr>
+<td>alt</td>
+<td>고도값을 입력합니다. (double, 미터)</td>
+</tr>
+<tr>
+<td>act</td>
+<td>해당위치에서 수행한 행동 (개발자 임의 정의 가능, int)</td>
+</tr>
+<tr>
+<td>yaw</td>
+<td>기체의 yaw 값 입력 (double, degree, Optional)</td>
+</tr>
+<tr>
+<td>pitch</td>
+<td>기체의 pitch 값 입력 (double, degree, Optional)</td>
+</tr>
+<tr>
+<td>roll</td>
+<td>기체의 roll 값 입력 (double, degree, Optional)</td>
+</tr>
+<tr>
+<td>dsec</td>
+<td>영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)</td>
+</tr>
+<tr>
+<td>objects</td>
+<td>여러 드론의 위치를 보낼때 사용하는 배열 (array, 아래 objects 배열 참고, 5개 이하 제한)</td>
+</tr>
+<tr>
+<td>target</td>
+<td>공유하고자 하는 대상의 email주소 배열 (daction 참고, 10개 이하 제한)</td>
+</tr>
+</tbody></table>
+<h3 id='objects'>objects 배열</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>lat</td>
 <td>latitude 좌표값를 입력합니다. (double)</td>
@@ -835,7 +883,18 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tbody></table>
 
 <aside class="warning">
-Token의 노출에 유의하세요!
+objects : [
+  {
+    "lat" : 123.12,
+    "lng" : 31.12,
+    "alt" : 11
+  },
+  {
+    "lat" : 123.12,
+    "lng" : 31.12,
+    "alt" : 11
+  }
+]
 </aside>
 <h2 id='4c067a7cbd'>드론의 최근 위치 읽어오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"get"}'</span> https://api.droneplay.io/v1/
@@ -923,6 +982,36 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
      </span><span class="nl">"roll"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
      </span><span class="nl">"pitch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">10.1</span><span class="p">,</span><span class="w">
      </span><span class="nl">"act"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">//또는,</span><span class="w"> </span><span class="err">아래와</span><span class="w"> </span><span class="err">같이</span><span class="w"> </span><span class="err">응답</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"result"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"owner"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"emailaddress"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="w"> </span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"objects"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.2435813</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">131.8661992</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"yaw"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"roll"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"pitch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">10.1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"act"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.2435813</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">131.8661992</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"alt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"yaw"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"roll"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"pitch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">10.1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"act"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
