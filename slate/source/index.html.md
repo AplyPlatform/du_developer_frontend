@@ -431,7 +431,7 @@ response.raise_for_status()
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
-daction | 'set'을 입력합니다. 위치를 다른이에게도 공유할 경우 'set_share' (입력시 'target' 파라메터 필수)
+daction | 'set'을 입력합니다. 위치를 다른이에게도 공유할 경우 'set_share' (입력시 'targets' 파라메터 필수)
 lat | latitude 좌표값를 입력합니다. (double)
 lng | longitude 좌표값를 입력합니다. (double)
 alt | 고도값을 입력합니다. (double, 미터)
@@ -441,7 +441,7 @@ pitch | 기체의 pitch 값 입력 (double, degree, Optional)
 roll | 기체의 roll 값 입력 (double, degree, Optional)
 dsec | 영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)
 objects | 여러 드론의 위치를 보낼때 사용하는 배열 (array, 아래 objects 배열 참고, 5개 이하 제한)
-target | 공유하고자 하는 대상의 email주소 배열 (daction 참고, 10개 이하 제한)
+targets | 공유하고자 하는 대상의 emailid 값 배열 ('daction' 파라메터 참고, '사용자 clientid 가져오기 API' 참고, 10개 이하 제한)
 
 ### objects 배열
 
@@ -2181,3 +2181,116 @@ action | 'util'을 입력합니다.
 daction | 'weather'을 입력합니다.
 lat | 위도
 lng | 경도
+
+
+## 사용자 clientid 가져오기
+
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"util", "daction":"check_email", "target":"email@address.com"}' https://api.droneplay.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'util';
+$body['daction'] = 'check_email';
+$body['clientid'] = 'EMAILID';
+$body['target'] = 'email@address.com';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "util", "daction": "check_email", "clientid" : "EMAILID", "target":"email@address.com"};
+
+$.ajax({url : "https://api.droneplay.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'util',
+    'daction': 'check_email',
+    'clientid' : 'EMAILID',
+    'target' : 'email@adress.com'
+}
+
+url = 'https://api.droneplay.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "emailid" : "emailid"
+  }
+```
+
+DUNI PILOT CENTER의 회원 id를 가져옵니다.
+
+### HTTP 요청
+
+`POST https://api.droneplay.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'util'을 입력합니다.
+daction | 'check_email'을 입력합니다.
+target | 이메일 주소를 입력합니다.
