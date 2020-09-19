@@ -836,6 +836,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)</td>
 </tr>
 <tr>
+<td>kind</td>
+<td>object의 이름 (Optional, ex: &#39;drone&#39;)</td>
+</tr>
+<tr>
 <td>objects</td>
 <td>여러 드론의 위치를 보낼때 사용하는 배열 (array, 아래 objects 배열 참고, 5개 이하 제한)</td>
 </tr>
@@ -880,6 +884,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>기체의 roll 값 입력 (double, degree, Optional)</td>
 </tr>
 <tr>
+<td>kind</td>
+<td>object의 이름 (Optional, ex: &#39;drone&#39;)</td>
+</tr>
+<tr>
 <td>dsec</td>
 <td>영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)</td>
 </tr>
@@ -895,7 +903,12 @@ objects : [
   {
     "lat" : 123.12,
     "lng" : 31.12,
-    "alt" : 11
+    "alt" : 11.6,
+    "yaw" : 120.2,
+    "pitch" : 10.5,
+    "roll" : 21.1,
+    "kind" : "drone",
+    "dsec" : 123
   }
 ]
 </aside>

@@ -440,6 +440,7 @@ yaw | 기체의 yaw 값 입력 (double, degree, Optional)
 pitch | 기체의 pitch 값 입력 (double, degree, Optional)
 roll | 기체의 roll 값 입력 (double, degree, Optional)
 dsec | 영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)
+kind | object의 이름 (Optional, ex: 'drone')
 objects | 여러 드론의 위치를 보낼때 사용하는 배열 (array, 아래 objects 배열 참고, 5개 이하 제한)
 targets | 공유하고자 하는 대상의 emailid 값 배열 ('daction' 파라메터 참고, '사용자 clientid 가져오기 API' 참고, 10개 이하 제한)
 
@@ -454,6 +455,7 @@ act | 해당위치에서 수행한 행동 (개발자 임의 정의 가능, int)
 yaw | 기체의 yaw 값 입력 (double, degree, Optional)
 pitch | 기체의 pitch 값 입력 (double, degree, Optional)
 roll | 기체의 roll 값 입력 (double, degree, Optional)
+kind | object의 이름 (Optional, ex: 'drone')
 dsec | 영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)
 <aside class="warning">
 objects : [
@@ -465,7 +467,12 @@ objects : [
   {
     "lat" : 123.12,
     "lng" : 31.12,
-    "alt" : 11
+    "alt" : 11.6,
+    "yaw" : 120.2,
+    "pitch" : 10.5,
+    "roll" : 21.1,
+    "kind" : "drone",
+    "dsec" : 123
   }
 ]
 </aside>
