@@ -28,7 +28,7 @@ search: true
 
 'Drone, Everywhere'
 
-이곳은 드론 소프트웨어 개발자분들을 위한 예제코드와 Open API 정보를 제공하는 사이트 입니다.
+이곳은 드론 소프트웨어 개발자분들을 위한 예제코드와 DUNI Open API사용법을 제공하는 사이트입니다.
 
 
 # Token 발급 받기
