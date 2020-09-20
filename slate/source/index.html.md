@@ -9,12 +9,12 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <div class="fb-like" data-href="https://www.facebook.com/386832955100142" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-  - <a href='https://pilot.duni.io/'>DUNI PILOT 홈</a>
-  - <a href='https://pilot.duni.io/center'>DUNI PILOT Center</a>
-  - <a href='https://developer.duni.io/'>DUNI 개발자홈</a>
-  - <a href='https://code.duni.io/'>DUNI Codes</a>
-  - <a href='https://duni.io/'>DUNI 홈</a>
-  - <a href='https://www.facebook.com/DuniPilotPage/'>DUNI PILOT 페이스북</a>
+  - <a href='https://pilot.duni.io/'>DUNI 파일럿 홈</a>
+  - <a href='https://pilot.duni.io/center'>DUNI 파일럿 Center</a>
+  - <a href='https://developer.duni.io/'>DUNI 개발자</a>
+  - <a href='https://code.duni.io/'>DUNI 코드</a>
+  - <a href='https://duni.io/'>DUNI 중개 서비스</a>
+  - <a href='https://www.facebook.com/DuniPilotPage/'>DUNI 파일럿 페이스북</a>
   - <a href='https://groups.google.com/forum/#!forum/droneplay2018'>개발관련 문의게시판</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
   - © 2020 APLY Inc.
@@ -26,11 +26,9 @@ search: true
 
 # 소개
 
-'우리는 드론을 세계일주 시킬겁니다'
+'Drone, Everywhere'
 
 이곳은 드론 소프트웨어 개발자분들을 위한 예제코드와 Open API 정보를 제공하는 사이트 입니다.
-뿐만아니라 드론을 '세계일주' 시키기 위한 관련 코드들도 계속해서 추가할 예정입니다.
-쌈박하고 깔끔한 아이디어가 녹아든 쉽고 간편한 Open API와 코드들을 둘러 보세요.
 
 
 # Token 발급 받기
@@ -58,13 +56,11 @@ search: true
 >
 
 DUNI Open API는 DUNI 개발자 Token을 파라메터로 입력해야 사용하실 수 있습니다.
-개발자 Token은 아래의 DUNI PILOT CENTER에 가입해서 받으실 수 있습니다.
+개발자 Token은 아래의 DUNI 파일럿 센터에 가입후 받으실 수 있습니다.
 
-[DUNI PILOT CENTER](https://pilot.duni.io/center).
+[DUNI 파일럿 센터](https://pilot.duni.io/center).
 
-또는, "가입하기" API를 통해 발급 받을 수도 있습니다.
-
-
+또는, "가입하기" API를 통해 Token을 발급 받을 수 있습니다.
 
 
 #가입 및 로그인
@@ -173,7 +169,7 @@ response.raise_for_status()
   }
 ```
 
-전화번호와 이메일주소 그리고 이름을 입력을 받아 회원을 등록합니다.
+전화번호와 이메일주소 그리고 이름을 입력 받아 회원을 등록합니다.
 
 ### HTTP 요청
 
@@ -184,7 +180,7 @@ response.raise_for_status()
 파라메터 | 설명
 --------- | -----------
 action | 'member'을 입력합니다.
-daction | 'register'을 입력합니다.
+daction | 'register'를 입력합니다.
 name | 가입자명을 입력합니다.
 sns_kind | facebook, naver, apple, kakao, google 중 하나를 입력합니다.
 sns_token | sns 로그인 후 받은 id token 값을 입력합니다.
@@ -279,8 +275,8 @@ response.raise_for_status()
   {
     "result": "success",
     "token": "USER_TOKEN",
-    "emailid": "aadsfasf@naver.com",
-    "socialid" : "test@test.com"
+    "emailid": "duni@aply.biz",
+    "socialid" : "123456789@snssiteaddress.com"
   }
 ```
 
@@ -308,14 +304,16 @@ daction | 'login'을 입력합니다.
 sns_kind | facebook, naver, apple, kakao, google 중 하나를 입력합니다.
 sns_token | sns 로그인 후 받은 id token 값을 입력합니다.
 
-# 드론의 현재위치 기록/읽기
 
-## 드론의 현재위치 기록하기
+
+# 드론의 현재위치 저장/불러오기
+
+## 1개 드론의 현재위치 저장/공유
 
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "dsec" : 1}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 1}' https://api.droneplay.io/v1/
 
 ```
 
@@ -332,6 +330,7 @@ $body['act'] = 0;
 $body['yaw'] = 15;
 $body['pitch'] = 10;
 $body['roll'] = 10;
+$body['kind'] = 'drone';
 $body['dsec'] = 10;
 
 $headers = array(
@@ -356,7 +355,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILID", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "dsec" : 0};
+var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILID", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 0};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -390,17 +389,18 @@ headers = {
     'droneplay-token' : 'DRONEPLAYTOKEN'
 }
 data = {
-    'action': 'position',
-    'daction': 'set',
+    'action' : 'position',
+    'daction' : 'set',
     'clientid' : 'EMAILID'
     'lat' : 12.134132,
     'lng' : 12.1324,
     'alt' : 5.2,
     'dsec' : 1,
-    "yaw":10,
-    "pitch" : 10,
-    "roll": 10,
-    "act" : 0
+    'yaw' :10,
+    'pitch' : 10,
+    'roll' : 10,
+    'kind' : 'drone',
+    'act' : 0
 }
 url = 'https://api.droneplay.io/v1/'
 response = requests.post(url, headers=headers,
@@ -418,7 +418,154 @@ response.raise_for_status()
   }
 ```
 
-드론의 현재의 위치와 정보를 기록합니다.
+드론의 현재 위치와 정보를 저장하거나 공유합니다.
+
+### HTTP 요청
+
+`POST https://api.droneplay.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'position'을 입력합니다.
+daction | 'set'을 입력합니다. / 위치를 다른이에게 공유할 경우 'set_share' 입력 : 'targets' 파라메터 필수
+lat | latitude 좌표값를 입력합니다. (double)
+lng | longitude 좌표값를 입력합니다. (double)
+alt | 고도값을 입력합니다. (double, 미터)
+act | 해당위치에서 수행한 행동 (개발자 임의 정의 가능, int)
+yaw | 기체의 yaw 값 입력 (double, degree, Optional)
+pitch | 기체의 pitch 값 입력 (double, degree, Optional)
+roll | 기체의 roll 값 입력 (double, degree, Optional)
+dsec | 영상 녹화시 현재 시각부터 녹화 시각의 차 : 초 (int, Optional)
+kind | object의 이름 (Optional, ex: 'drone')
+targets | 공유하고자 하는 대상의 emailid 값 배열 ('daction' 파라메터 참고, '사용자 clientid 불러오기 API' 참고, 공유대상 수 10개 이하 제한)
+
+
+## 1개 이상 드론의 현재위치 저장/공유
+
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "objects" : [ {"lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "drone", "dsec" : 1}, {"lat" : 12.134132, "lng" : 12.1344, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "people", "dsec" : 1} ] }' https://api.droneplay.io/v1/
+
+```
+
+```php
+
+/* 1개 드론위치 보내기 */
+$body['action'] = 'position';
+$body['daction'] = 'set';
+$body['clientid'] = 'EMAILID';
+$body['objects'] = array();
+$objects['lat'] = 12.134132;
+$objects['lng'] = 12.1324;
+$objects['alt'] = 5;
+$objects['act'] = 0;
+$objects['yaw'] = 15;
+$objects['pitch'] = 10;
+$objects['roll'] = 10;
+$objects['kind'] = 'drone';
+$objects['dsec'] = 10;
+array_push($body['objects'], $objects);
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+```
+
+```javascript
+
+
+var objects = [];
+objects.push({"lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 0});
+var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILID", "objects" : objects};
+
+$.ajax({url : "https://api.droneplay.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           alert("Successfully, recorded.");
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+
+objects = [{
+    'lat' : 12.134132,
+    'lng' : 12.1324,
+    'alt' : 5.2,
+    'dsec' : 1,
+    "yaw":10,
+    "pitch" : 10,
+    "roll" : 10,
+    "kind" : "drone",
+    "act" : 0
+}]
+
+data = {
+    'action': 'position',
+    'daction': 'set',
+    'clientid' : 'EMAILID'
+    'objects' : objects
+}
+
+url = 'https://api.droneplay.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result": "success"
+  }
+```
+
+1개 이상의 드론이나 객체의 현재 위치와 정보를 저장하거나 공유합니다.
 
 ### HTTP 요청
 
@@ -432,17 +579,8 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'set'을 입력합니다. 위치를 다른이에게도 공유할 경우 'set_share' (입력시 'targets' 파라메터 필수)
-lat | latitude 좌표값를 입력합니다. (double)
-lng | longitude 좌표값를 입력합니다. (double)
-alt | 고도값을 입력합니다. (double, 미터)
-act | 해당위치에서 수행한 행동 (개발자 임의 정의 가능, int)
-yaw | 기체의 yaw 값 입력 (double, degree, Optional)
-pitch | 기체의 pitch 값 입력 (double, degree, Optional)
-roll | 기체의 roll 값 입력 (double, degree, Optional)
-dsec | 영상 녹화시 현재 시각부터 녹화 시각의 차 : 초(int, Optional)
-kind | object의 이름 (Optional, ex: 'drone')
 objects | 여러 드론의 위치를 보낼때 사용하는 배열 (array, 아래 objects 배열 참고, 5개 이하 제한)
-targets | 공유하고자 하는 대상의 emailid 값 배열 ('daction' 파라메터 참고, '사용자 clientid 가져오기 API' 참고, 10개 이하 제한)
+targets | 공유하고자 하는 대상의 emailid 값 배열 ('daction' 파라메터 참고, '사용자 clientid 불러오기 API' 참고, 10개 이하 제한)
 
 ### objects 배열
 
@@ -462,7 +600,12 @@ objects : [
   {
     "lat" : 123.12,
     "lng" : 31.12,
-    "alt" : 11
+    "alt" : 11.6,
+    "yaw" : 120.2,
+    "pitch" : 10.5,
+    "roll" : 21.1,
+    "kind" : "drone",
+    "dsec" : 123
   },
   {
     "lat" : 123.12,
@@ -477,8 +620,8 @@ objects : [
 ]
 </aside>
 
-## 드론의 최근 위치 읽어오기
 
+## 드론의 최근 위치 읽어오기
 
 ```shell
 
@@ -579,7 +722,7 @@ response.raise_for_status()
    }
 }
 
-//또는, 아래와 같이 응답
+//또는, 1개 이상의 드론이 객체가 공유되고 있을 경우 아래와 같이 응답
 
 {
   "result" : "success",
@@ -727,7 +870,7 @@ response.raise_for_status()
   }
 ```
 
-DUNI Pilot Center에 비행계획 데이터를 기록합니다.
+DUNI 파일럿 센터에 비행계획 데이터를 저장합니다.
 
 ### HTTP 요청
 
@@ -743,9 +886,9 @@ action | 'mission'을 입력합니다.
 daction | 'set'을 입력합니다.
 mname | 비행계획의 이름을 입력합니다.
 speed | 비행 속도를 입력합니다. (m/s, double)
-missiondata | Mission 데이터 목록을 입력합니다.
+missiondata | 비행계획 데이터를 입력합니다.
 
-### missiondata 파라메터 포멧
+### missiondata : 비행계획 데이터 구조
 [{lat:latitude, lng:longitude, alt:altitude, act:action, actparam:actionparam, speed:speed, id:mission-id}]
 
 파라메터 | 설명
@@ -896,7 +1039,7 @@ response.raise_for_status()
     ]
   }
 ```
-DUNI Pilot Center의 비행계획 목록을 불러옵니다.
+DUNI 파일럿 센터의 비행계획 목록을 불러옵니다.
 
 ### HTTP 요청
 
@@ -1020,7 +1163,7 @@ response.raise_for_status()
           "speed" : 1
       }
 ```
-DUNI Pilot Center의 비행계획 1개를 불러옵니다.
+DUNI 파일럿 센터의 비행계획 1개를 불러옵니다.
 
 ### HTTP 요청
 
@@ -1131,7 +1274,7 @@ response.raise_for_status()
     "result":"success"
   }
 ```
-DUNI Pilot Center의 Mission 1개를 삭제합니다.
+DUNI 파일럿 센터의 비행계획 1개를 삭제합니다.
 
 ### HTTP 요청
 
@@ -1145,14 +1288,14 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'mission' 입력합니다.
 daction | 'delete' 입력합니다.
-mname | 삭제할 Mission 이름을 입력합니다.
+mname | 삭제할 비행계획의 이름을 입력합니다.
 
 
 
 
-# 비행기록 저장하기/가져오기
+# 비행기록 저장/불러오기
 
-## 비행기록 저장하기
+## 비행기록 저장
 
 
 ```shell
@@ -1255,7 +1398,7 @@ response.raise_for_status()
   }
 ```
 
-DUNI Pilot Center에 비행 데이터를 기록합니다.
+DUNI 파일럿 센터에 비행기록을 저장합니다.
 
 ### HTTP 요청
 
@@ -1290,7 +1433,7 @@ yaw | yaw 각도(Degree)
 dsec | 녹화시작후 시간값 (milli second)
 act | 해당위치에서 드론이 수행한 행동 (DJI기준, 또는 개발자 임의 정의)
 actparam | action 에 대한 파라메터
-id | Mission의 고유 아이디 (부여한 Mission 이름의 범위내에서 고유한 아이디, 개발자 임의입력 가능)
+id | 비행계획의 고유 아이디 (부여한 비행계획 이름의 범위내에서 고유한 아이디, 개발자 임의입력 가능)
 
 ### act, action param 값 참고 (DJI 기준)
 액션 | act 값
@@ -1417,7 +1560,7 @@ response.raise_for_status()
   }
 ```
 
-비행기록을 목록을 가져옵니다.
+비행기록 목록을 불러옵니다.
 
 ### HTTP 요청
 
@@ -2072,7 +2215,7 @@ youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watc
 
 # 기타 Helper API
 
-## 날씨 정보 가져오기
+## 날씨 정보 불러오기
 
 
 ```shell
@@ -2172,7 +2315,7 @@ response.raise_for_status()
   }
 ```
 
-온도, 풍속, 기상 정보를 가져옵니다.
+온도, 풍속, 기상 정보를 불러옵니다.
 
 ### HTTP 요청
 
@@ -2190,7 +2333,7 @@ lat | 위도
 lng | 경도
 
 
-## 사용자 clientid 가져오기
+## 사용자 clientid 불러오기
 
 
 ```shell
@@ -2286,7 +2429,7 @@ response.raise_for_status()
   }
 ```
 
-DUNI PILOT CENTER의 회원 id를 가져옵니다.
+해당 email을 보유한 DUNI 파일럿 센터 회원의 clientid를 불러옵니다.
 
 ### HTTP 요청
 
