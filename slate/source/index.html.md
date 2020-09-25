@@ -1300,7 +1300,7 @@ mname | 삭제할 비행계획의 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "flat" : 37.243835988516, "flng" : 127.1122, "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2"}]}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "flat" : 37.243835988516, "flng" : 127.1122, "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]}' https://api.droneplay.io/v1/
 
 ```
 
@@ -1313,7 +1313,7 @@ $body['name'] = "FLIGHTRECORDNAME";
 $body['memo'] = "MEMO";
 $body['flat'] = 37.243835988516;
 $body['flng'] = 127.1122;
-$body['data'] = json_decode('[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2"}]');
+$body['data'] = json_decode('[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]');
 
 $headers = array(
         'Content-Type: application/json',
@@ -1338,7 +1338,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo" : "MEMO", "flat": 37.12341232, "flng": 127.1122, "data" :[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, act":1,"actparam":1,"id":"rec-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2"}]};
+var jdata = {"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo" : "MEMO", "flat": 37.12341232, "flng": 127.1122, "data" :[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]};
 
 $.ajax({url : "https://api.droneplay.io/v1/",
        dataType : "json",
@@ -1379,7 +1379,7 @@ data = {
     "memo" : "MEMO",
     "flat" : 37.112,
     "flng" : 127.12312,
-    "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"rec-1"},{"lat":12.134132,"lng": 12.1324 ,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"rec-2"}]
+    "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng": 12.1324 ,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903583000}]
 }
 
 url = 'https://api.droneplay.io/v1/'
@@ -1419,7 +1419,7 @@ flng | 비행기록을 기록한 위치의 longitude 좌표를 입력합니다.
 data | 비행기록 목록을 입력합니다.
 
 ### data 파라메터 포멧
-[{lat:latitude, lng:longitude, alt:altitude, act:action, actparam:actionparam, speed:speed, dsec:time, yaw:yaw, pitch:pitch, roll:roll, id:rec-id}]
+[{lat:latitude, lng:longitude, alt:altitude, act:action, actparam:actionparam, speed:speed, dsec:time, yaw:yaw, pitch:pitch, roll:roll, id:rec-id, dtimestamp:timestamp}]
 
 파라메터 | 설명
 --------- | -----------
@@ -1434,6 +1434,7 @@ dsec | 녹화시작후 시간값 (milli second)
 act | 해당위치에서 드론이 수행한 행동 (DJI기준, 또는 개발자 임의 정의, Optional)
 actparam | action 에 대한 파라메터 (Optional)
 id | 비행계획의 고유 아이디 (부여한 비행계획 이름의 범위내에서 고유한 아이디, 개발자 임의입력 가능, Optional)
+dtimestamp | 기록시점의 timestamp (13자리)
 
 ### act, action param 값 참고 (DJI 기준)
 액션 | act 값
@@ -1541,7 +1542,7 @@ response.raise_for_status()
     "data":[
           {
           "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
-          "name":"MISSIONNAME",
+          "name":"RECNAME_1",
           "clientid":"EMAILID",
           "flat" : 127.122,
           "flng" : 37.1122,
@@ -1550,7 +1551,7 @@ response.raise_for_status()
 
       {
           "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
-          "name":"MISSIONNAME_2",
+          "name":"RECNAME_2",
           "clientid":"EMAILID",
           "flat" : 127.122,
           "flng" : 37.1122,
@@ -1673,13 +1674,13 @@ response.raise_for_status()
           {
           "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
           "data":[
-              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
-              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
-              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
-              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
-              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0}
+              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
+              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
+              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
+              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
+              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111}
             ],
           "name":"MISSIONNAME",
           "clientid":"EMAILID",
@@ -2065,7 +2066,7 @@ recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. 
 		"speed" : 2.1, // Speed (Optional)
 		"act"	: 0, //Action - 임의값 또는 개발자 지정 ex) 녹화시작:1, 녹화종료:2 (Optional)
 		"actparam" : 0, //Action을 위한 파라메터 ex) 1 (Optional)
-		"dtimestamp" : 1569903583000, // timestamp (Optional)
+		"dtimestamp" : 1569903583000, // timestamp
 		"etc" : { "battery" : 12 } // 배터리 잔여량 (%) (Optional)
 	},
 
@@ -2080,7 +2081,7 @@ recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. 
 		"speed" : 2.1, // Speed (Optional)
 		"act"	: 0, //Action - 임의값 또는 개발자 지정 ex) 녹화시작:1, 녹화종료:2 (Optional)
 		"actparam" : 0, //Action을 위한 파라메터 ex) 1 (Optional)
-		"dtimestamp" : 1569903593000, // timestamp (Optional)
+		"dtimestamp" : 1569903593000, // timestamp
 		"etc" : { "battery" : 12 } // 배터리 잔여량 (%) (Optional)
 	},
 
@@ -2095,7 +2096,7 @@ recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. 
 		"speed" : 2.1, // Speed (Optional)
 		"act"	: 0, //Action - 임의값 또는 개발자 지정 ex) 녹화시작:1, 녹화종료:2 (Optional)
 		"actparam" : 0, //Action을 위한 파라메터 ex) 1 (Optional)
-		"dtimestamp" : 1569903703000, // timestamp (Optional)
+		"dtimestamp" : 1569903703000, // timestamp
 		"etc" : { "battery" : 12 } // 배터리 잔여량 (%) (Optional)
 	}
 ]
