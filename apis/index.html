@@ -446,7 +446,7 @@
 
 <p>또는, &quot;가입하기&quot; API를 통해 Token을 발급 받을 수 있습니다.</p>
 <h1 id='de95133e51'>가입 및 로그인</h1><h2 id='1314de2e12'>가입하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"register", "socialid" : "EMAILADDRESS1", "phone_number" : "USER_PHONE_NUMBER", "name" : "USER_NAME", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"register", "socialid" : "EMAILADDRESS1", "phone_number" : "USER_PHONE_NUMBER", "name" : "USER_NAME", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'member'</span><span class="p">;</span>
@@ -462,7 +462,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -478,7 +478,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">register</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">socialid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILADDRESS1</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">phone_number</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">USER_PHONE_NUMBER</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">USER_NAME</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">sns_token</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">SNS_ID_TOKEN</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">sns_kind</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">SNS_KIND</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -511,7 +511,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
     <span class="s">'sns_kind'</span> <span class="p">:</span> <span class="s">'SNS_KIND'</span><span class="p">,</span>
     <span class="s">'sns_token'</span> <span class="p">:</span> <span class="s">'SNS_ID_TOKEN'</span>
 <span class="p">}</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -536,7 +536,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 </span></code></pre></div>
 <p>전화번호와 이메일주소 그리고 이름을 입력 받아 회원을 등록합니다.</p>
 <h3 id='http'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -574,7 +574,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 </tr>
 </tbody></table>
 <h2 id='e225a6fd75'>로그인</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"login", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"login", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'member'</span><span class="p">;</span>
@@ -587,7 +587,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -603,7 +603,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">login</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">sns_token</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">SNS_ID_TOKEN</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">sns_kind</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">SNS_KIND</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -633,7 +633,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
     <span class="s">'sns_kind'</span> <span class="p">:</span> <span class="s">'SNS_KIND'</span><span class="p">,</span>
     <span class="s">'sns_token'</span> <span class="p">:</span> <span class="s">'SNS_ID_TOKEN'</span>
 <span class="p">}</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -660,7 +660,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 </span></code></pre></div>
 <p>SNS의 종류와 SNS ID TOKEN으로 로그인합니다.</p>
 <h3 id='http-2'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-2'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -686,7 +686,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 </tr>
 </tbody></table>
 <h1 id='aa3965a0e0'>드론의 현재위치 저장/불러오기</h1><h2 id='1'>1개 드론의 현재위치 저장/공유</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 1}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 1}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="cm">/* 1개 드론위치 보내기 */</span>
@@ -709,7 +709,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -724,7 +724,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">set</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">12.134132</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">12.1324</span><span class="p">,</span> <span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="dl">"</span><span class="s2">yaw</span><span class="dl">"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">pitch</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">roll</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">act</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">drone</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">dsec</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -766,7 +766,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'kind'</span> <span class="p">:</span> <span class="s">'drone'</span><span class="p">,</span>
     <span class="s">'act'</span> <span class="p">:</span> <span class="mi">0</span>
 <span class="p">}</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -782,7 +782,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>드론의 현재 위치와 정보를 저장하거나 공유합니다.</p>
 <h3 id='http-3'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-3'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -848,7 +848,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h2 id='1-2'>1개 이상 드론의 현재위치 저장/공유</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"set", "objects" : [ {"lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "drone", "dsec" : 1}, {"lat" : 12.134132, "lng" : 12.1344, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "people", "dsec" : 1} ] }'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"set", "objects" : [ {"lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "drone", "dsec" : 1}, {"lat" : 12.134132, "lng" : 12.1344, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "people", "dsec" : 1} ] }'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="cm">/* 1개 드론위치 보내기 */</span>
@@ -873,7 +873,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -891,7 +891,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="nx">objects</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">12.134132</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">12.1324</span><span class="p">,</span> <span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="dl">"</span><span class="s2">yaw</span><span class="dl">"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">pitch</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">roll</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">act</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">kind</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">drone</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">dsec</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">});</span>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">set</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">objects</span><span class="dl">"</span> <span class="p">:</span> <span class="nx">objects</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -939,7 +939,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'objects'</span> <span class="p">:</span> <span class="n">objects</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -955,7 +955,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>1개 이상의 드론이나 객체의 현재 위치와 정보를 저장하거나 공유합니다.</p>
 <h3 id='http-4'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-4'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -1058,7 +1058,7 @@ objects : [
 ]
 </aside>
 <h2 id='4c067a7cbd'>드론의 최근 위치 읽어오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"get"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"get"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
@@ -1071,7 +1071,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -1087,7 +1087,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">get</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span> <span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1120,7 +1120,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'daction'</span><span class="p">:</span> <span class="s">'get'</span><span class="p">,</span>
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span>
 <span class="p">}</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -1179,7 +1179,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <aside class="warning">dtimestamp는 GMT+0 기준입니다. 서울기준이 아닙니다.</aside>
 <h3 id='http-5'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-5'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -1205,7 +1205,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h1 id='5a1927bd94'>비행계획 저장/불러오기</h1><h2 id='44ec8615da'>비행계획 저장</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"mission", "daction":"set", "mname" : "MISSIONNAME", "speed" : 1, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"mission", "daction":"set", "mname" : "MISSIONNAME", "speed" : 1, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'mission'</span><span class="p">;</span>
@@ -1221,7 +1221,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -1237,7 +1237,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">set</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">mname</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">MISSIONNAME</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">missiondata</span><span class="dl">"</span> <span class="p">:</span> <span class="p">[{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-1</span><span class="dl">"</span><span class="p">},{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">act</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">actparam</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission-2</span><span class="dl">"</span><span class="p">}];</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1274,7 +1274,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">"missiondata"</span> <span class="p">:</span> <span class="p">[{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-1"</span><span class="p">},{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"mission-2"</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -1290,7 +1290,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>DUNI 파일럿 센터에 비행계획 데이터를 저장합니다.</p>
 <h3 id='http-6'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-6'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -1400,7 +1400,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 <p><a href="https://developer.dji.com/api-reference/android-api/Components/Missions/DJIWaypoint_DJIWaypointAction.html#djiwaypoint_djiwaypointactiontype_inline">DJI사의 WayPoint Action 값을 참고해 주세요</a>.</p>
 <h2 id='cf889e77b4'>비행계획 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"mission", "daction":"get"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"mission", "daction":"get"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'mission'</span><span class="p">;</span>
@@ -1413,7 +1413,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -1429,7 +1429,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">mission</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">get</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1463,7 +1463,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -1512,7 +1512,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>DUNI 파일럿 센터의 비행계획 목록을 불러옵니다.</p>
 <h3 id='http-7'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-7'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -1538,7 +1538,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h2 id='1-3'>비행계획 1개 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"mission", "daction":"get", "mname" : "MISSIONNAME_1"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"mission", "daction":"get", "mname" : "MISSIONNAME_1"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'mission'</span><span class="p">;</span>
@@ -1552,7 +1552,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -1568,7 +1568,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">mission</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">get</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">mname</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">MISSIONNAME_1</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1603,7 +1603,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -1633,7 +1633,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>DUNI 파일럿 센터의 비행계획 1개를 불러옵니다.</p>
 <h3 id='http-8'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-8'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -1663,7 +1663,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h2 id='69d4b426d6'>비행계획 삭제하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"mission", "daction":"delete", "mname":"MISSIONNAME"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"mission", "daction":"delete", "mname":"MISSIONNAME"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'mission'</span><span class="p">;</span>
@@ -1677,7 +1677,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -1693,7 +1693,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">mission</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delete</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">mname</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">MISSIONNAME</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1728,7 +1728,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'mname'</span> <span class="p">:</span> <span class="s">'MISSIONNAME'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -1744,7 +1744,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>DUNI 파일럿 센터의 비행계획 1개를 삭제합니다.</p>
 <h3 id='http-9'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-9'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -1774,7 +1774,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h1 id='4fb5192eaf'>비행기록 저장/불러오기</h1><h2 id='7892eac85b'>비행기록 저장</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "flat" : 37.243835988516, "flng" : 127.1122, "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "flat" : 37.243835988516, "flng" : 127.1122, "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
@@ -1792,7 +1792,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -1808,7 +1808,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">upload</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">FLIGHTRECORDNAME</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">memo</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">MEMO</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">flat</span><span class="dl">"</span><span class="p">:</span> <span class="mf">37.12341232</span><span class="p">,</span> <span class="dl">"</span><span class="s2">flng</span><span class="dl">"</span><span class="p">:</span> <span class="mf">127.1122</span><span class="p">,</span> <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span> <span class="p">:[{</span><span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="dl">"</span><span class="s2">alt</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="dl">"</span><span class="s2">speed</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">yaw</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">pitch</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">roll</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">act</span><span class="dl">"</span><span class="s2">:1,</span><span class="dl">"</span><span class="nx">actparam</span><span class="dl">"</span><span class="s2">:1,</span><span class="dl">"</span><span class="nx">id</span><span class="dl">"</span><span class="s2">:</span><span class="dl">"</span><span class="nx">rec</span><span class="o">-</span><span class="mi">1</span><span class="dl">"</span><span class="s2">, </span><span class="dl">"</span><span class="nx">dtimestamp</span><span class="dl">"</span><span class="s2"> : 1569903583000},{</span><span class="dl">"</span><span class="nx">lat</span><span class="dl">"</span><span class="s2">:12.134132,</span><span class="dl">"</span><span class="nx">lng</span><span class="dl">"</span><span class="s2">:12.1324,</span><span class="dl">"</span><span class="nx">alt</span><span class="dl">"</span><span class="s2">:5,</span><span class="dl">"</span><span class="nx">speed</span><span class="dl">"</span><span class="s2">:0, </span><span class="dl">"</span><span class="nx">yaw</span><span class="dl">"</span><span class="s2"> : 10, </span><span class="dl">"</span><span class="nx">pitch</span><span class="dl">"</span><span class="s2"> : 10, </span><span class="dl">"</span><span class="nx">roll</span><span class="dl">"</span><span class="s2"> : 10,</span><span class="dl">"</span><span class="nx">act</span><span class="dl">"</span><span class="s2">:1,</span><span class="dl">"</span><span class="nx">actparam</span><span class="dl">"</span><span class="s2">:1,</span><span class="dl">"</span><span class="nx">id</span><span class="dl">"</span><span class="s2">:</span><span class="dl">"</span><span class="nx">rec</span><span class="o">-</span><span class="mi">2</span><span class="dl">"</span><span class="s2">, </span><span class="dl">"</span><span class="nx">dtimestamp</span><span class="dl">"</span><span class="s2"> : 1569903584000}]};
 
-$.ajax({url : </span><span class="dl">"</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.droneplay.io/v1/",</span>
+$.ajax({url : </span><span class="dl">"</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.duni.io/v1/",</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1847,7 +1847,7 @@ $.ajax({url : </span><span class="dl">"</span><span class="na">https</span><span
     <span class="s">"data"</span> <span class="p">:</span> <span class="p">[{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span><span class="mf">12.1324</span><span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s">"yaw"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"pitch"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"roll"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"rec-1"</span><span class="p">,</span> <span class="s">"dtimestamp"</span> <span class="p">:</span> <span class="mi">1569903583000</span><span class="p">},{</span><span class="s">"lat"</span><span class="p">:</span><span class="mf">12.134132</span><span class="p">,</span><span class="s">"lng"</span><span class="p">:</span> <span class="mf">12.1324</span> <span class="p">,</span><span class="s">"alt"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s">"speed"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s">"yaw"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"pitch"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"roll"</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"act"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"actparam"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">"id"</span><span class="p">:</span><span class="s">"rec-2"</span><span class="p">,</span> <span class="s">"dtimestamp"</span> <span class="p">:</span> <span class="mi">1569903583000</span><span class="p">}]</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -1863,7 +1863,7 @@ $.ajax({url : </span><span class="dl">"</span><span class="na">https</span><span
 </span></code></pre></div>
 <p>DUNI 파일럿 센터에 비행기록을 저장합니다.</p>
 <h3 id='http-10'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-10'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -2001,7 +2001,7 @@ $.ajax({url : </span><span class="dl">"</span><span class="na">https</span><span
 
 <p><a href="https://developer.dji.com/api-reference/android-api/Components/Missions/DJIWaypoint_DJIWaypointAction.html#djiwaypoint_djiwaypointactiontype_inline">DJI사의 WayPoint Action 값을 참고해 주세요</a>.</p>
 <h2 id='c2267c39ca'>모든 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"download"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"download"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
@@ -2014,7 +2014,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -2030,7 +2030,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">download</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -2064,7 +2064,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -2099,7 +2099,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>비행기록들의 목록을 불러옵니다.</p>
 <h3 id='http-11'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-11'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -2125,7 +2125,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h2 id='1-4'>비행기록 1개 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"download_spe", "name": "FLIGHTRECORDNAME"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"download_spe", "name": "FLIGHTRECORDNAME"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
@@ -2139,7 +2139,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -2155,7 +2155,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">download_spe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">FLIGHTRECORDNAME</span><span class="dl">'</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -2190,7 +2190,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -2225,7 +2225,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>지정한 이름의 비행기록 1개를 불러옵니다.</p>
 <h3 id='http-12'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-12'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -2255,7 +2255,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h2 id='84ef50c2fa'>비행기록 삭제하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"delete", "name":"FLIGHTRECORDNAME"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"delete", "name":"FLIGHTRECORDNAME"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
@@ -2269,7 +2269,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -2285,7 +2285,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delete</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">FLIGHTRECORDNAME</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -2320,7 +2320,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'mname'</span> <span class="p">:</span> <span class="s">'MISSIONNAME'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -2336,7 +2336,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>비행기록 1개를 삭제합니다.</p>
 <h3 id='http-13'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-13'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -2366,7 +2366,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h1 id='9229fc59bd'>비행기록 업로드</h1><h2 id='dji'>DJI 비행기록 파일 업로드 하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
@@ -2380,7 +2380,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -2396,7 +2396,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">convert</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">reocordfile</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BASE64_ENCODED_DJI_FLIGHTRECORD_FILE</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -2431,7 +2431,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'reocordfile'</span> <span class="p">:</span> <span class="s">'BASE64_ENCODED_DJI_FLIGHTRECORD_FILE'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -2448,7 +2448,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <p>DJI 비행기록 파일을 분석하여 비행기록으로 저장합니다.
 저장한 비행기록 파일은 비행기록 목록에서 확인할 수 있습니다.</p>
 <h3 id='http-14'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-14'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -2481,7 +2481,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <p>DJI Flight Record file 위치:
 https://forum.dji.com/thread-98213-1-1.html</p>
 <h2 id='duni'>DUNI 비행기록 파일 업로드 하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
@@ -2495,7 +2495,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -2511,7 +2511,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">duni_file_upload</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">reocordfile</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -2546,7 +2546,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'reocordfile'</span> <span class="p">:</span> <span class="s">'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -2563,7 +2563,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <p>DUNI 비행기록 파일을 비행기록으로 저장합니다.
 저장한 비행기록 파일은 비행기록 목록에서 확인할 수 있습니다.</p>
 <h3 id='http-15'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-15'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -2643,7 +2643,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h2 id='6f4f383916'>비행기록에 유튜브영상 반영하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"youtube", "name":"FLIGHTRECORDNAME", "youtube_data_id" : "https://youtube.com/watch?v=k12hadf" }'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"youtube", "name":"FLIGHTRECORDNAME", "youtube_data_id" : "https://youtube.com/watch?v=k12hadf" }'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
@@ -2658,7 +2658,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -2674,7 +2674,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">youtube</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">FLIGHTRECORDNAME</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">youtube_data_id</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://youtube.com/watch?v=k12hadf</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -2710,7 +2710,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'name'</span> <span class="p">:</span> <span class="s">'NAME'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -2726,7 +2726,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>비행기록에 유튜브 영상 링크를 설정합니다.</p>
 <h3 id='http-16'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-16'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -2760,7 +2760,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h1 id='helper-api'>기타 Helper API</h1><h2 id='fefb2b2814'>날씨 정보 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"util", "daction":"weather", "lat":"123.122", "lng":"32.111"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"util", "daction":"weather", "lat":"123.122", "lng":"32.111"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'util'</span><span class="p">;</span>
@@ -2775,7 +2775,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -2791,7 +2791,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">util</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">weather</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">123.122</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">32.111</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -2827,7 +2827,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'lng'</span> <span class="p">:</span> <span class="s">'33.111'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -2846,7 +2846,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>온도, 풍속, 기상 정보를 불러옵니다.</p>
 <h3 id='http-17'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-17'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -2880,7 +2880,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h2 id='clientid'>사용자 clientid 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"util", "daction":"check_email", "target":"email@address.com"}'</span> https://api.droneplay.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"util", "daction":"check_email", "target":"email@address.com"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'util'</span><span class="p">;</span>
@@ -2894,7 +2894,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">);</span>
 
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.droneplay.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -2910,7 +2910,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">util</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">check_email</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">target</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">email@address.com</span><span class="dl">"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.droneplay.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -2945,7 +2945,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'target'</span> <span class="p">:</span> <span class="s">'email@adress.com'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.droneplay.io/v1/'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -2962,7 +2962,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>해당 email을 보유한 DUNI 파일럿 센터 회원의 clientid를 불러옵니다.</p>
 <h3 id='http-18'>HTTP 요청</h3>
-<p><code>POST https://api.droneplay.io/v1/</code></p>
+<p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-18'>URL 파라메터</h3>
 <table><thead>
 <tr>

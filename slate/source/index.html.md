@@ -69,7 +69,7 @@ DUNI Open API는 DUNI 개발자 Token을 파라메터로 입력해야 사용하�
 
 ```shell
 
-curl -H "Content-type: application/json" -X POST -d '{"action":"member", "daction":"register", "socialid" : "EMAILADDRESS1", "phone_number" : "USER_PHONE_NUMBER", "name" : "USER_NAME", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}' https://api.droneplay.io/v1/
+curl -H "Content-type: application/json" -X POST -d '{"action":"member", "daction":"register", "socialid" : "EMAILADDRESS1", "phone_number" : "USER_PHONE_NUMBER", "name" : "USER_NAME", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}' https://api.duni.io/v1/
 
 ```
 
@@ -88,7 +88,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -107,7 +107,7 @@ echo $response;
 
 var jdata = {"action":"member", "daction":"register", "socialid" : "EMAILADDRESS1", "phone_number" : "USER_PHONE_NUMBER", "name" : "USER_NAME", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -143,7 +143,7 @@ data = {
     'sns_kind' : 'SNS_KIND',
     'sns_token' : 'SNS_ID_TOKEN'
 }
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -173,7 +173,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -193,7 +193,7 @@ socialid | 가입자의 이메일주소를 입력합니다.
 
 ```shell
 
-curl -H "Content-type: application/json" -X POST -d '{"action":"member", "daction":"login", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}' https://api.droneplay.io/v1/
+curl -H "Content-type: application/json" -X POST -d '{"action":"member", "daction":"login", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}' https://api.duni.io/v1/
 
 ```
 
@@ -209,7 +209,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -228,7 +228,7 @@ echo $response;
 
 var jdata = {"action":"member", "daction":"login", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -261,7 +261,7 @@ data = {
     'sns_kind' : 'SNS_KIND',
     'sns_token' : 'SNS_ID_TOKEN'
 }
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -293,7 +293,7 @@ SNS의 종류와 SNS ID TOKEN으로 로그인합니다.
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -313,7 +313,7 @@ sns_token | sns 로그인 후 받은 id token 값을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 1}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 1}' https://api.duni.io/v1/
 
 ```
 
@@ -339,7 +339,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -357,7 +357,7 @@ echo $response;
 
 var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILID", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 0};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -402,7 +402,7 @@ data = {
     'kind' : 'drone',
     'act' : 0
 }
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -422,7 +422,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -449,7 +449,7 @@ targets | 공유하고자 하는 대상의 emailid 값 배열 ('daction' 파라�
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "objects" : [ {"lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "drone", "dsec" : 1}, {"lat" : 12.134132, "lng" : 12.1344, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "people", "dsec" : 1} ] }' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set", "objects" : [ {"lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "drone", "dsec" : 1}, {"lat" : 12.134132, "lng" : 12.1344, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind": "people", "dsec" : 1} ] }' https://api.duni.io/v1/
 
 ```
 
@@ -477,7 +477,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -498,7 +498,7 @@ var objects = [];
 objects.push({"lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 0});
 var jdata = {"action":"position", "daction": "set", "clientid" : "EMAILID", "objects" : objects};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -549,7 +549,7 @@ data = {
     'objects' : objects
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -569,7 +569,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -625,7 +625,7 @@ objects : [
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"get"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"get"}' https://api.duni.io/v1/
 
 ```
 
@@ -641,7 +641,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -660,7 +660,7 @@ echo $response;
 
 var jdata = {"action": "position", "daction": "get", "clientid" : "EMAILID" };
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -696,7 +696,7 @@ data = {
     'daction': 'get',
     'clientid' : 'EMAILID'
 }
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -757,7 +757,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -776,7 +776,7 @@ clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"set", "mname" : "MISSIONNAME", "speed" : 1, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"set", "mname" : "MISSIONNAME", "speed" : 1, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}]}' https://api.duni.io/v1/
 
 ```
 
@@ -795,7 +795,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -814,7 +814,7 @@ echo $response;
 
 var jdata = {"clientid":"EMAILID", "action":"mission", "daction":"set", "mname" : "MISSIONNAME", "speed" : 1, "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"}];
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -854,7 +854,7 @@ data = {
     "missiondata" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-1"},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"act":1,"actparam":1,"id":"mission-2"]
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -874,7 +874,7 @@ DUNI 파일럿 센터에 비행계획 데이터를 저장합니다.
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -919,7 +919,7 @@ GIMBAL_PITCH|5
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"get"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"get"}' https://api.duni.io/v1/
 
 ```
 
@@ -935,7 +935,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -954,7 +954,7 @@ echo $response;
 
 var jdata = {"action": "mission", "daction": "get", "clientid" : "EMAILID"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -991,7 +991,7 @@ data = {
     'clientid' : 'EMAILID'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -1043,7 +1043,7 @@ DUNI 파일럿 센터의 비행계획 목록을 불러옵니다.
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -1060,7 +1060,7 @@ daction | 'get'을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"get", "mname" : "MISSIONNAME_1"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"get", "mname" : "MISSIONNAME_1"}' https://api.duni.io/v1/
 
 ```
 
@@ -1077,7 +1077,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1096,7 +1096,7 @@ echo $response;
 
 var jdata = {"action": "mission", "daction": "get", "clientid" : "EMAILID", "mname" : "MISSIONNAME_1"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -1134,7 +1134,7 @@ data = {
     'clientid' : 'EMAILID'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -1167,7 +1167,7 @@ DUNI 파일럿 센터의 비행계획 1개를 불러옵니다.
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -1185,7 +1185,7 @@ mname | 비행계획의 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"delete", "mname":"MISSIONNAME"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"delete", "mname":"MISSIONNAME"}' https://api.duni.io/v1/
 
 ```
 
@@ -1202,7 +1202,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1221,7 +1221,7 @@ echo $response;
 
 var jdata = {"action":"mission", "daction": "delete", "clientid" : "EMAILID", "mname" : "MISSIONNAME"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -1259,7 +1259,7 @@ data = {
     'mname' : 'MISSIONNAME'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -1278,7 +1278,7 @@ DUNI 파일럿 센터의 비행계획 1개를 삭제합니다.
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -1300,7 +1300,7 @@ mname | 삭제할 비행계획의 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "flat" : 37.243835988516, "flng" : 127.1122, "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "flat" : 37.243835988516, "flng" : 127.1122, "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]}' https://api.duni.io/v1/
 
 ```
 
@@ -1321,7 +1321,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1340,7 +1340,7 @@ echo $response;
 
 var jdata = {"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo" : "MEMO", "flat": 37.12341232, "flng": 127.1122, "data" :[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -1382,7 +1382,7 @@ data = {
     "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng": 12.1324 ,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903583000}]
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -1402,7 +1402,7 @@ DUNI 파일럿 센터에 비행기록을 저장합니다.
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -1454,7 +1454,7 @@ GIMBAL_PITCH|5
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"download"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"download"}' https://api.duni.io/v1/
 
 ```
 
@@ -1470,7 +1470,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1489,7 +1489,7 @@ echo $response;
 
 var jdata = {"action": "position", "daction": "download", "clientid" : "EMAILID"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -1526,7 +1526,7 @@ data = {
     'clientid' : 'EMAILID'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -1565,7 +1565,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -1583,7 +1583,7 @@ daction | 'download'을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"download_spe", "name": "FLIGHTRECORDNAME"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"download_spe", "name": "FLIGHTRECORDNAME"}' https://api.duni.io/v1/
 
 ```
 
@@ -1600,7 +1600,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1619,7 +1619,7 @@ echo $response;
 
 var jdata = {"action": "position", "daction": "download_spe", "clientid" : "EMAILID", 'name': 'FLIGHTRECORDNAME'};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -1657,7 +1657,7 @@ data = {
     'clientid' : 'EMAILID'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -1696,7 +1696,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -1713,7 +1713,7 @@ name | 비행기록 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"delete", "name":"FLIGHTRECORDNAME"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"delete", "name":"FLIGHTRECORDNAME"}' https://api.duni.io/v1/
 
 ```
 
@@ -1730,7 +1730,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1749,7 +1749,7 @@ echo $response;
 
 var jdata = {"action":"position", "daction": "delete", "clientid" : "EMAILID", "name" : "FLIGHTRECORDNAME"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -1787,7 +1787,7 @@ data = {
     'mname' : 'MISSIONNAME'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -1807,7 +1807,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -1828,7 +1828,7 @@ name | 삭제할 비행기록의 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}' https://api.duni.io/v1/
 
 ```
 
@@ -1845,7 +1845,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1864,7 +1864,7 @@ echo $response;
 
 var jdata = {"action": "position", "daction": "convert", "clientid" : "EMAILID", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -1902,7 +1902,7 @@ data = {
     'reocordfile' : 'BASE64_ENCODED_DJI_FLIGHTRECORD_FILE'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -1923,7 +1923,7 @@ DJI 비행기록 파일을 분석하여 비행기록으로 저장합니다.
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -1944,7 +1944,7 @@ https://forum.dji.com/thread-98213-1-1.html
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}' https://api.duni.io/v1/
 
 ```
 
@@ -1961,7 +1961,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1980,7 +1980,7 @@ echo $response;
 
 var jdata = {"action": "position", "daction": "duni_file_upload", "clientid" : "EMAILID", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -2018,7 +2018,7 @@ data = {
     'reocordfile' : 'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -2039,7 +2039,7 @@ DUNI 비행기록 파일을 비행기록으로 저장합니다.
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -2106,7 +2106,7 @@ recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. 
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"youtube", "name":"FLIGHTRECORDNAME", "youtube_data_id" : "https://youtube.com/watch?v=k12hadf" }' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"youtube", "name":"FLIGHTRECORDNAME", "youtube_data_id" : "https://youtube.com/watch?v=k12hadf" }' https://api.duni.io/v1/
 
 ```
 
@@ -2124,7 +2124,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2143,7 +2143,7 @@ echo $response;
 
 var jdata = {"action":"position", "daction": "youtube", "clientid" : "EMAILID", "name" : "FLIGHTRECORDNAME", "youtube_data_id" : "https://youtube.com/watch?v=k12hadf"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -2182,7 +2182,7 @@ data = {
     'name' : 'NAME'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -2201,7 +2201,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -2222,7 +2222,7 @@ youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watc
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"util", "daction":"weather", "lat":"123.122", "lng":"32.111"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"util", "daction":"weather", "lat":"123.122", "lng":"32.111"}' https://api.duni.io/v1/
 
 ```
 
@@ -2240,7 +2240,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2259,7 +2259,7 @@ echo $response;
 
 var jdata = {"action": "util", "daction": "weather", "clientid" : "EMAILID", "lat":"123.122", "lng":"32.111"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -2298,7 +2298,7 @@ data = {
     'lng' : '33.111'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -2321,7 +2321,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
@@ -2340,7 +2340,7 @@ lng | 경도
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"util", "daction":"check_email", "target":"email@address.com"}' https://api.droneplay.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"util", "daction":"check_email", "target":"email@address.com"}' https://api.duni.io/v1/
 
 ```
 
@@ -2357,7 +2357,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.droneplay.io/v1/');
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2376,7 +2376,7 @@ echo $response;
 
 var jdata = {"action": "util", "daction": "check_email", "clientid" : "EMAILID", "target":"email@address.com"};
 
-$.ajax({url : "https://api.droneplay.io/v1/",
+$.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -2414,7 +2414,7 @@ data = {
     'target' : 'email@adress.com'
 }
 
-url = 'https://api.droneplay.io/v1/'
+url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -2435,7 +2435,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST https://api.droneplay.io/v1/`
+`POST https://api.duni.io/v1/`
 
 ### URL 파라메터
 
