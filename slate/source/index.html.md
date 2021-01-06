@@ -2316,7 +2316,9 @@ response.raise_for_status()
     "result":"success",
     "temp" : 20, //온도, 섭씨
     "wind" : 2, //풍속, m/s
-    "pty" : "rain" //기상 - "rain/snow", "snow", "sun"
+    "pty" : "rain", //기상 - "rain/snow", "snow", "sun",
+    "vec" : "N-NE", //풍향 - "N-NE", "NE-E", "E-SE", "SE-S", "S-SW", "SW-W", "W-NW", "NW-N"
+    "currentk" : 1 //자기장지수 (단위 Kp) 
   }
 ```
 
