@@ -17,7 +17,7 @@ toc_footers:
   - <a href='https://www.facebook.com/DuniPilotPage/'>DUNI 파일럿 페이스북</a>
   - <a href='https://groups.google.com/forum/#!forum/droneplay2018'>개발관련 문의게시판</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
-  - © 2020 APLY Inc.
+  - © <script>var cYear=(new Date()).getFullYear();document.write(cYear);</script> APLY Inc.
 includes:
   - errors
 
