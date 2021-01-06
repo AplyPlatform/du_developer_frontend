@@ -418,7 +418,7 @@ response.raise_for_status()
   }
 ```
 
-드론의 현재 위치와 정보를 저장하거나 공유합니다.
+드론의 현재 위치와 정보를 저장하고 공유합니다.
 
 ### HTTP 요청
 
@@ -565,7 +565,7 @@ response.raise_for_status()
   }
 ```
 
-1개 이상의 드론이나 객체의 현재 위치와 정보를 저장하거나 공유합니다.
+1개 이상의 드론이나 객체의 현재 위치와 정보를 저장하고 공유합니다.
 
 ### HTTP 요청
 
@@ -870,7 +870,7 @@ response.raise_for_status()
   }
 ```
 
-DUNI 파일럿 센터에 비행계획 데이터를 저장합니다.
+DUNI 파일럿 센터에 비행계획을 저장합니다.
 
 ### HTTP 요청
 
@@ -914,7 +914,7 @@ GIMBAL_PITCH|5
 [DJI사의 WayPoint Action 값을 참고해 주세요](https://developer.dji.com/api-reference/android-api/Components/Missions/DJIWaypoint_DJIWaypointAction.html#djiwaypoint_djiwaypointactiontype_inline).
 
 
-## 비행계획 불러오기
+## 비행계획 10개씩 불러오기
 
 
 ```shell
@@ -1036,10 +1036,11 @@ response.raise_for_status()
           "clientid":"EMAILID",
           "speed" : 1
       }
-    ]
+    ],
+    "morekey" : "<some value>"
   }
 ```
-DUNI 파일럿 센터의 비행계획 목록을 불러옵니다.
+DUNI 파일럿 센터의 비행계획 목록 10개를 불러옵니다.
 
 ### HTTP 요청
 
@@ -1053,6 +1054,7 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'mission'을 입력합니다.
 daction | 'get'을 입력합니다.
+morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 
 
 ## 비행계획 1개 불러오기
@@ -1449,7 +1451,7 @@ GIMBAL_PITCH|5
 [DJI사의 WayPoint Action 값을 참고해 주세요](https://developer.dji.com/api-reference/android-api/Components/Missions/DJIWaypoint_DJIWaypointAction.html#djiwaypoint_djiwaypointactiontype_inline).
 
 
-## 모든 비행기록 불러오기
+## 비행기록 10개씩 불러오기
 
 
 ```shell
@@ -1555,13 +1557,14 @@ response.raise_for_status()
           "clientid":"EMAILID",
           "flat" : 127.122,
           "flng" : 37.1122,
-          "memo" : "MYMEMO"
+          "memo" : "MYMEMO",
       }
-    ]
+    ],
+    "morekey" : "<some value>"
   }
 ```
 
-비행기록들의 목록을 불러옵니다.
+비행기록의 목록을 10개씩 불러옵니다.
 
 ### HTTP 요청
 
@@ -1575,7 +1578,7 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'download'을 입력합니다.
-
+morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 
 
 ## 비행기록 1개 불러오기
@@ -2313,7 +2316,9 @@ response.raise_for_status()
     "result":"success",
     "temp" : 20, //온도, 섭씨
     "wind" : 2, //풍속, m/s
-    "pty" : "rain" //기상 - "rain/snow", "snow", "sun"
+    "pty" : "rain", //기상 - "rain/snow", "snow", "sun",
+    "vec" : "N-NE", //풍향 - "N-NE", "NE-E", "E-SE", "SE-S", "S-SW", "SW-W", "W-NW", "NW-N"
+    "currentk" : 1 //자기장지수 (단위 Kp) 
   }
 ```
 
