@@ -28,7 +28,7 @@ search: true
 
 'Drone, Everywhere'
 
-이곳은 드론 소프트웨어 개발자분들을 위한 예제코드와 DUNI Open API사용법을 제공하는 사이트입니다.
+이곳은 드론 소프트웨어 개발자분들을 위한 DUNI Open API사용법과 예제코드를 제공하는 사이트입니다.
 
 
 # Token 발급 받기
@@ -2318,11 +2318,13 @@ response.raise_for_status()
     "wind" : 2, //풍속, m/s
     "pty" : "rain", //기상 - "rain/snow", "snow", "sun",
     "vec" : "N-NE", //풍향 - "N-NE", "NE-E", "E-SE", "SE-S", "S-SW", "SW-W", "W-NW", "NW-N"
-    "currentk" : 1 //자기장지수 (단위 Kp) 
+    "currentk" : 1, //자기장지수 (단위 Kp)
+    "sunset" : "1730", //일몰시각
+    "sunrise" : "0749" //일출시각
   }
 ```
 
-온도, 풍속, 기상 정보를 불러옵니다.
+온도, 풍속, 기상, 자기장 등 정보를 응답합니다.
 
 ### HTTP 요청
 
