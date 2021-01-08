@@ -2314,7 +2314,7 @@ response.raise_for_status()
 ```json
   {
     "result":"success",
-    "temp" : 20, //온도(섭씨)
+    "temp" : "20.2", //온도(섭씨)
     "wind" : 2, //풍속(m/s)
     "pty" : "rain", //기상 - "rain/snow", "snow", "sun",
     "vec" : "293", //풍향(각도, degree), 0:북, 90:동, 180:남, 270:서 - ex) 븍북동풍 : 0 ~ 45사이의 값 
