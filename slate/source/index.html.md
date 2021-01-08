@@ -2320,7 +2320,9 @@ response.raise_for_status()
     "vec" : "N-NE", //풍향 - "N-NE", "NE-E", "E-SE", "SE-S", "S-SW", "SW-W", "W-NW", "NW-N"
     "currentk" : 1, //자기장지수 (단위 Kp)
     "sunset" : "1730", //일몰시각
-    "sunrise" : "0749" //일출시각
+    "sunrise" : "0749", //일출시각
+    "rain_p" : "10", //강수확률
+    "sky_p" : "1", //하늘 상태 예보 - 1:맑음, 3:구름많음, 4:흐림
   }
 ```
 
