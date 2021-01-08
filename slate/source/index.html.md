@@ -2315,14 +2315,14 @@ response.raise_for_status()
   {
     "result":"success",
     "temp" : "20.2", //온도(섭씨)
-    "wind" : 2, //풍속(m/s)
+    "wind" : "2", //풍속(m/s)
     "pty" : "rain", //기상 - "rain/snow", "snow", "sun",
     "vec" : "293", //풍향(각도, degree), 0:북, 90:동, 180:남, 270:서 - ex) 븍북동풍 : 0 ~ 45사이의 값 
-    "currentk" : 1, //자기장지수(Kp)
+    "currentk" : "1", //자기장지수(Kp)
     "sunset" : "1730", //일몰시각
     "sunrise" : "0749", //일출시각
-    "clouds" : 10, //구름이 낀 정도(%)
-    "visibility" : 10000, //가시거리(m)
+    "clouds" : "10", //구름이 낀 정도(%)
+    "visibility" : "10000", //가시거리(m)
     "rain_p" : "10" //강수확률(%)
   }
 ```
