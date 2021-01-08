@@ -2220,7 +2220,7 @@ youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watc
 
 # 기타 Helper API
 
-## 날씨 정보 불러오기
+## 기상정보 불러오기
 
 
 ```shell
@@ -2314,20 +2314,20 @@ response.raise_for_status()
 ```json
   {
     "result":"success",
-    "temp" : 20, //온도, 섭씨
-    "wind" : 2, //풍속, m/s
+    "temp" : 20, //온도(섭씨)
+    "wind" : 2, //풍속(m/s)
     "pty" : "rain", //기상 - "rain/snow", "snow", "sun",
-    "vec" : "N-NE", //풍향 - "N-NE", "NE-E", "E-SE", "SE-S", "S-SW", "SW-W", "W-NW", "NW-N"
-    "currentk" : 1, //자기장지수 (단위 Kp)
+    "vec" : "293", //풍향(각도, degree), 0:북, 90:동, 180:남, 270:서 - ex) 븍북동풍 : 0 ~ 45사이의 값 
+    "currentk" : 1, //자기장지수(Kp)
     "sunset" : "1730", //일몰시각
     "sunrise" : "0749", //일출시각
-    "rain_p" : "10", //강수확률
-    "clouds" : 10, //구름이 낀 정도: 0 ~ 100(%)
-    "visibility" : 10000 //가시거리 (미터)
+    "clouds" : 10, //구름이 낀 정도(%)
+    "visibility" : 10000, //가시거리(m)
+    "rain_p" : "10" //강수확률(%)
   }
 ```
 
-온도, 풍속, 기상, 자기장 등 정보를 응답합니다.
+온도, 풍속, 기상, 자기장 등의 기상정보를 응답합니다.
 
 ### HTTP 요청
 
