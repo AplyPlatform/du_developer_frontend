@@ -63,7 +63,7 @@ DUNI Open API는 DUNI 개발자 Token을 파라메터로 입력해야 사용하�
 또는, "가입하기" API를 통해 Token을 발급 받을 수 있습니다.
 
 
-#가입 및 로그인
+#가입 및 로그인/자동로그인/로그아웃
 
 ##가입하기
 
@@ -303,7 +303,226 @@ action | 'member'을 입력합니다.
 daction | 'login'을 입력합니다.
 sns_kind | facebook, naver, apple, kakao, google 중 하나를 입력합니다.
 sns_token | sns 로그인 후 받은 id token 값을 입력합니다.
+device_kind | 푸시알림을 받을 기기의 종류를 입력합니다. ios, android 중 하나를 입력합니다. 그 외의 디바이스일 경우 입력하지 않으셔도 됩니다. (Optional)
+device_id | 푸시알림을 받을 기기의 푸시토큰을 입력합니다. (Optional)
 
+
+
+##자동로그인
+
+```shell
+
+curl -H "Content-type: application/json" -X POST -d '{"action":"member", "daction":"autologin", "device_id" : "DEVICE_ID"}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'member';
+$body['daction'] = 'autologin';
+$body['device_id'] = "DEVICE_ID";
+
+$headers = array(
+        'Content-Type: application/json'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action":"member", "daction":"autologin", "device_id" : "DEVICE_ID"};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           alert("Successfully, recorded.");
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json'
+}
+data = {
+    'action' : 'member',
+    'daction' : 'autologin',
+    'device_id' : 'DEVICE_ID'
+}
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result": "success"
+  }
+```
+
+> 오류 발생시
+
+```json
+  {
+    "result": "failed",
+    "reason": "failed to get user data blah ..."
+  }
+```
+
+ios/android 기기에서 자동 로그인시에 푸시토큰 갱신을 위해 사용합니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+action | 'member'을 입력합니다.
+daction | 'autologin'을 입력합니다.
+device_id | 푸시알림을 받을 기기의 푸시토큰을 입력합니다.
+
+
+##로그아웃
+
+```shell
+
+curl -H "Content-type: application/json" -X POST -d '{"action":"member", "daction":"logout"}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'member';
+$body['daction'] = 'logout';
+
+$headers = array(
+        'Content-Type: application/json'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action":"member", "daction":"logout"};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           alert("Successfully, recorded.");
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json'
+}
+data = {
+    'action' : 'member',
+    'daction' : 'logout'
+}
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result": "success"
+  }
+```
+
+> 오류 발생시
+
+```json
+  {
+    "result": "failed",
+    "reason": "failed to get user data blah ..."
+  }
+```
+
+ios/android 기기로 푸시알림을 받지 않기 위해 사용합니다..
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+action | 'member'을 입력합니다.
+daction | 'logout'을 입력합니다.
 
 
 # 드론의 현재위치 저장/불러오기
@@ -2317,7 +2536,7 @@ response.raise_for_status()
     "temp" : "20.2", //온도(섭씨)
     "wind" : "2", //풍속(m/s)
     "pty" : "rain", //기상 - "rain/snow", "snow", "sun",
-    "vec" : "293", //풍향(각도, degree), 0:북, 90:동, 180:남, 270:서 - ex) 븍북동풍 : 0 ~ 45사이의 값 
+    "vec" : "293", //풍향(각도, degree), 0:북, 90:동, 180:남, 270:서 - ex) 븍북동풍 : 0 ~ 45사이의 값
     "currentk" : "1", //자기장지수(Kp)
     "sunset" : "1730", //일몰시각
     "sunrise" : "0749", //일출시각

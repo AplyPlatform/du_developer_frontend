@@ -320,13 +320,19 @@
             <a href="#token" class="toc-h1 toc-link" data-title="Token 발급 받기">Token 발급 받기</a>
           </li>
           <li>
-            <a href="#de95133e51" class="toc-h1 toc-link" data-title="가입 및 로그인">가입 및 로그인</a>
+            <a href="#a2705f60dd" class="toc-h1 toc-link" data-title="가입 및 로그인/자동로그인/로그아웃">가입 및 로그인/자동로그인/로그아웃</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#1314de2e12" class="toc-h2 toc-link" data-title="가입하기">가입하기</a>
                   </li>
                   <li>
                     <a href="#e225a6fd75" class="toc-h2 toc-link" data-title="로그인">로그인</a>
+                  </li>
+                  <li>
+                    <a href="#d47925b109" class="toc-h2 toc-link" data-title="자동로그인">자동로그인</a>
+                  </li>
+                  <li>
+                    <a href="#3879f078a4" class="toc-h2 toc-link" data-title="로그아웃">로그아웃</a>
                   </li>
               </ul>
           </li>
@@ -445,7 +451,7 @@
 <p><a href="https://pilot.duni.io/center">DUNI 파일럿 센터</a>.</p>
 
 <p>또는, &quot;가입하기&quot; API를 통해 Token을 발급 받을 수 있습니다.</p>
-<h1 id='de95133e51'>가입 및 로그인</h1><h2 id='1314de2e12'>가입하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+<h1 id='a2705f60dd'>가입 및 로그인/자동로그인/로그아웃</h1><h2 id='1314de2e12'>가입하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"register", "socialid" : "EMAILADDRESS1", "phone_number" : "USER_PHONE_NUMBER", "name" : "USER_NAME", "sns_token" : "SNS_ID_TOKEN", "sns_kind" : "SNS_KIND"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
@@ -684,6 +690,214 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 <td>sns_token</td>
 <td>sns 로그인 후 받은 id token 값을 입력합니다.</td>
 </tr>
+<tr>
+<td>device_kind</td>
+<td>푸시알림을 받을 기기의 종류를 입력합니다. ios, android 중 하나를 입력합니다. 그 외의 디바이스일 경우 입력하지 않으셔도 됩니다. (Optional)</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>푸시알림을 받을 기기의 푸시토큰을 입력합니다. (Optional)</td>
+</tr>
+</tbody></table>
+<h2 id='d47925b109'>자동로그인</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"autologin", "device_id" : "DEVICE_ID"}'</span> https://api.duni.io/v1/
+
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'member'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'autologin'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'device_id'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"DEVICE_ID"</span><span class="p">;</span>
+
+<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'Content-Type: application/json'</span>
+<span class="p">);</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$body</span><span class="p">));</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="c1">//$json_list= json_decode($response, true);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">autologin</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">device_id</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">DEVICE_ID</span><span class="dl">"</span><span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+       <span class="na">cache</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">data</span> <span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jdata</span><span class="p">),</span>
+       <span class="na">type</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">async</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span>
+         <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">result</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Successfully, recorded.</span><span class="dl">"</span><span class="p">);</span>
+         <span class="p">}</span>
+       <span class="p">},</span>
+       <span class="na">error</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">status</span><span class="p">,</span><span class="nx">error</span><span class="p">){</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">code:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">message:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">error:</span><span class="dl">"</span><span class="o">+</span><span class="nx">error</span><span class="p">);</span>
+       <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'action'</span> <span class="p">:</span> <span class="s">'member'</span><span class="p">,</span>
+    <span class="s">'daction'</span> <span class="p">:</span> <span class="s">'autologin'</span><span class="p">,</span>
+    <span class="s">'device_id'</span> <span class="p">:</span> <span class="s">'DEVICE_ID'</span>
+<span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+                         <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="s">'response.json()
+
+</span></code></pre></div>
+<blockquote>
+<p>이 요청은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>오류 발생시</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed to get user data blah ..."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>ios/android 기기에서 자동 로그인시에 푸시토큰 갱신을 위해 사용합니다.</p>
+<h3 id='http-3'>HTTP 요청</h3>
+<p><code>POST https://api.duni.io/v1/</code></p>
+<h3 id='url-3'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action</td>
+<td>&#39;member&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>daction</td>
+<td>&#39;autologin&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>푸시알림을 받을 기기의 푸시토큰을 입력합니다.</td>
+</tr>
+</tbody></table>
+<h2 id='3879f078a4'>로그아웃</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"action":"member", "daction":"logout"}'</span> https://api.duni.io/v1/
+
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'member'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'logout'</span><span class="p">;</span>
+
+<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'Content-Type: application/json'</span>
+<span class="p">);</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$body</span><span class="p">));</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="c1">//$json_list= json_decode($response, true);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">logout</span><span class="dl">"</span><span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+       <span class="na">cache</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">data</span> <span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jdata</span><span class="p">),</span>
+       <span class="na">type</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">async</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span>
+         <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">result</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Successfully, recorded.</span><span class="dl">"</span><span class="p">);</span>
+         <span class="p">}</span>
+       <span class="p">},</span>
+       <span class="na">error</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">status</span><span class="p">,</span><span class="nx">error</span><span class="p">){</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">code:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">message:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">error:</span><span class="dl">"</span><span class="o">+</span><span class="nx">error</span><span class="p">);</span>
+       <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'action'</span> <span class="p">:</span> <span class="s">'member'</span><span class="p">,</span>
+    <span class="s">'daction'</span> <span class="p">:</span> <span class="s">'logout'</span>
+<span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+                         <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="s">'response.json()
+
+</span></code></pre></div>
+<blockquote>
+<p>이 요청은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>오류 발생시</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed to get user data blah ..."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>ios/android 기기로 푸시알림을 받지 않기 위해 사용합니다..</p>
+<h3 id='http-4'>HTTP 요청</h3>
+<p><code>POST https://api.duni.io/v1/</code></p>
+<h3 id='url-4'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action</td>
+<td>&#39;member&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>daction</td>
+<td>&#39;logout&#39;을 입력합니다.</td>
+</tr>
 </tbody></table>
 <h1 id='aa3965a0e0'>드론의 현재위치 저장/불러오기</h1><h2 id='1'>1개 드론의 현재위치 저장/공유</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"set", "lat" : 12.134132, "lng" : 12.1324, "alt" : 5, "yaw":10, "pitch" : 10, "roll": 10, "act" : 0, "kind" : "drone", "dsec" : 1}'</span> https://api.duni.io/v1/
@@ -781,9 +995,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>드론의 현재 위치와 정보를 저장하고 공유합니다.</p>
-<h3 id='http-3'>HTTP 요청</h3>
+<h3 id='http-5'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-3'>URL 파라메터</h3>
+<h3 id='url-5'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -954,9 +1168,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>1개 이상의 드론이나 객체의 현재 위치와 정보를 저장하고 공유합니다.</p>
-<h3 id='http-4'>HTTP 요청</h3>
+<h3 id='http-6'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-4'>URL 파라메터</h3>
+<h3 id='url-6'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1178,9 +1392,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 </span></code></pre></div>
 <aside class="warning">dtimestamp는 GMT+0 기준입니다. 서울기준이 아닙니다.</aside>
-<h3 id='http-5'>HTTP 요청</h3>
+<h3 id='http-7'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-5'>URL 파라메터</h3>
+<h3 id='url-7'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1289,9 +1503,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>DUNI 파일럿 센터에 비행계획을 저장합니다.</p>
-<h3 id='http-6'>HTTP 요청</h3>
+<h3 id='http-8'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-6'>URL 파라메터</h3>
+<h3 id='url-8'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1512,9 +1726,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>DUNI 파일럿 센터의 비행계획 목록 10개를 불러옵니다.</p>
-<h3 id='http-7'>HTTP 요청</h3>
+<h3 id='http-9'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-7'>URL 파라메터</h3>
+<h3 id='url-9'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1637,9 +1851,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
       </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>DUNI 파일럿 센터의 비행계획 1개를 불러옵니다.</p>
-<h3 id='http-8'>HTTP 요청</h3>
+<h3 id='http-10'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-8'>URL 파라메터</h3>
+<h3 id='url-10'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1748,9 +1962,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>DUNI 파일럿 센터의 비행계획 1개를 삭제합니다.</p>
-<h3 id='http-9'>HTTP 요청</h3>
+<h3 id='http-11'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-9'>URL 파라메터</h3>
+<h3 id='url-11'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -1867,9 +2081,9 @@ $.ajax({url : </span><span class="dl">"</span><span class="na">https</span><span
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>DUNI 파일럿 센터에 비행기록을 저장합니다.</p>
-<h3 id='http-10'>HTTP 요청</h3>
+<h3 id='http-12'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-10'>URL 파라메터</h3>
+<h3 id='url-12'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -2104,9 +2318,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>비행기록의 목록을 10개씩 불러옵니다.</p>
-<h3 id='http-11'>HTTP 요청</h3>
+<h3 id='http-13'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-11'>URL 파라메터</h3>
+<h3 id='url-13'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -2234,9 +2448,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>지정한 이름의 비행기록 1개를 불러옵니다.</p>
-<h3 id='http-12'>HTTP 요청</h3>
+<h3 id='http-14'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-12'>URL 파라메터</h3>
+<h3 id='url-14'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -2345,9 +2559,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>비행기록 1개를 삭제합니다.</p>
-<h3 id='http-13'>HTTP 요청</h3>
+<h3 id='http-15'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-13'>URL 파라메터</h3>
+<h3 id='url-15'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -2457,9 +2671,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>DJI 비행기록 파일을 분석하여 비행기록으로 저장합니다.
 저장한 비행기록 파일은 비행기록 목록에서 확인할 수 있습니다.</p>
-<h3 id='http-14'>HTTP 요청</h3>
+<h3 id='http-16'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-14'>URL 파라메터</h3>
+<h3 id='url-16'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -2572,9 +2786,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </span></code></pre></div>
 <p>DUNI 비행기록 파일을 비행기록으로 저장합니다.
 저장한 비행기록 파일은 비행기록 목록에서 확인할 수 있습니다.</p>
-<h3 id='http-15'>HTTP 요청</h3>
+<h3 id='http-17'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-15'>URL 파라메터</h3>
+<h3 id='url-17'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -2735,9 +2949,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>비행기록에 유튜브 영상 링크를 설정합니다.</p>
-<h3 id='http-16'>HTTP 요청</h3>
+<h3 id='http-18'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-16'>URL 파라메터</h3>
+<h3 id='url-18'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -2852,7 +3066,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     </span><span class="nl">"temp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"20.2"</span><span class="p">,</span><span class="w"> </span><span class="err">//온도(섭씨)</span><span class="w">
     </span><span class="nl">"wind"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w"> </span><span class="err">//풍속(m/s)</span><span class="w">
     </span><span class="nl">"pty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"rain"</span><span class="p">,</span><span class="w"> </span><span class="err">//기상</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="s2">"rain/snow"</span><span class="p">,</span><span class="w"> </span><span class="s2">"snow"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sun"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"vec"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"293"</span><span class="p">,</span><span class="w"> </span><span class="err">//풍향(각도</span><span class="p">,</span><span class="w"> </span><span class="err">degree)</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="err">:북</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="err">:동</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="err">:남</span><span class="p">,</span><span class="w"> </span><span class="mi">270</span><span class="err">:서</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">ex)</span><span class="w"> </span><span class="err">븍북동풍</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="mi">45</span><span class="err">사이의</span><span class="w"> </span><span class="err">값</span><span class="w"> 
+    </span><span class="nl">"vec"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"293"</span><span class="p">,</span><span class="w"> </span><span class="err">//풍향(각도</span><span class="p">,</span><span class="w"> </span><span class="err">degree)</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="err">:북</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="err">:동</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="err">:남</span><span class="p">,</span><span class="w"> </span><span class="mi">270</span><span class="err">:서</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">ex)</span><span class="w"> </span><span class="err">븍북동풍</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="mi">45</span><span class="err">사이의</span><span class="w"> </span><span class="err">값</span><span class="w">
     </span><span class="nl">"currentk"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w"> </span><span class="err">//자기장지수(Kp)</span><span class="w">
     </span><span class="nl">"sunset"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1730"</span><span class="p">,</span><span class="w"> </span><span class="err">//일몰시각</span><span class="w">
     </span><span class="nl">"sunrise"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0749"</span><span class="p">,</span><span class="w"> </span><span class="err">//일출시각</span><span class="w">
@@ -2862,9 +3076,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>온도, 풍속, 기상, 자기장 등의 기상정보를 응답합니다.</p>
-<h3 id='http-17'>HTTP 요청</h3>
+<h3 id='http-19'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-17'>URL 파라메터</h3>
+<h3 id='url-19'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -2978,9 +3192,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>해당 email을 보유한 DUNI 파일럿 센터 회원의 clientid를 불러옵니다.</p>
-<h3 id='http-18'>HTTP 요청</h3>
+<h3 id='http-20'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-18'>URL 파라메터</h3>
+<h3 id='url-20'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
