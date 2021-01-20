@@ -705,6 +705,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'member'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'autologin'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILID'</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'device_id'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"DEVICE_ID"</span><span class="p">;</span>
 
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -726,7 +727,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">autologin</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">device_id</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">DEVICE_ID</span><span class="dl">"</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">autologin</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">device_id</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">DEVICE_ID</span><span class="dl">"</span><span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -755,6 +756,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'action'</span> <span class="p">:</span> <span class="s">'member'</span><span class="p">,</span>
     <span class="s">'daction'</span> <span class="p">:</span> <span class="s">'autologin'</span><span class="p">,</span>
+    <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span><span class="p">,</span>
     <span class="s">'device_id'</span> <span class="p">:</span> <span class="s">'DEVICE_ID'</span>
 <span class="p">}</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
@@ -798,6 +800,10 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 <td>&#39;autologin&#39;을 입력합니다.</td>
 </tr>
 <tr>
+<td>clientid</td>
+<td>로그인 후 수신한 emailid 값을 입력합니다.</td>
+</tr>
+<tr>
 <td>device_id</td>
 <td>푸시알림을 받을 기기의 푸시토큰을 입력합니다.</td>
 </tr>
@@ -807,6 +813,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'member'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILID'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'logout'</span><span class="p">;</span>
 
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -828,7 +835,7 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">logout</span><span class="dl">"</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">member</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">logout</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -856,7 +863,8 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'action'</span> <span class="p">:</span> <span class="s">'member'</span><span class="p">,</span>
-    <span class="s">'daction'</span> <span class="p">:</span> <span class="s">'logout'</span>
+    <span class="s">'daction'</span> <span class="p">:</span> <span class="s">'logout'</span><span class="p">,</span>
+    <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span>
 <span class="p">}</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
@@ -897,6 +905,10 @@ curl <span class="nt">-H</span> <span class="s2">"Content-type: application/json
 <tr>
 <td>daction</td>
 <td>&#39;logout&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>clientid</td>
+<td>로그인 후 수신한 emailid 값을 입력합니다.</td>
 </tr>
 </tbody></table>
 <h1 id='aa3965a0e0'>드론의 현재위치 저장/불러오기</h1><h2 id='1'>1개 드론의 현재위치 저장/공유</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>

@@ -320,6 +320,7 @@ curl -H "Content-type: application/json" -X POST -d '{"action":"member", "dactio
 
 $body['action'] = 'member';
 $body['daction'] = 'autologin';
+$body['clientid'] = 'EMAILID'
 $body['device_id'] = "DEVICE_ID";
 
 $headers = array(
@@ -344,7 +345,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action":"member", "daction":"autologin", "device_id" : "DEVICE_ID"};
+var jdata = {"action":"member", "daction":"autologin", "clientid" : "EMAILID", "device_id" : "DEVICE_ID"};
 
 $.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
@@ -376,6 +377,7 @@ headers = {
 data = {
     'action' : 'member',
     'daction' : 'autologin',
+    'clientid' : 'EMAILID',
     'device_id' : 'DEVICE_ID'
 }
 url = 'https://api.duni.io/v1/'
@@ -415,6 +417,7 @@ ios/android 기기에서 자동 로그인시에 푸시토큰 갱신을 위해 �
 --------- | -----------
 action | 'member'을 입력합니다.
 daction | 'autologin'을 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 device_id | 푸시알림을 받을 기기의 푸시토큰을 입력합니다.
 
 
@@ -429,6 +432,7 @@ curl -H "Content-type: application/json" -X POST -d '{"action":"member", "dactio
 ```php
 
 $body['action'] = 'member';
+$body['clientid'] = 'EMAILID';
 $body['daction'] = 'logout';
 
 $headers = array(
@@ -453,7 +457,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action":"member", "daction":"logout"};
+var jdata = {"action":"member", "daction":"logout", "clientid":"EMAILID"};
 
 $.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
@@ -484,7 +488,8 @@ headers = {
 }
 data = {
     'action' : 'member',
-    'daction' : 'logout'
+    'daction' : 'logout',
+    'clientid' : 'EMAILID'
 }
 url = 'https://api.duni.io/v1/'
 response = requests.post(url, headers=headers,
@@ -523,6 +528,7 @@ ios/android 기기로 푸시알림을 받지 않기 위해 사용합니다..
 --------- | -----------
 action | 'member'을 입력합니다.
 daction | 'logout'을 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 
 
 # 드론의 현재위치 저장/불러오기
