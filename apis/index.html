@@ -380,7 +380,7 @@
                     <a href="#969ca2594a" class="toc-h2 toc-link" data-title="좌표로 비행기록 불러오기">좌표로 비행기록 불러오기</a>
                   </li>
                   <li>
-                    <a href="#83a2bb9da7" class="toc-h2 toc-link" data-title="비행기록 이름으로 상세 비행기록 불러오기">비행기록 이름으로 상세 비행기록 불러오기</a>
+                    <a href="#eb939d8390" class="toc-h2 toc-link" data-title="이름으로 상세 비행기록 불러오기">이름으로 상세 비행기록 불러오기</a>
                   </li>
                   <li>
                     <a href="#84ef50c2fa" class="toc-h2 toc-link" data-title="비행기록 삭제하기">비행기록 삭제하기</a>
@@ -2506,7 +2506,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)</td>
 </tr>
 </tbody></table>
-<h2 id='83a2bb9da7'>비행기록 이름으로 상세 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+<h2 id='eb939d8390'>이름으로 상세 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"download_spe", "name": "FLIGHTRECORDNAME"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
