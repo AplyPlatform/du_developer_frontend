@@ -1805,6 +1805,143 @@ daction | 'download'을 입력합니다.
 morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 
 
+
+## 좌표로 비행기록 불러오기
+
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"media_by_address", "address" : "제주시 조천읍 두니리 000-1"}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'position';
+$body['daction'] = 'media_by_address';
+$body['clientid'] = 'EMAILID';
+$body['address'] = '제주시 조천읍 두니리 000-1';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "position", "daction": "media_by_address", "clientid" : "EMAILID", "address" : "제주시 조천읍 두니리 000-1"};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'position',
+    'daction': 'media_by_address',
+    'clientid' : 'EMAILID',
+    'address' : '제주시 조천읍 두니리 000-1'
+}
+
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "data":[
+          {
+          "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
+          "name":"RECNAME_1",
+          "clientid":"EMAILID",
+          "flat" : 127.122,
+          "flng" : 37.1122,
+          "memo" : "MYMEMO",
+          "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE"
+      },
+
+      {
+          "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
+          "name":"RECNAME_2",
+          "clientid":"EMAILID",
+          "flat" : 127.122,
+          "flng" : 37.1122,
+          "memo" : "MYMEMO",
+          "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE"
+      }
+    ],
+    "morekey" : "<some value>"
+  }
+```
+
+요청한 주소 근처의 비행기록 목록을 10개씩 불러옵니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'position'을 입력합니다.
+daction | 'media_by_address'을 입력합니다.
+address | 번지까지 정확한 주소
+morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
+
+
+
 ## 좌표로 비행기록 불러오기
 
 
