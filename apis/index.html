@@ -377,10 +377,10 @@
                     <a href="#e742b80a24" class="toc-h2 toc-link" data-title="비행기록 목록 불러오기">비행기록 목록 불러오기</a>
                   </li>
                   <li>
-                    <a href="#969ca2594a" class="toc-h2 toc-link" data-title="좌표로 비행기록 불러오기">좌표로 비행기록 불러오기</a>
+                    <a href="#dc0d880e95" class="toc-h2 toc-link" data-title="주소로 비행기록 불러오기">주소로 비행기록 불러오기</a>
                   </li>
                   <li>
-                    <a href="#969ca2594a-2" class="toc-h2 toc-link" data-title="좌표로 비행기록 불러오기">좌표로 비행기록 불러오기</a>
+                    <a href="#969ca2594a" class="toc-h2 toc-link" data-title="좌표로 비행기록 불러오기">좌표로 비행기록 불러오기</a>
                   </li>
                   <li>
                     <a href="#eb939d8390" class="toc-h2 toc-link" data-title="이름으로 상세 비행기록 불러오기">이름으로 상세 비행기록 불러오기</a>
@@ -2362,7 +2362,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)</td>
 </tr>
 </tbody></table>
-<h2 id='969ca2594a'>좌표로 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+<h2 id='dc0d880e95'>주소로 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"media_by_address", "address" : "제주시 조천읍 두니리 000-1"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
@@ -2499,7 +2499,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)</td>
 </tr>
 </tbody></table>
-<h2 id='969ca2594a-2'>좌표로 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+<h2 id='969ca2594a'>좌표로 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"media", "lat":33.1232, "lng":121.11}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
