@@ -1527,7 +1527,7 @@ mname | 삭제할 비행계획의 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]}' https://api.duni.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo": "MEMO", "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1", "youtube_data_id":"https://wwww.youtube.com/watch?v=ABCDE", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]}' https://api.duni.io/v1/
 
 ```
 
@@ -1538,6 +1538,7 @@ $body['daction'] = 'upload';
 $body['clientid'] = 'EMAILID';
 $body['name'] = "FLIGHTRECORDNAME";
 $body['memo'] = "MEMO";
+$body['youtube_data_id'] = "https://wwww.youtube.com/watch?v=ABCDE";
 $body['data'] = json_decode('[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0,"yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]');
 
 $headers = array(
@@ -1563,7 +1564,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo" : "MEMO", "data" :[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]};
+var jdata = {"clientid":"EMAILID", "action":"position", "daction":"upload", "name" : "FLIGHTRECORDNAME", "memo" : "MEMO", "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE", "data" :[{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10,"act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903584000}]};
 
 $.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
@@ -1602,6 +1603,7 @@ data = {
     'clientid' : 'EMAILID'
     "name" : "FLIGHTRECORDNAME",
     "memo" : "MEMO",
+    "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE",
     "data" : [{"lat":12.134132,"lng":12.1324,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"rec-1", "dtimestamp" : 1569903583000},{"lat":12.134132,"lng": 12.1324 ,"alt":5,"speed":0, "yaw" : 10, "pitch" : 10, "roll" : 10, "act":1,"actparam":1,"id":"rec-2", "dtimestamp" : 1569903583000}]
 }
 
@@ -1637,6 +1639,7 @@ action | 'position'을 입력합니다.
 daction | 'upload'를 입력합니다.
 name | 비행기록 이름을 입력합니다.
 memo | 메모를 입력합니다.
+youtube_data_id | 비행영상의 유튜브 주소를 입력합니다. (ex: https://wwww.youtube.com/watch?v=ABCDE, Optional)
 data | 비행기록 목록을 입력합니다.
 
 ### data 파라메터 포멧
@@ -1767,6 +1770,7 @@ response.raise_for_status()
           "clientid":"EMAILID",
           "flat" : 127.122,
           "flng" : 37.1122,
+          "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE",
           "memo" : "MYMEMO"
       },
 
@@ -1776,6 +1780,7 @@ response.raise_for_status()
           "clientid":"EMAILID",
           "flat" : 127.122,
           "flng" : 37.1122,
+          "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE",
           "memo" : "MYMEMO",
       }
     ],
@@ -1902,7 +1907,7 @@ response.raise_for_status()
           "flat" : 127.122,
           "flng" : 37.1122,
           "memo" : "MYMEMO",
-          "youtube_data_id" : "https://www.youtube.com/watch?v=EASFASF"
+          "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE"
       },
 
       {
@@ -1912,7 +1917,7 @@ response.raise_for_status()
           "flat" : 127.122,
           "flng" : 37.1122,
           "memo" : "MYMEMO",
-          "youtube_data_id" : "https://www.youtube.com/watch?v=EASFASF"
+          "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE"
       }
     ],
     "morekey" : "<some value>"
@@ -1939,7 +1944,6 @@ morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을
 
 
 ## 이름으로 상세 비행기록 불러오기
-
 
 ```shell
 
@@ -2034,18 +2038,18 @@ response.raise_for_status()
           {
           "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
           "data":[
-              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
-              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
-              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
-              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
-              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
-              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111}
+              {"alt":3,"lng":131.86471756082,"act":0,"id":"rec-1","lat":37.243835988516,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 0, "dtimestamp" : 1234567890111},
+              {"alt":3,"lng":131.86645915266,"act":0,"id":"rec-2","lat":37.244423805175,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 1, "dtimestamp" : 1234567891111},
+              {"alt":3,"lng":131.86671844684,"act":0,"id":"rec-3","lat":37.243568918929,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 2, "dtimestamp" : 1234567892111},
+              {"alt":3,"lng":131.86493079644,"act":0,"id":"rec-4","lat":37.243182141771,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 3, "dtimestamp" : 1234567893111},
+              {"alt":3,"lng":131.86491855886,"act":0,"id":"rec-5","lat":37.243758419995,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 4, "dtimestamp" : 1234567894111},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"rec-6","lat":37.243906083699,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 5, "dtimestamp" : 1234567895111},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"rec-7","lat":37.243903981846,"actparam":1, "speed":10, "yaw" : 10, "roll" : 10, "pitch" : 10, "dsec" : 6, "dtimestamp" : 1234567896111}
             ],
-          "name":"MISSIONNAME",
+          "name":"RECORDNAME",
           "clientid":"EMAILID",
-          "flat" : 37.243835988516,
-          "flng" : 131.86471756082,
+          "flat" : 37.243835988516, //대표 좌표
+          "flng" : 131.86471756082, //대표 좌표
           "memo" : "MYMEMO"
       }
     ]
