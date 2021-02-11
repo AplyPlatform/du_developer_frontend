@@ -9,8 +9,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <div class="fb-like" data-href="https://www.facebook.com/386832955100142" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-  - <a href='https://pilot.duni.io/'>DUNI 파일럿 센 </a>
-  - <a href='https://pilot.duni.io/center'>DUNI 파일럿 Center</a>
+  - <a href='https://pilot.duni.io/'>DUNI 파일럿 센터</a>
   - <a href='https://developer.duni.io/'>DUNI 개발자</a>
   - <a href='https://code.duni.io/'>DUNI 코드</a>
   - <a href='https://duni.io/'>DUNI 중개 서비스</a>
