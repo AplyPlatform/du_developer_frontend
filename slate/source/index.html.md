@@ -1,5 +1,5 @@
 ---
-title: DUNI Open API Reference
+title: DUNI Open API Reference | DUNU 오픈 API 설명서
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -1922,6 +1922,7 @@ response.raise_for_status()
   }
 ```
 
+
 요청한 주소 근처의 비행기록 목록을 10개씩 불러옵니다.
 
 ### HTTP 요청
@@ -1936,13 +1937,13 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'media_by_address'을 입력합니다.
-address | 번지까지 정확한 주소
-morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
+address | 정확한 주소(번지까지)를 입력합니다.
 public | 'yes'값을 입력 할 경우 공개 비행기록에서 목록을 가져 옵니다. (Optional)
+morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 
 
 
-## 좌표로 비행기록 불러오기
+## GPS좌표로 비행기록 불러오기
 
 
 ```shell
@@ -2061,6 +2062,7 @@ response.raise_for_status()
   }
 ```
 
+
 요청한 GPS 좌표 근처의 비행기록 목록을 10개씩 불러옵니다.
 
 ### HTTP 요청
@@ -2077,11 +2079,11 @@ action | 'position'을 입력합니다.
 daction | 'media'을 입력합니다.
 lat | 위도
 lng | 경도
-morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 public | 'yes'값을 입력 할 경우 공개 비행기록에서 목록을 가져 옵니다. (Optional)
+morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 
 
-## 이름으로 상세 비행기록 불러오기
+## 상세 비행기록 불러오기
 
 ```shell
 
