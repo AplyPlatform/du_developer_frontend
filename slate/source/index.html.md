@@ -1938,6 +1938,7 @@ action | 'position'을 입력합니다.
 daction | 'media_by_address'을 입력합니다.
 address | 번지까지 정확한 주소
 morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
+public | 'yes'값을 입력 할 경우 공개 비행기록에서 목록을 가져 옵니다. (Optional)
 
 
 
@@ -2077,6 +2078,7 @@ daction | 'media'을 입력합니다.
 lat | 위도
 lng | 경도
 morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
+public | 'yes'값을 입력 할 경우 공개 비행기록에서 목록을 가져 옵니다. (Optional)
 
 
 ## 이름으로 상세 비행기록 불러오기

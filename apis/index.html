@@ -2497,6 +2497,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>morekey</td>
 <td>이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)</td>
 </tr>
+<tr>
+<td>public</td>
+<td>&#39;yes&#39;값을 입력 할 경우 공개 비행기록에서 목록을 가져 옵니다. (Optional)</td>
+</tr>
 </tbody></table>
 <h2 id='969ca2594a'>좌표로 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"media", "lat":33.1232, "lng":121.11}'</span> https://api.duni.io/v1/
@@ -2639,6 +2643,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <tr>
 <td>morekey</td>
 <td>이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)</td>
+</tr>
+<tr>
+<td>public</td>
+<td>&#39;yes&#39;값을 입력 할 경우 공개 비행기록에서 목록을 가져 옵니다. (Optional)</td>
 </tr>
 </tbody></table>
 <h2 id='eb939d8390'>이름으로 상세 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
@@ -3516,11 +3524,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The DUNI OPEN API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -3551,14 +3555,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <tr>
 <td>406</td>
 <td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
 </tr>
 <tr>
 <td>429</td>
