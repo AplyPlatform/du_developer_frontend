@@ -3036,7 +3036,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     </span><span class="nl">"morekey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;some value&gt;"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>제목에 검색어를 포함하는 비행기록 목록을 10개씩 불러옵니다.</p>
+<p>제목과 주소에 검색어를 포함하는 비행기록 목록을 10개씩 불러옵니다.</p>
 <h3 id='http-18'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-18'>URL 파라메터</h3>
@@ -3065,6 +3065,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <tr>
 <td>keyword</td>
 <td>검색어를 입력합니다.</td>
+</tr>
+<tr>
+<td>public</td>
+<td>공개 비행기록에서 검색을 원할 경우 &#39;true&#39;를 개인비행기록에서 검색을 원할 경우 &#39;false&#39;를 입력합니다. (Default : &#39;false&#39;, Optional)</td>
 </tr>
 <tr>
 <td>morekey</td>
