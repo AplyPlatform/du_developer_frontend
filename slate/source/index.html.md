@@ -2491,7 +2491,7 @@ clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'find_record'을 입력합니다.
 keyword | 검색어를 입력합니다.
-public | 공개 비행기록에서 검색을 원할 경우 'true'를 개인비행기록에서 검색을 원할 경우 'false'를 입력합니다. (Default : 'false', Optional)
+public | 공개 비행기록에서 검색을 원할 경우 'true', 개인 비행기록에서 검색을 원할 경우 'false'를 입력합니다. (Default : 'false', Optional)
 morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 
 
