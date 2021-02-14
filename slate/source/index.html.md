@@ -2721,9 +2721,10 @@ clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'convert'을 입력합니다.
 recordfile | Base64로 인코딩된 DJI Flight Record File 입니다. (포멧. "파일정보,Base64 Encoded Text")
+youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf (Optional)
 
 DJI Flight Record file 위치:
-https://forum.dji.com/thread-98213-1-1.html
+<a href=https://forum.dji.com/thread-98213-1-1.html>https://forum.dji.com/thread-98213-1-1.html</a>
 
 
 ## DUNI 비행기록 파일 업로드 하기
@@ -2837,6 +2838,7 @@ clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'duni_file_upload'을 입력합니다.
 recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. "파일정보,Base64 Encoded Text")
+youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf (Optional)
 
 > DUNI Flight Record file 의 포맷:
 
@@ -2888,6 +2890,7 @@ recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. 
 	}
 ]
 ```
+
 
 ## 비행기록에 유튜브영상 반영하기
 

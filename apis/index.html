@@ -3297,10 +3297,14 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>recordfile</td>
 <td>Base64로 인코딩된 DJI Flight Record File 입니다. (포멧. &quot;파일정보,Base64 Encoded Text&quot;)</td>
 </tr>
+<tr>
+<td>youtube_data_id</td>
+<td>유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf (Optional)</td>
+</tr>
 </tbody></table>
 
 <p>DJI Flight Record file 위치:
-https://forum.dji.com/thread-98213-1-1.html</p>
+<a href=https://forum.dji.com/thread-98213-1-1.html>https://forum.dji.com/thread-98213-1-1.html</a></p>
 <h2 id='duni'>DUNI 비행기록 파일 업로드 하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}'</span> https://api.duni.io/v1/
 
@@ -3411,6 +3415,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <tr>
 <td>recordfile</td>
 <td>Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. &quot;파일정보,Base64 Encoded Text&quot;)</td>
+</tr>
+<tr>
+<td>youtube_data_id</td>
+<td>유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf (Optional)</td>
 </tr>
 </tbody></table>
 
