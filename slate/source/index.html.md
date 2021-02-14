@@ -1138,7 +1138,7 @@ GIMBAL_PITCH|5
 [DJI사의 WayPoint Action 값을 참고해 주세요](https://developer.dji.com/api-reference/android-api/Components/Missions/DJIWaypoint_DJIWaypointAction.html#djiwaypoint_djiwaypointactiontype_inline).
 
 
-## 비행계획 10개씩 불러오기
+## 비행계획 목록 불러오기
 
 
 ```shell
