@@ -380,10 +380,10 @@
                     <a href="#e742b80a24" class="toc-h2 toc-link" data-title="비행기록 목록 불러오기">비행기록 목록 불러오기</a>
                   </li>
                   <li>
-                    <a href="#dc0d880e95" class="toc-h2 toc-link" data-title="주소로 비행기록 불러오기">주소로 비행기록 불러오기</a>
+                    <a href="#c3ec7679ff" class="toc-h2 toc-link" data-title="주소로 비행기록 목록 불러오기">주소로 비행기록 목록 불러오기</a>
                   </li>
                   <li>
-                    <a href="#gps" class="toc-h2 toc-link" data-title="GPS좌표로 비행기록 불러오기">GPS좌표로 비행기록 불러오기</a>
+                    <a href="#gps" class="toc-h2 toc-link" data-title="GPS좌표로 비행기록 목록 불러오기">GPS좌표로 비행기록 목록 불러오기</a>
                   </li>
                   <li>
                     <a href="#df4154d7cd" class="toc-h2 toc-link" data-title="상세 비행기록 불러오기">상세 비행기록 불러오기</a>
@@ -2485,7 +2485,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     </span><span class="nl">"morekey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;some value&gt;"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>비행기록 목록을 10개씩 불러옵니다.</p>
+<p>비행기록을 10개씩 불러옵니다.</p>
 <h3 id='http-14'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-14'>URL 파라메터</h3>
@@ -2516,7 +2516,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)</td>
 </tr>
 </tbody></table>
-<h2 id='dc0d880e95'>주소로 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+<h2 id='c3ec7679ff'>주소로 비행기록 목록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"media_by_address", "address" : "제주시 조천읍 두니리 000-1"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
@@ -2657,7 +2657,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)</td>
 </tr>
 </tbody></table>
-<h2 id='gps'>GPS좌표로 비행기록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+<h2 id='gps'>GPS좌표로 비행기록 목록 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"media", "lat":33.1232, "lng":121.11}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
