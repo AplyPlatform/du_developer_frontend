@@ -1405,6 +1405,152 @@ action | 'mission'을 입력합니다.
 daction | 'get'을 입력합니다.
 mname | 비행계획의 이름을 입력합니다.
 
+## 비행계획 검색하기
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"mission", "daction":"find_mission", "keyword" : "JEJU"}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'mission';
+$body['daction'] = 'find_mission';
+$body['clientid'] = 'EMAILID';
+$body['keyword'] = 'JEJU';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "mission", "daction": "find_mission", "clientid" : "EMAILID", "keyword" : "JEJU"};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'mission',
+    'daction': 'find_mission',
+    'clientid' : 'EMAILID',
+    'keyword' : 'JEJU'
+}
+
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "data":[
+          {
+          "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
+          "mission":[
+              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
+            ],
+          "name":"MISSIONNAME",
+          "clientid":"EMAILID",
+          "speed" : 1
+      },
+
+      {
+          "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
+          "mission":[
+              {"alt":3,"lng":131.86471756082,"act":0,"id":"mission-1","lat":37.243835988516,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86645915266,"act":0,"id":"mission-2","lat":37.244423805175,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86671844684,"act":0,"id":"mission-3","lat":37.243568918929,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86493079644,"act":0,"id":"mission-4","lat":37.243182141771,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86491855886,"act":0,"id":"mission-5","lat":37.243758419995,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-6","lat":37.243906083699,"actparam":1, "speed":10},
+              {"alt":3,"lng":131.86492249835,"act":0,"id":"mission-7","lat":37.243903981846,"actparam":1, "speed":10}
+            ],
+          "name":"MISSIONNAME_2",
+          "clientid":"EMAILID",
+          "speed" : 1
+      }
+    ],
+    "morekey" : "<some value>"
+  }
+```
+
+제목에 검색어를 포함하는 비행계획 목록을 10개씩 불러옵니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'mission'을 입력합니다.
+daction | 'find_mission'을 입력합니다.
+keyword | 검색어를 입력합니다.
+morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
+
+
 
 ## 비행계획 삭제하기
 
@@ -1787,7 +1933,7 @@ response.raise_for_status()
   }
 ```
 
-비행기록의 목록을 10개씩 불러옵니다.
+비행기록 목록을 10개씩 불러옵니다.
 
 ### HTTP 요청
 
@@ -2211,6 +2357,142 @@ clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'download_spe'을 입력합니다.
 name | 비행기록 이름을 입력합니다.
+
+
+## 비행기록 검색하기
+
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"find_record", "keyworkd":"JEJU"}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'position';
+$body['daction'] = 'find_record';
+$body['clientid'] = 'EMAILID';
+$body['keyword'] = 'JEJU';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "position", "daction": "find_record", "clientid" : "EMAILID", "keyword" : "JEJU"};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'position',
+    'daction': 'find_record',
+    'clientid' : 'EMAILID',
+    'keyword' : 'JEJU'
+}
+
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "data":[
+          {
+          "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
+          "name":"RECNAME_1",
+          "clientid":"EMAILID",
+          "flat" : 127.122,
+          "flng" : 37.1122,
+          "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE",
+          "memo" : "MYMEMO"
+      },
+
+      {
+          "regtime":"Sun Dec 30 2018 13:11:39 GMT+0000 (UTC)",
+          "name":"RECNAME_2",
+          "clientid":"EMAILID",
+          "flat" : 127.122,
+          "flng" : 37.1122,
+          "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE",
+          "memo" : "MYMEMO",
+      }
+    ],
+    "morekey" : "<some value>"
+  }
+```
+
+제목에 검색어를 포함하는 비행기록 목록을 10개씩 불러옵니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'position'을 입력합니다.
+daction | 'find_record'을 입력합니다.
+keyword | 검색어를 입력합니다.
+morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
+
 
 
 ## 비행기록 삭제하기
