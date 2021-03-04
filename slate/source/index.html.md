@@ -1947,7 +1947,8 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'download'을 입력합니다.
-public | 공개 비행기록을 원할 경우 'true', 개인 비행기록을 원할 경우 'false'를 입력합니다. (기본값: 'false', Optional)
+public | 공개 비행기록을 원할 경우 true, 개인 비행기록을 원할 경우 false를 입력합니다. (기본값: false, Optional)
+owner_email | 회원의 이메일을 입력합니다. 해당 회원의 공개 비행기록을 가지고 옵니다. 'public' 값이 true 이어야 합니다. (Optional)
 morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 
 
@@ -3006,6 +3007,259 @@ youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watc
 
 
 # 기타 Helper API
+
+## GPS좌표로 드론기업 검색하기
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"company", "lat":33.1232, "lng":121.11}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'position';
+$body['daction'] = 'company';
+$body['clientid'] = 'EMAILID';
+$body['lat'] = 33.1232;
+$body['lng'] = 33.1232;
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "position", "daction": "company", "clientid" : "EMAILID", "lat" : 33.123, "lng" : 123.11};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'position',
+    'daction': 'company',
+    'clientid' : 'EMAILID',
+    'lat' : 33.123,
+    'lng' : 123.121
+}
+
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "data":[
+          {
+          "name":"drone company 1",
+          "lat" : 127.122,
+          "lng" : 37.1122,
+          "cid" : 55
+      },
+
+      {
+        "name":"drone company 2",
+        "lat" : 128.122,
+        "lng" : 37.1522,
+        "cid" : 23
+      }
+    ],
+    "morekey" : "<some value>"
+  }
+```
+
+요청한 GPS 좌표 근처의 드론기업을 검색하고 결과를 10개씩 응답합니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'position'을 입력합니다.
+daction | 'company'을 입력합니다.
+lat | 위도
+lng | 경도
+morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
+
+
+## 드론기업 상세보기
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"company_detail", "cid":55}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'position';
+$body['daction'] = 'company_detail';
+$body['clientid'] = 'EMAILID';
+$body['cid'] = 55;
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "position", "daction": "company_detail", "clientid" : "EMAILID", "cid" : 55};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'position',
+    'daction': 'company_detail',
+    'clientid' : 'EMAILID',
+    'cid' : 55
+}
+
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "data":
+          {
+          "name":"drone company 1",
+          "lat" : 127.122,
+          "lng" : 37.1122,
+          "cid" : 55,
+          "address" : "somewhere",
+          "phone_num_1" : "00-0000-0000",
+          "phone_num_2" : "00-0000-1111",
+          "etc" ... (to be added many things more :))
+          }
+  }
+```
+
+드론기업의 상세정보를 응답합니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'position'을 입력합니다.
+daction | 'company_detail'을 입력합니다.
+cid | 'daction'을 'company'로 해서 얻은 'cid'값을 입력합니다.
+
 
 ## 기상정보 불러오기
 
