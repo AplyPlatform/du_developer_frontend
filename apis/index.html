@@ -417,7 +417,7 @@
                     <a href="#gps-2" class="toc-h2 toc-link" data-title="GPS좌표로 드론기업 검색하기">GPS좌표로 드론기업 검색하기</a>
                   </li>
                   <li>
-                    <a href="#f321177ab8" class="toc-h2 toc-link" data-title="드론기업 상세보기">드론기업 상세보기</a>
+                    <a href="#7626143d01" class="toc-h2 toc-link" data-title="드론기업 상세정보 불러오기">드론기업 상세정보 불러오기</a>
                   </li>
                   <li>
                     <a href="#0da14b3341" class="toc-h2 toc-link" data-title="기상정보 불러오기">기상정보 불러오기</a>
@@ -3743,7 +3743,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)</td>
 </tr>
 </tbody></table>
-<h2 id='f321177ab8'>드론기업 상세보기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+<h2 id='7626143d01'>드론기업 상세정보 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
 curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"company_detail", "cid":55}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
