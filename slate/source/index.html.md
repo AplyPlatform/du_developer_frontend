@@ -3258,7 +3258,7 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'company_detail'을 입력합니다.
-cid | 'daction'을 'company'로 해서 얻은 'cid'값을 입력합니다.
+cid | 'cid'값을 입력합니다. "GPS좌표로 드론기업 검색하기" API를 참고해 주세요.
 
 
 ## 기상정보 불러오기
