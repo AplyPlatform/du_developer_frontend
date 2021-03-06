@@ -168,7 +168,7 @@ response.raise_for_status()
   }
 ```
 
-전화번호와 이메일주소 그리고 이름을 입력 받아 회원을 등록합니다.
+전화번호와 이메일 주소 그리고 이름을 입력 받아 회원을 등록합니다.
 
 ### HTTP 요청
 
@@ -184,7 +184,7 @@ name | 가입자명을 입력합니다.
 sns_kind | facebook, naver, apple, kakao, google 중 하나를 입력합니다.
 sns_token | sns 로그인 후 받은 id token 값을 입력합니다.
 phone_number | 가입자의 전화번호를 입력합니다.
-socialid | 가입자의 이메일주소를 입력합니다.
+socialid | 가입자의 이메일 주소를 입력합니다.
 
 
 
@@ -2352,7 +2352,7 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'media_by_address'을 입력합니다.
-address | 정확한 주소(번지까지)를 입력합니다.
+address | 주소를 입력합니다.
 public | 공개 비행기록에서 검색을 원할 경우 'true', 개인 비행기록에서 검색을 원할 경우 'false'를 입력합니다. (기본값: 'false', Optional)
 morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 
@@ -3132,7 +3132,7 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'company_list_by_address'을 입력합니다.
-address | 상세 주소를 입력합니다.
+address | 주소를 입력합니다.
 morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
 
 
