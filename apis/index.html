@@ -414,6 +414,9 @@
             <a href="#helper-api" class="toc-h1 toc-link" data-title="기타 Helper API">기타 Helper API</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#8f3b609d7d" class="toc-h2 toc-link" data-title="주소로 인근 드론기업 검색하기">주소로 인근 드론기업 검색하기</a>
+                  </li>
+                  <li>
                     <a href="#gps-2" class="toc-h2 toc-link" data-title="GPS좌표로 드론기업 검색하기">GPS좌표로 드론기업 검색하기</a>
                   </li>
                   <li>
@@ -3606,15 +3609,14 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf</td>
 </tr>
 </tbody></table>
-<h1 id='helper-api'>기타 Helper API</h1><h2 id='gps-2'>GPS좌표로 드론기업 검색하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"company", "lat":33.1232, "lng":121.11}'</span> https://api.duni.io/v1/
+<h1 id='helper-api'>기타 Helper API</h1><h2 id='8f3b609d7d'>주소로 인근 드론기업 검색하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"company_list_by_address", "address":"somewhere si somewhere gu"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'company'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'company_list_by_address'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILID'</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">33.1232</span><span class="p">;</span>
-<span class="nv">$body</span><span class="p">[</span><span class="s1">'lng'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">33.1232</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'address'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"somewhere si somewhere gu"</span><span class="p">;</span>
 
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
@@ -3636,7 +3638,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">company</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">33.123</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">123.11</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">company_list_by_address</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">address</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">somewhere si somewhere gu</span><span class="dl">"</span><span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -3668,7 +3670,139 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'action'</span><span class="p">:</span> <span class="s">'position'</span><span class="p">,</span>
-    <span class="s">'daction'</span><span class="p">:</span> <span class="s">'company'</span><span class="p">,</span>
+    <span class="s">'daction'</span><span class="p">:</span> <span class="s">'company_list_by_address'</span><span class="p">,</span>
+    <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span><span class="p">,</span>
+    <span class="s">'address'</span> <span class="p">:</span> <span class="s">"somewhere si somewhere gu"</span>
+<span class="p">}</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.duni.io/v1/'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+                         <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">response</span><span class="p">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="s">'response.json()
+
+</span></code></pre></div>
+<blockquote>
+<p>이 요청은 아래와 같이 JSON 구조로 응답합니다:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"drone company 1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">127.122</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.1122</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"cid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"drone company 2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lat"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">128.122</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lng"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">37.1522</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"morekey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;some value&gt;"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>요청한 주소 근처의 드론기업을 검색하고 결과를 10개씩 응답합니다.</p>
+<h3 id='http-23'>HTTP 요청</h3>
+<p><code>POST https://api.duni.io/v1/</code></p>
+<h3 id='url-23'>URL 파라메터</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>droneplay-token</td>
+<td>부여받은 개발자 Token값을 헤더에 입력합니다.</td>
+</tr>
+<tr>
+<td>clientid</td>
+<td>로그인 후 수신한 emailid 값을 입력합니다.</td>
+</tr>
+<tr>
+<td>action</td>
+<td>&#39;position&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>daction</td>
+<td>&#39;company_list_by_address&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>상세 주소를 입력합니다.</td>
+</tr>
+<tr>
+<td>morekey</td>
+<td>이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)</td>
+</tr>
+</tbody></table>
+<h2 id='gps-2'>GPS좌표로 드론기업 검색하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"company_list_by_gps", "lat":33.1232, "lng":121.11}'</span> https://api.duni.io/v1/
+
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'company_list_by_gps'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILID'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'lat'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">33.1232</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'lng'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">33.1232</span><span class="p">;</span>
+
+<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+        <span class="s1">'droneplay-token: DRONEPLAYTOKEN'</span>
+<span class="p">);</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://api.duni.io/v1/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span>  <span class="nv">$headers</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span>    <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$body</span><span class="p">));</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="c1">//$json_list= json_decode($response, true);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">company_list_by_gps</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lat</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">33.123</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lng</span><span class="dl">"</span> <span class="p">:</span> <span class="mf">123.11</span><span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">contentType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+       <span class="na">cache</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">data</span> <span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jdata</span><span class="p">),</span>
+       <span class="na">type</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+       <span class="na">async</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+       <span class="na">beforeSend</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">request</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">droneplay-token</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">DRONEPLAYTOKEN</span><span class="dl">"</span><span class="p">);</span>
+        <span class="p">},</span>
+       <span class="na">success</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span>
+         <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">result</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+           <span class="c1">//r.data;</span>
+         <span class="p">}</span>
+       <span class="p">},</span>
+       <span class="na">error</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">status</span><span class="p">,</span><span class="nx">error</span><span class="p">){</span>
+           <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">code:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">message:</span><span class="dl">"</span><span class="o">+</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="o">+</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="o">+</span><span class="dl">"</span><span class="s2">error:</span><span class="dl">"</span><span class="o">+</span><span class="nx">error</span><span class="p">);</span>
+       <span class="p">}</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'droneplay-token'</span> <span class="p">:</span> <span class="s">'DRONEPLAYTOKEN'</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'action'</span><span class="p">:</span> <span class="s">'position'</span><span class="p">,</span>
+    <span class="s">'daction'</span><span class="p">:</span> <span class="s">'company_list_by_gps'</span><span class="p">,</span>
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span><span class="p">,</span>
     <span class="s">'lat'</span> <span class="p">:</span> <span class="mf">33.123</span><span class="p">,</span>
     <span class="s">'lng'</span> <span class="p">:</span> <span class="mf">123.121</span>
@@ -3705,9 +3839,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>요청한 GPS 좌표 근처의 드론기업을 검색하고 결과를 10개씩 응답합니다.</p>
-<h3 id='http-23'>HTTP 요청</h3>
+<h3 id='http-24'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-23'>URL 파라메터</h3>
+<h3 id='url-24'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -3728,7 +3862,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>daction</td>
-<td>&#39;company&#39;을 입력합니다.</td>
+<td>&#39;company_list_by_gps&#39;을 입력합니다.</td>
 </tr>
 <tr>
 <td>lat</td>
@@ -3835,9 +3969,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>드론기업의 상세정보를 응답합니다.</p>
-<h3 id='http-24'>HTTP 요청</h3>
+<h3 id='http-25'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-24'>URL 파라메터</h3>
+<h3 id='url-25'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -3958,9 +4092,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>온도, 풍속, 기상, 자기장 등의 기상정보를 응답합니다.</p>
-<h3 id='http-25'>HTTP 요청</h3>
+<h3 id='http-26'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-25'>URL 파라메터</h3>
+<h3 id='url-26'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -4074,9 +4208,9 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>해당 email을 보유한 DUNI 파일럿 센터 회원의 clientid를 불러옵니다.</p>
-<h3 id='http-26'>HTTP 요청</h3>
+<h3 id='http-27'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
-<h3 id='url-26'>URL 파라메터</h3>
+<h3 id='url-27'>URL 파라메터</h3>
 <table><thead>
 <tr>
 <th>파라메터</th>
@@ -4123,15 +4257,15 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- The data requested is hidden for administrators only.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified data could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Method Not Allowed -- You tried to access a data with an invalid method.</td>
 </tr>
 <tr>
 <td>406</td>
@@ -4139,7 +4273,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests -- You&#39;re requesting too many data! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>

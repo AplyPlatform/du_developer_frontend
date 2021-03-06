@@ -3008,21 +3008,20 @@ youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watc
 
 # 기타 Helper API
 
-## GPS좌표로 드론기업 검색하기
+## 주소로 인근 드론기업 검색하기
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"company", "lat":33.1232, "lng":121.11}' https://api.duni.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"company_list_by_address", "address":"somewhere si somewhere gu"}' https://api.duni.io/v1/
 
 ```
 
 ```php
 
 $body['action'] = 'position';
-$body['daction'] = 'company';
+$body['daction'] = 'company_list_by_address';
 $body['clientid'] = 'EMAILID';
-$body['lat'] = 33.1232;
-$body['lng'] = 33.1232;
+$body['address'] = "somewhere si somewhere gu";
 
 $headers = array(
         'Content-Type: application/json',
@@ -3047,7 +3046,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action": "position", "daction": "company", "clientid" : "EMAILID", "lat" : 33.123, "lng" : 123.11};
+var jdata = {"action": "position", "daction": "company_list_by_address", "clientid" : "EMAILID", "address" : "somewhere si somewhere gu"};
 
 $.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
@@ -3082,7 +3081,136 @@ headers = {
 }
 data = {
     'action': 'position',
-    'daction': 'company',
+    'daction': 'company_list_by_address',
+    'clientid' : 'EMAILID',
+    'address' : "somewhere si somewhere gu"
+}
+
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success",
+    "data":[
+          {
+          "name":"drone company 1",
+          "lat" : 127.122,
+          "lng" : 37.1122,
+          "cid" : 55
+      },
+
+      {
+        "name":"drone company 2",
+        "lat" : 128.122,
+        "lng" : 37.1522,
+        "cid" : 23
+      }
+    ],
+    "morekey" : "<some value>"
+  }
+```
+
+요청한 주소 근처의 드론기업을 검색하고 결과를 10개씩 응답합니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'position'을 입력합니다.
+daction | 'company_list_by_address'을 입력합니다.
+address | 상세 주소를 입력합니다.
+morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
+
+
+## GPS좌표로 드론기업 검색하기
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"company_list_by_gps", "lat":33.1232, "lng":121.11}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'position';
+$body['daction'] = 'company_list_by_gps';
+$body['clientid'] = 'EMAILID';
+$body['lat'] = 33.1232;
+$body['lng'] = 33.1232;
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "position", "daction": "company_list_by_gps", "clientid" : "EMAILID", "lat" : 33.123, "lng" : 123.11};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'position',
+    'daction': 'company_list_by_gps',
     'clientid' : 'EMAILID',
     'lat' : 33.123,
     'lng' : 123.121
@@ -3133,7 +3261,7 @@ response.raise_for_status()
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
-daction | 'company'을 입력합니다.
+daction | 'company_list_by_gps'을 입력합니다.
 lat | 위도
 lng | 경도
 morekey | 이전에 받은 morekey 값을 입력하면 다음 10개의 목록을 가져 옵니다. (Optional)
