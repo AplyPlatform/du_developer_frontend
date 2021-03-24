@@ -2616,7 +2616,7 @@ name | 삭제할 비행기록의 이름을 입력합니다.
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}' https://api.duni.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "name" : "RECORD_NAME", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}' https://api.duni.io/v1/
 
 ```
 
@@ -2624,6 +2624,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 
 $body['action'] = 'position';
 $body['daction'] = 'convert';
+$body['name'] = 'RECORD_NAME';
 $body['clientid'] = 'EMAILID';
 $body['reocordfile'] = 'BASE64_ENCODED_DJI_FLIGHTRECORD_FILE';
 
@@ -2650,7 +2651,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action": "position", "daction": "convert", "clientid" : "EMAILID", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"};
+var jdata = {"action": "position", "daction": "convert", "name" : "RECORD_NAME", "clientid" : "EMAILID", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"};
 
 $.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
@@ -2686,6 +2687,7 @@ headers = {
 data = {
     'action': 'position',
     'daction': 'convert',
+    "name" : 'RECORD_NAME',
     'clientid' : 'EMAILID',
     'reocordfile' : 'BASE64_ENCODED_DJI_FLIGHTRECORD_FILE'
 }
@@ -2721,6 +2723,7 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'convert'을 입력합니다.
+name | 비행기록의 이름을 입력합니다.
 recordfile | Base64로 인코딩된 DJI Flight Record File 입니다. (포멧. "파일정보,Base64 Encoded Text")
 youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf (Optional)
 
@@ -2733,7 +2736,7 @@ DJI Flight Record file 위치:
 
 ```shell
 
-curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}' https://api.duni.io/v1/
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "name" : "RECORD_NAME", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}' https://api.duni.io/v1/
 
 ```
 
@@ -2742,6 +2745,7 @@ curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X
 $body['action'] = 'position';
 $body['daction'] = 'duni_file_upload';
 $body['clientid'] = 'EMAILID';
+$body['name'] = 'RECORD_NAME';
 $body['reocordfile'] = 'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE';
 
 $headers = array(
@@ -2767,7 +2771,7 @@ echo $response;
 
 ```javascript
 
-var jdata = {"action": "position", "daction": "duni_file_upload", "clientid" : "EMAILID", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"};
+var jdata = {"action": "position", "daction": "duni_file_upload", "clientid" : "EMAILID", "name" : "RECORD_NAME", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"};
 
 $.ajax({url : "https://api.duni.io/v1/",
        dataType : "json",
@@ -2804,6 +2808,7 @@ data = {
     'action': 'position',
     'daction': 'duni_file_upload',
     'clientid' : 'EMAILID',
+    'name' : 'RECORD_NAME',
     'reocordfile' : 'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE'
 }
 
@@ -2838,6 +2843,7 @@ droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'을 입력합니다.
 daction | 'duni_file_upload'을 입력합니다.
+name | 비행기록의 이름을 입력합니다.
 recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. "파일정보,Base64 Encoded Text")
 youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf (Optional)
 

@@ -3208,11 +3208,12 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 </tbody></table>
 <h1 id='9229fc59bd'>비행기록 업로드</h1><h2 id='dji'>DJI 비행기록 파일 업로드 하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}'</span> https://api.duni.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "name" : "RECORD_NAME", "daction":"convert", "reocordfile":"BASE64_ENCODED_DJI_FLIGHTRECORD_FILE"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'convert'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'RECORD_NAME'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILID'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'reocordfile'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'BASE64_ENCODED_DJI_FLIGHTRECORD_FILE'</span><span class="p">;</span>
 
@@ -3236,7 +3237,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">convert</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">reocordfile</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BASE64_ENCODED_DJI_FLIGHTRECORD_FILE</span><span class="dl">"</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">convert</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">RECORD_NAME</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">reocordfile</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BASE64_ENCODED_DJI_FLIGHTRECORD_FILE</span><span class="dl">"</span><span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -3269,6 +3270,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'action'</span><span class="p">:</span> <span class="s">'position'</span><span class="p">,</span>
     <span class="s">'daction'</span><span class="p">:</span> <span class="s">'convert'</span><span class="p">,</span>
+    <span class="s">"name"</span> <span class="p">:</span> <span class="s">'RECORD_NAME'</span><span class="p">,</span>
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span><span class="p">,</span>
     <span class="s">'reocordfile'</span> <span class="p">:</span> <span class="s">'BASE64_ENCODED_DJI_FLIGHTRECORD_FILE'</span>
 <span class="p">}</span>
@@ -3315,6 +3317,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <td>&#39;convert&#39;을 입력합니다.</td>
 </tr>
 <tr>
+<td>name</td>
+<td>비행기록의 이름을 입력합니다.</td>
+</tr>
+<tr>
 <td>recordfile</td>
 <td>Base64로 인코딩된 DJI Flight Record File 입니다. (포멧. &quot;파일정보,Base64 Encoded Text&quot;)</td>
 </tr>
@@ -3327,12 +3333,13 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <p>DJI Flight Record file 위치:
 <a href=https://forum.dji.com/thread-98213-1-1.html>https://forum.dji.com/thread-98213-1-1.html</a></p>
 <h2 id='duni'>DUNI 비행기록 파일 업로드 하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
-curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}'</span> https://api.duni.io/v1/
+curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKEN"</span> <span class="nt">-H</span> <span class="s2">"Content-type: application/json"</span> <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s1">'{"clientid":"EMAILID", "action":"position", "daction":"duni_file_upload", "name" : "RECORD_NAME", "reocordfile":"BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE"}'</span> https://api.duni.io/v1/
 
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'action'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'position'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'daction'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'duni_file_upload'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'clientid'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'EMAILID'</span><span class="p">;</span>
+<span class="nv">$body</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'RECORD_NAME'</span><span class="p">;</span>
 <span class="nv">$body</span><span class="p">[</span><span class="s1">'reocordfile'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE'</span><span class="p">;</span>
 
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -3355,7 +3362,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">duni_file_upload</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">reocordfile</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE</span><span class="dl">"</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">daction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">duni_file_upload</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">clientid</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">EMAILID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">RECORD_NAME</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">reocordfile</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE</span><span class="dl">"</span><span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">https://api.duni.io/v1/</span><span class="dl">"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -3389,6 +3396,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
     <span class="s">'action'</span><span class="p">:</span> <span class="s">'position'</span><span class="p">,</span>
     <span class="s">'daction'</span><span class="p">:</span> <span class="s">'duni_file_upload'</span><span class="p">,</span>
     <span class="s">'clientid'</span> <span class="p">:</span> <span class="s">'EMAILID'</span><span class="p">,</span>
+    <span class="s">'name'</span> <span class="p">:</span> <span class="s">'RECORD_NAME'</span><span class="p">,</span>
     <span class="s">'reocordfile'</span> <span class="p">:</span> <span class="s">'BASE64_ENCODED_DUNI_FLIGHTRECORD_FILE'</span>
 <span class="p">}</span>
 
@@ -3432,6 +3440,10 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 <tr>
 <td>daction</td>
 <td>&#39;duni_file_upload&#39;을 입력합니다.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>비행기록의 이름을 입력합니다.</td>
 </tr>
 <tr>
 <td>recordfile</td>
