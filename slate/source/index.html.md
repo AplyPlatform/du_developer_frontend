@@ -3113,7 +3113,7 @@ response.raise_for_status()
     "result":"success"
   }
 ```
-비행기록에 유튜브 영상 링크를 설정합니다.
+비행기록에 태그 목록을 입력합니다.
 
 ### HTTP 요청
 
@@ -3128,7 +3128,7 @@ clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'position'를 입력합니다.
 daction | 'set_tag'를 입력합니다.
 name | 비행기록의 이름을 입력합니다.
-tag_values | 태그 목록 배열을 입력합니다. (ex: "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]", 문자열, Optional)\
+tag_values | 태그 목록 배열을 입력합니다. (ex: "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]", 문자열, Optional)
 
 # 기타 Helper API
 
