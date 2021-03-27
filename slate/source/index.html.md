@@ -1785,6 +1785,7 @@ daction | 'upload'를 입력합니다.
 name | 비행기록 이름을 입력합니다.
 memo | 메모를 입력합니다.
 youtube_data_id | 비행영상의 유튜브 주소를 입력합니다. (ex: https://wwww.youtube.com/watch?v=ABCDE, Optional)
+tag_values | 태그 목록 배열을 입력합니다. (ex: "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]", 문자열, Optional)
 data | 비행기록 목록을 입력합니다.
 
 ### data 파라메터 포멧
@@ -1915,6 +1916,7 @@ response.raise_for_status()
           "clientid":"EMAILID",
           "flat" : 127.122,
           "flng" : 37.1122,
+          "tag_values" : "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]"
           "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE",
           "memo" : "MYMEMO"
       },
@@ -1925,6 +1927,7 @@ response.raise_for_status()
           "clientid":"EMAILID",
           "flat" : 127.122,
           "flng" : 37.1122,
+          "tag_values" : "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]"
           "youtube_data_id" : "https://wwww.youtube.com/watch?v=ABCDE",
           "memo" : "MYMEMO",
       }
@@ -2726,6 +2729,7 @@ daction | 'convert'을 입력합니다.
 name | 비행기록의 이름을 입력합니다.
 recordfile | Base64로 인코딩된 DJI Flight Record File 입니다. (포멧. "파일정보,Base64 Encoded Text")
 youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf (Optional)
+tag_values | 태그 목록 배열을 입력합니다. (ex: "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]", 문자열, Optional)
 
 DJI Flight Record file 위치:
 <a href=https://forum.dji.com/thread-98213-1-1.html>https://forum.dji.com/thread-98213-1-1.html</a>
@@ -2846,6 +2850,7 @@ daction | 'duni_file_upload'을 입력합니다.
 name | 비행기록의 이름을 입력합니다.
 recordfile | Base64로 인코딩된 DUNO Flight Record File 입니다. (포멧. "파일정보,Base64 Encoded Text")
 youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf (Optional)
+tag_values | 태그 목록 배열을 입력합니다. (ex: "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]", 문자열, Optional)
 
 > DUNI Flight Record file 의 포맷:
 
@@ -3011,6 +3016,119 @@ daction | 'youtube' 입력합니다.
 name | 비행기록의 이름을 입력합니다.
 youtube_data_id | 유튜브 URL을 입력합니다. ex) https://youtube.com/watch?v=k12hadf
 
+
+## 비행기록에 태그 반영하기
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"position", "daction":"set_tag", "name":"FLIGHTRECORDNAME", "tag_values" : "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]" }' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'position';
+$body['daction'] = 'set_tag';
+$body['clientid'] = 'EMAILID';
+$body['name'] = "FLIGHTRECORDNAME";
+$body['tag_values'] = "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]";
+$body['youtube_data_id'] = "https://youtube.com/watch?v=k12hadf";
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action":"position", "daction": "set_tag", "clientid" : "EMAILID", "name" : "FLIGHTRECORDNAME", "tag_values" : "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]" };
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'position',
+    'daction': 'set_tag',
+    'clientid' : 'EMAILID',
+    'tag_values' : '[{"value":"tag1"},{"value":"tag2"}]',
+    'name' : 'NAME'
+}
+
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+  {
+    "result":"success"
+  }
+```
+비행기록에 유튜브 영상 링크를 설정합니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'position'를 입력합니다.
+daction | 'set_tag'를 입력합니다.
+name | 비행기록의 이름을 입력합니다.
+tag_values | 태그 목록 배열을 입력합니다. (ex: "[{\"value\":\"tag1\"},{\"value\":\"tag2\"}]", 문자열, Optional)\
 
 # 기타 Helper API
 
