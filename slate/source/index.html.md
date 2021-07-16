@@ -3871,7 +3871,7 @@ response.raise_for_status()
 
 ```
 
-GPS로 지정한 지역의 비행승인 필요여부와 비행관련 정보를 응답합니다.
+주소로 지정한 지역의 비행승인 필요여부와 비행관련 정보를 응답합니다.
 
 ### HTTP 요청
 
@@ -3884,12 +3884,11 @@ GPS로 지정한 지역의 비행승인 필요여부와 비행관련 정보를 �
 droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 clientid | 로그인 후 수신한 emailid 값을 입력합니다.
 action | 'util'을 입력합니다.
-daction | 'area_info_by_gps'을 입력합니다.
-lat | 위도
-lng | 경도
+daction | 'area_info_by_address'를 입력합니다.
+address | 상세주소
+
 
 ## 사용자 clientid 불러오기
-
 
 ```shell
 

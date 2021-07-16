@@ -4499,7 +4499,7 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div>
-<p>GPS로 지정한 지역의 비행승인 필요여부와 비행관련 정보를 응답합니다.</p>
+<p>주소로 지정한 지역의 비행승인 필요여부와 비행관련 정보를 응답합니다.</p>
 <h3 id='http-29'>HTTP 요청</h3>
 <p><code>POST https://api.duni.io/v1/</code></p>
 <h3 id='url-29'>URL 파라메터</h3>
@@ -4523,15 +4523,11 @@ curl <span class="nt">-H</span> <span class="s2">"droneplay-token: DRONEPLAYTOKE
 </tr>
 <tr>
 <td>daction</td>
-<td>&#39;area_info_by_gps&#39;을 입력합니다.</td>
+<td>&#39;area_info_by_address&#39;를 입력합니다.</td>
 </tr>
 <tr>
-<td>lat</td>
-<td>위도</td>
-</tr>
-<tr>
-<td>lng</td>
-<td>경도</td>
+<td>address</td>
+<td>상세주소</td>
 </tr>
 </tbody></table>
 <h2 id='clientid'>사용자 clientid 불러오기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>
