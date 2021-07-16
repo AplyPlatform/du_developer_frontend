@@ -3638,6 +3638,256 @@ lat | 위도
 lng | 경도
 
 
+
+##  GPS좌표로 비행승인 필요 확인하기
+
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"util", "daction":"area_info_by_gps", "lat":"123.122", "lng":"32.111"}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'util';
+$body['daction'] = 'area_info_by_gps';
+$body['clientid'] = 'EMAILID';
+$body['lat'] = '123.122';
+$body['lng'] = '32.111';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "util", "daction": "area_info_by_gps", "clientid" : "EMAILID", "lat":"123.122", "lng":"32.111"};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'util',
+    'daction': 'area_info_by_gps',
+    'clientid' : 'EMAILID',
+    'lat' : '123.122',
+    'lng' : '33.111'
+}
+
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+
+  {
+    "result": "success",
+    "result_code": 0,
+    "data": [
+        {
+            "name": "초경량비행장치공역",
+            "label1": "(UX XX) YOI"
+        }
+    ],
+    "needApprove": false, //비행승인 필요 여부
+    "desc": "촬영허가를 받으셔야 하며 일정고도 이상의 비행에 대해 비행승인이 필요할 수 있습니다."
+  }
+
+```
+
+GPS로 지정한 지역의 비행승인 필요여부와 비행관련 정보를 응답합니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'util'을 입력합니다.
+daction | 'area_info_by_gps'을 입력합니다.
+lat | 위도
+lng | 경도
+
+
+##  주소로 비행승인 필요 확인하기
+
+```shell
+
+curl -H "droneplay-token: DRONEPLAYTOKEN" -H "Content-type: application/json" -X POST -d '{"clientid":"EMAILID", "action":"util", "daction":"area_info_by_address", "address":"서울시 용동포구 여의주동 111"}' https://api.duni.io/v1/
+
+```
+
+```php
+
+$body['action'] = 'util';
+$body['daction'] = 'area_info_by_address';
+$body['clientid'] = 'EMAILID';
+$body['address'] = '서울시 용동포구 여의주동 111';
+
+$headers = array(
+        'Content-Type: application/json',
+        'droneplay-token: DRONEPLAYTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.duni.io/v1/');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "util", "daction": "area_info_by_address", "clientid" : "EMAILID", "address":"서울시 용동포구 여의주동 111"};
+
+$.ajax({url : "https://api.duni.io/v1/",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("droneplay-token", "DRONEPLAYTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'droneplay-token' : 'DRONEPLAYTOKEN'
+}
+data = {
+    'action': 'util',
+    'daction': 'area_info_by_address',
+    'clientid' : 'EMAILID',
+    'address' : '서울시 용동포구 여의주동 111'
+}
+
+url = 'https://api.duni.io/v1/'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 이 요청은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+
+  {
+    "result": "success",
+    "result_code": 0,
+    "data": [
+        {
+            "name": "초경량비행장치공역",
+            "label1": "(UA XX) YOI"
+        }
+    ],
+    "needApprove": false, //비행승인 필요 여부
+    "desc": "촬영허가를 받으셔야 하며 일정고도 이상의 비행에 대해 비행승인이 필요할 수 있습니다.",
+    "address": "서울시 용동포구 여의주동 111"
+  }
+
+```
+
+GPS로 지정한 지역의 비행승인 필요여부와 비행관련 정보를 응답합니다.
+
+### HTTP 요청
+
+`POST https://api.duni.io/v1/`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+droneplay-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+clientid | 로그인 후 수신한 emailid 값을 입력합니다.
+action | 'util'을 입력합니다.
+daction | 'area_info_by_gps'을 입력합니다.
+lat | 위도
+lng | 경도
+
 ## 사용자 clientid 불러오기
 
 
